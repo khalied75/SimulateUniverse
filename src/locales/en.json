@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "home": "Home",
+    "simulations": "Simulations",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "profile": "Profile"
+  },
+  "home": {
+    "title": "Discover the Universe",
+    "subtitle": "Explore the secrets of space with interactive simulations",
+    "description": "An integrated platform for discovering astronomical secrets, research, and astronomical theories",
+    "browseGuides": "Browse Guides",
+    "exploreSimulations": "Explore Simulations",
+    "galaxies": "Galaxies",
+    "articles": "Articles",
+    "stars": "Stars",
+    "rating": "Rating"
+  },
+  "simulations": {
+    "blackHole": "Black Hole Simulation",
+    "blackHoleDesc": "Explore the mysteries of black holes and their gravity effects",
+    "spacetime": "Spacetime Simulation",
+    "spacetimeDesc": "Understand the structure of space and time",
+    "solarSystem": "Solar System Simulation",
+    "solarSystemDesc": "Explore our solar system and planetary motion",
+    "schrodinger": "Schrödinger's Cats",
+    "schrodingerDesc": "Discover quantum mechanics principles",
+    "stars": "Stars Simulation",
+    "starsDesc": "Explore stars and their characteristics"
+  },
+  "auth": {
+    "loginRequired": "Login Required",
+    "pleaseLogin": "Please login to access this simulation",
+    "loginNow": "Login Now",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "login": "Login",
+    "register": "Register",
+    "forgotPassword": "Forgot Password?",
+    "signUp": "Don't have an account? Sign Up",
+    "alreadyHaveAccount": "Already have an account? Login"
+  }
+}
