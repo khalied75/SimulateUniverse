@@ -9,16 +9,11 @@ const firebaseConfig = {
   projectId: "dbastronmy",
   storageBucket: "dbastronmy.firebasestorage.app",
   messagingSenderId: "79982729417",
-  appId: "1:79982729417:web:4487cdcb9794f59fc79518"
+  appId: "1:79982729417:web:4487cdcb9794f59fc79518",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
-
-// Initialize Realtime Database and get a reference to the service
-export const database = getDatabase(app);
-
+export const db = getDatabase(app);
 export default app;
