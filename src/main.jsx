@@ -8,7 +8,7 @@ import Login from './pages/Login';
 import BlackHole from './pages/BlackHole';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter  basename="/SimulateUniverse">
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
