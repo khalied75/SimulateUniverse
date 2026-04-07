@@ -1563,8 +1563,8 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
               c.appendChild(s);
             }
           })();
-        `}})]})}var m_={white:{id:`white`,label:`ثقب أبيض`,icon:`⬜`,color:`#f5e642`,glow:`#f5e642`,glowRgb:`245,230,66`,bgGlow:`rgba(245,230,66,0.18)`,border:`rgba(245,230,66,0.35)`,headerBg:`rgba(245,230,66,0.08)`,sliderTrack:`#f5e642`,desc:`يقذف المادة والطاقة للخارج بعنف`,zRange:[-1,0],sizeBase:90,gravity:.3,actions:[{icon:`💥`,label:`انفجار`,event:`انفجار مادي من الثقب الأبيض!`},{icon:`🌊`,label:`موجة`,event:`موجة طاقة اندفعت للخارج`},{icon:`✨`,label:`إشعاع`,event:`إشعاع كثيف انبعث من الثقب`},{icon:`🔀`,label:`عشوائي`,event:`حدث عشوائي غير متوقع!`}]},neutron:{id:`neutron`,label:`نجم نيوتروني`,icon:`⚡`,color:`#00e5d4`,glow:`#00e5d4`,glowRgb:`0,229,212`,bgGlow:`rgba(0,229,212,0.15)`,border:`rgba(0,229,212,0.32)`,headerBg:`rgba(0,229,212,0.07)`,sliderTrack:`#00e5d4`,desc:`جاذبية هائلة مع نبضات راديوية`,zRange:[.5,2],sizeBase:78,gravity:1.8,actions:[{icon:`📡`,label:`نبضة`,event:`نبضة راديوية صدرت من النجم!`},{icon:`🧲`,label:`مغناطيس`,event:`حقل مغناطيسي هائل نشط`},{icon:`💫`,label:`دوران`,event:`النجم يدور بسرعة قياسية`},{icon:`👤`,label:`تأثير`,event:`تأثير جاذبية على محيطه`}]},black:{id:`black`,label:`ثقب أسود`,icon:`🌀`,color:`#a855f7`,glow:`#a855f7`,glowRgb:`168,85,247`,bgGlow:`rgba(168,85,247,0.15)`,border:`rgba(168,85,247,0.32)`,headerBg:`rgba(168,85,247,0.07)`,sliderTrack:`#a855f7`,desc:`تشويه الزمكان عند نقطة اللاعودة`,zRange:[1,3],sizeBase:72,gravity:3.5,actions:[{icon:`🍝`,label:`امتداد`,event:`تمدد كباغيتي! جسيم تمزق`},{icon:`🌑`,label:`ابتلاع`,event:`ابتلع الثقب مادة جديدة`},{icon:`⏱️`,label:`زمن`,event:`تمدد زمني شديد عند الأفق`},{icon:`💔`,label:`تمزيق`,event:`قوى المد مزقت جسم قريب`}]}};function h_({type:e,distance:t,pulse:n}){let r=(0,x.useRef)(null),i=(0,x.useRef)(null),a=(0,x.useRef)(0),o=(0,x.useRef)([]);return(0,x.useEffect)(()=>{let s=r.current;if(!s)return;let c=s.getContext(`2d`),l=s.width=s.offsetWidth,u=s.height=s.offsetHeight,d=l/2,f=u/2,p=m_[e],m=1-t/100,h=p.sizeBase+m*30,g=e=>{let t=s.getBoundingClientRect(),n=e.clientX-t.left,r=e.clientY-t.top;for(let e=0;e<8;e++){let e=Math.random()*Math.PI*2,t=2+Math.random()*4;o.current.push({x:n,y:r,vx:Math.cos(e)*t,vy:Math.sin(e)*t,life:1,trail:[],color:p.color})}};function _(){a.current++;let t=a.current;if(c.clearRect(0,0,l,u),e===`white`){for(let e=3;e>=1;e--){let n=h+e*28+Math.sin(t*.04+e)*6,r=(.06-e*.015)*(1+m*.5);c.beginPath(),c.arc(d,f,n,0,Math.PI*2),c.fillStyle=`rgba(245,230,66,${r})`,c.fill()}let e=c.createRadialGradient(d,f,0,d,f,h);if(e.addColorStop(0,`#fffde0`),e.addColorStop(.4,`#f5e642`),e.addColorStop(.8,`#e6c200`),e.addColorStop(1,`rgba(230,194,0,0)`),c.beginPath(),c.arc(d,f,h,0,Math.PI*2),c.fillStyle=e,c.fill(),n){let e=h+t%40*2.5;c.beginPath(),c.arc(d,f,e,0,Math.PI*2),c.strokeStyle=`rgba(245,230,66,${.5-t%40/80})`,c.lineWidth=2,c.stroke()}c.font=`${h*.55}px serif`,c.fillStyle=`rgba(80,60,0,0.85)`,c.textAlign=`center`,c.textBaseline=`middle`,c.fillText(`◈`,d,f)}if(e===`neutron`){for(let e=3;e>=1;e--){let n=h+e*25+Math.sin(t*.05+e)*5;c.beginPath(),c.arc(d,f,n,0,Math.PI*2),c.fillStyle=`rgba(0,229,212,${.05*(1+m*.6)/e})`,c.fill()}let e=c.createRadialGradient(d,f,0,d,f,h);e.addColorStop(0,`#e0fffd`),e.addColorStop(.35,`#00e5d4`),e.addColorStop(.75,`#009e94`),e.addColorStop(1,`rgba(0,158,148,0)`),c.beginPath(),c.arc(d,f,h,0,Math.PI*2),c.fillStyle=e,c.fill();let r=t*.06;c.save(),c.translate(d,f),c.rotate(r);let i=c.createLinearGradient(0,0,l*.7,0);if(i.addColorStop(0,`rgba(0,229,212,0.55)`),i.addColorStop(1,`rgba(0,229,212,0)`),c.fillStyle=i,c.fillRect(0,-3,l*.7,6),c.rotate(Math.PI),c.fillStyle=i,c.fillRect(0,-3,l*.7,6),c.restore(),n){let e=h+t%35*3;c.beginPath(),c.arc(d,f,e,0,Math.PI*2),c.strokeStyle=`rgba(0,229,212,${.6-t%35/58})`,c.lineWidth=1.5,c.stroke()}c.font=`${h*.52}px serif`,c.fillStyle=`rgba(0,60,55,0.9)`,c.textAlign=`center`,c.textBaseline=`middle`,c.fillText(`⚡`,d,f)}if(e===`black`){let e=h*2.2+m*20,r=h*.38;c.save(),c.translate(d,f),c.rotate(t*.012);for(let t=0;t<3;t++){c.beginPath(),c.ellipse(0,0,e-t*12,r-t*4,0,0,Math.PI*2);let n=c.createLinearGradient(-e,0,e,0),i=(.22-t*.06)*(1+m*.4);n.addColorStop(0,`rgba(168,85,247,${i})`),n.addColorStop(.3,`rgba(220,130,255,${i*1.3})`),n.addColorStop(.5,`rgba(255,200,100,${i*.8})`),n.addColorStop(.7,`rgba(220,130,255,${i*1.3})`),n.addColorStop(1,`rgba(168,85,247,${i})`),c.strokeStyle=n,c.lineWidth=6-t*1.5,c.stroke()}c.restore();let i=h*1.35;c.beginPath(),c.arc(d,f,i,0,Math.PI*2),c.fillStyle=`rgba(168,85,247,${.08+Math.sin(t*.03)*.03})`,c.fill(),c.beginPath(),c.arc(d,f,h,0,Math.PI*2),c.fillStyle=`#000`,c.fill(),c.strokeStyle=`rgba(168,85,247,${.6+Math.sin(t*.04)*.2})`,c.lineWidth=2.5,c.stroke(),c.save(),c.translate(d,f),c.rotate(t*.02);for(let e=0;e<2;e++){c.rotate(Math.PI);for(let e=0;e<20;e++){let t=e/20*h*.85,n=e/20*Math.PI*3,r=Math.cos(n)*t,i=Math.sin(n)*t;c.beginPath(),c.arc(r,i,1.5,0,Math.PI*2),c.fillStyle=`rgba(168,85,247,${.4-e*.018})`,c.fill()}}if(c.restore(),n){let e=h*1.5+t%45*2.2;c.beginPath(),c.arc(d,f,e,0,Math.PI*2),c.strokeStyle=`rgba(168,85,247,${.5-t%45/90})`,c.lineWidth=1.5,c.stroke()}}if(m>.6){let e=Math.floor(m*8);for(let n=0;n<e;n++){let r=n/e*Math.PI*2+t*.008,i=h*1.6,a=h*2.4;c.beginPath(),c.moveTo(d+Math.cos(r)*i,f+Math.sin(r)*i),c.lineTo(d+Math.cos(r+.15)*a,f+Math.sin(r+.15)*a),c.strokeStyle=`rgba(255,255,255,${(m-.6)*.25})`,c.lineWidth=1,c.stroke()}}let r=o.current;r.forEach((e,t)=>{let n=d-e.x,i=f-e.y,a=Math.sqrt(n*n+i*i),o=p.gravity*(m+.5);if(a>10){let t=n/a*o,r=i/a*o;e.vx+=t,e.vy+=r}e.vx*=.98,e.vy*=.98,e.x+=e.vx,e.y+=e.vy,e.trail.push({x:e.x,y:e.y}),e.trail.length>12&&e.trail.shift(),e.life-=.015,(e.life<=0||a<h*.8)&&r.splice(t,1)}),r.forEach(e=>{if(e.trail.length>1){c.beginPath(),c.moveTo(e.trail[0].x,e.trail[0].y);for(let t=1;t<e.trail.length;t++)c.lineTo(e.trail[t].x,e.trail[t].y);c.strokeStyle=`rgba(${e.color===`#f5e642`?`245,230,66`:e.color===`#00e5d4`?`0,229,212`:`168,85,247`},${e.life*.3})`,c.lineWidth=1.5,c.stroke()}c.beginPath(),c.arc(e.x,e.y,4,0,Math.PI*2),c.fillStyle=`rgba(${e.color===`#f5e642`?`245,230,66`:e.color===`#00e5d4`?`0,229,212`:`168,85,247`},${e.life})`,c.fill(),c.strokeStyle=`rgba(255,255,255,${e.life*.5})`,c.lineWidth=1,c.stroke()}),i.current=requestAnimationFrame(_)}return _(),s.addEventListener(`click`,g),()=>{cancelAnimationFrame(i.current),s.removeEventListener(`click`,g)}},[e,t,n]),(0,$.jsx)(`canvas`,{ref:r,style:{width:`100%`,height:`100%`,display:`block`,cursor:`crosshair`},title:`انقر لرمي الجزيئات`})}function g_({typeKey:e,onLog:t}){let n=m_[e],[r,i]=(0,x.useState)(50),[a,o]=(0,x.useState)(!1),s=1-r/100,c=(.85+s*.5).toFixed(2),l=(n.zRange[0]+s*(n.zRange[1]-n.zRange[0])).toFixed(2),u=r<30?`قريب جداً`:r<60?`متوسط`:`بعيد`,d=e=>{o(!0),setTimeout(()=>o(!1),1200),t(`${n.icon} ${e.event}`)};return(0,$.jsxs)(`div`,{className:`obj-card`,style:{"--accent":n.color,"--glow":n.bgGlow,"--bd":n.border},children:[(0,$.jsxs)(`div`,{className:`obj-header`,style:{background:n.headerBg},children:[(0,$.jsx)(`span`,{className:`obj-title`,children:n.label}),(0,$.jsx)(`span`,{className:`obj-icon-badge`,children:n.icon})]}),(0,$.jsxs)(`div`,{className:`obj-slider-row`,children:[(0,$.jsx)(`span`,{className:`slider-label`,children:`قريب`}),(0,$.jsxs)(`div`,{className:`slider-wrap`,children:[(0,$.jsx)(`div`,{className:`slider-fill`,style:{width:`${r}%`,background:`linear-gradient(90deg, ${n.color}99, ${n.color})`}}),(0,$.jsx)(`input`,{type:`range`,min:`0`,max:`100`,value:r,onChange:e=>i(+e.target.value),className:`slider-input`,style:{"--thumb-color":n.color}})]}),(0,$.jsx)(`span`,{className:`slider-label`,children:`بعيد`})]}),(0,$.jsxs)(`div`,{className:`obj-stats`,children:[(0,$.jsxs)(`div`,{className:`obj-stat`,children:[(0,$.jsx)(`span`,{className:`stat-key`,children:u}),(0,$.jsxs)(`span`,{className:`stat-val`,style:{color:n.color},children:[c,`x`]}),(0,$.jsxs)(`span`,{className:`stat-key`,style:{color:`rgba(200,200,220,0.4)`},children:[`z=`,l]})]}),(0,$.jsxs)(`div`,{className:`stat-bar-wrap`,children:[(0,$.jsx)(`div`,{className:`stat-bar`,style:{width:`${r}%`,background:n.color}}),(0,$.jsx)(`div`,{className:`stat-bar stat-bar-2`,style:{width:`${100-r}%`,background:`linear-gradient(90deg,${n.color}40,${n.color}20)`}})]})]}),(0,$.jsxs)(`div`,{className:`obj-canvas-wrap`,children:[(0,$.jsx)(h_,{type:e,distance:r,pulse:a}),(0,$.jsx)(`div`,{style:{position:`absolute`,bottom:`8px`,right:`8px`,fontSize:`0.65rem`,color:`rgba(180,185,210,0.3)`,fontStyle:`italic`,pointerEvents:`none`},children:`انقر للرمي →`})]}),(0,$.jsx)(`div`,{className:`obj-actions`,children:n.actions.map(e=>(0,$.jsxs)(`button`,{className:`action-btn`,onClick:()=>d(e),title:e.label,style:{"--btn-color":n.color,"--btn-glow":n.bgGlow},children:[(0,$.jsx)(`span`,{className:`action-icon`,children:e.icon}),(0,$.jsx)(`span`,{className:`action-label`,children:e.label})]},e.label))})]})}function __(){let[e,t]=(0,x.useState)([{id:0,text:`🌌 مرحباً! اسحب الأشياء بإصبعك أو استخدم المنزلقات`,time:``}]),n=(0,x.useCallback)(e=>{let n=new Date,r=`${n.getHours()}:${String(n.getMinutes()).padStart(2,`0`)} م`;t(t=>[{id:Date.now(),text:e,time:r},...t].slice(0,20))},[]);return(0,$.jsxs)($.Fragment,{children:[(0,$.jsx)(`style`,{children:`
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Syne:wght@700;800&display=swap');
+        `}})]})}var m_={mass:`10 ملايين كتلة شمسية`,radius:`30 مليون كم`,type:`فائق الضخامة`},h_=[{id:`star`,label:`نجم`,icon:`✦`,color:`#ffd166`,mass:1.2,size:8},{id:`planet`,label:`كوكب`,icon:`◉`,color:`#5eead4`,mass:1.6,size:10},{id:`ship`,label:`مركبة`,icon:`▲`,color:`#f9a8d4`,mass:.9,size:7},{id:`matter`,label:`مادة`,icon:`◆`,color:`#c4b5fd`,mass:1.1,size:6}],g_=[{id:1,text:`اسحب جسماً إلى ساحة المحاكاة ثم أفلته قرب الثقب الأسود.`,time:``},{id:2,text:`كلما اقترب الجسم من أفق الحدث يبدأ بالتلاشي حتى يختفي تماماً.`,time:``}],__=(e,t,n)=>Math.min(n,Math.max(t,e)),v_=()=>{let e=new Date;return`${e.getHours()}:${String(e.getMinutes()).padStart(2,`0`)}`};function y_({onLog:e,onMetricsChange:t}){let n=(0,x.useRef)(null),r=(0,x.useRef)(null),i=(0,x.useRef)(null),a=(0,x.useRef)([]),o=(0,x.useRef)(null),s=(0,x.useRef)([]),[c,l]=(0,x.useState)(null),[u,d]=(0,x.useState)(!1);(0,x.useEffect)(()=>{s.current=Array.from({length:90},()=>({x:Math.random(),y:Math.random(),size:Math.random()*1.8+.3,alpha:Math.random()*.7+.2,speed:Math.random()*.004+.001}))},[]),(0,x.useEffect)(()=>{let c=n.current,u=r.current;if(!c||!u)return;let f=c.getContext(`2d`),p={consumed:0,distortion:68,horizon:128,energy:0},m=()=>{let e=u.getBoundingClientRect(),t=window.devicePixelRatio||1;c.width=e.width*t,c.height=e.height*t,c.style.width=`${e.width}px`,c.style.height=`${e.height}px`,f.setTransform(t,0,0,t,0,0)};m(),window.addEventListener(`resize`,m);let h=(e,t,n)=>{let r=u.getBoundingClientRect(),i=r.width/2,o=r.height/2,s=i-t.x,c=o-t.y,l=Math.max(1,Math.hypot(s,c));a.current.push({id:`${e.id}-${Date.now()}-${Math.random().toString(16).slice(2)}`,label:e.label,icon:e.icon,color:e.color,x:t.x,y:t.y,vx:s/l,vy:c/l,speed:__(l/150,1.8,4.2),size:e.size,mass:e.mass,opacity:1,trail:[],swirl:n?.x>i?1:-1,consumed:!1})},g=()=>{let n=u.getBoundingClientRect(),r=n.width,o=n.height,c=r/2,l=o/2,d=performance.now()*.001,m=72+p.consumed*1.8,h=m+36,_=170+Math.sin(d*.7)*10,v=54+Math.cos(d*.8)*6;p.horizon=Math.round(m*2),p.distortion=__(Math.round(68+p.consumed*4.5),68,98),p.energy=__(Math.round(a.current.length*18+p.consumed*6),8,99),t({...p}),f.clearRect(0,0,r,o);let y=f.createLinearGradient(0,0,r,o);y.addColorStop(0,`#02040b`),y.addColorStop(.55,`#040814`),y.addColorStop(1,`#090d1b`),f.fillStyle=y,f.fillRect(0,0,r,o),s.current.forEach(e=>{let t=e.x*r,n=(e.y+d*e.speed)%1*o;f.beginPath(),f.arc(t,n,e.size,0,Math.PI*2),f.fillStyle=`rgba(255,255,255,${e.alpha})`,f.fill()});let b=f.createRadialGradient(c,l,50,c,l,Math.max(r,o)*.65);b.addColorStop(0,`rgba(112, 30, 255, 0.12)`),b.addColorStop(.4,`rgba(255, 122, 24, 0.08)`),b.addColorStop(1,`rgba(0, 0, 0, 0.78)`),f.fillStyle=b,f.fillRect(0,0,r,o),f.save(),f.translate(c,l),f.rotate(d*.22);for(let e=0;e<4;e+=1){let t=_-e*14,n=v-e*4,r=f.createLinearGradient(-t,0,t,0),i=.35-e*.06;r.addColorStop(0,`rgba(255, 94, 58, ${i})`),r.addColorStop(.35,`rgba(255, 174, 76, ${i+.08})`),r.addColorStop(.5,`rgba(255, 235, 160, ${i+.05})`),r.addColorStop(.7,`rgba(255, 130, 80, ${i+.02})`),r.addColorStop(1,`rgba(117, 67, 255, ${i})`),f.beginPath(),f.ellipse(0,0,t,n,0,0,Math.PI*2),f.strokeStyle=r,f.lineWidth=14-e*2.2,f.lineCap=`round`,f.stroke()}f.restore();let x=f.createRadialGradient(c,l,m*.6,c,l,h+40);x.addColorStop(0,`rgba(88, 28, 135, 0.18)`),x.addColorStop(.55,`rgba(168, 85, 247, 0.13)`),x.addColorStop(1,`rgba(168, 85, 247, 0)`),f.beginPath(),f.arc(c,l,h+40,0,Math.PI*2),f.fillStyle=x,f.fill(),f.beginPath(),f.arc(c,l,h,0,Math.PI*2),f.strokeStyle=`rgba(238, 179, 255, 0.34)`,f.lineWidth=2,f.setLineDash([6,9]),f.stroke(),f.setLineDash([]),f.beginPath(),f.arc(c,l,m,0,Math.PI*2),f.fillStyle=`#000`,f.shadowColor=`rgba(168,85,247,0.35)`,f.shadowBlur=28,f.fill(),f.shadowBlur=0,f.strokeStyle=`rgba(200, 132, 252, 0.45)`,f.lineWidth=2.5,f.stroke();for(let e=0;e<34;e+=1){let t=d*1.4+e*.23,n=m*.34+e*1.15,r=c+Math.cos(t)*n,i=l+Math.sin(t)*n*.78;f.beginPath(),f.arc(r,i,1.2,0,Math.PI*2),f.fillStyle=`rgba(157, 92, 255, ${.28-e*.006})`,f.fill()}let ee=a.current;for(let t=ee.length-1;t>=0;--t){let n=ee[t],r=c-n.x,i=l-n.y,a=Math.max(.001,Math.hypot(r,i)),o=__(980*n.mass/(a*a),.04,.95),s=-i/a*n.swirl*.08,u=r/a*n.swirl*.08;if(n.vx+=r/a*o+s,n.vy+=i/a*o+u,n.vx*=.992,n.vy*=.992,n.x+=n.vx*n.speed,n.y+=n.vy*n.speed,a<h&&(n.opacity=__((a-m)/(h-m),0,1),n.size*=.995),n.trail.push({x:n.x,y:n.y,opacity:n.opacity}),n.trail.length>28&&n.trail.shift(),n.trail.length>1){f.beginPath(),f.moveTo(n.trail[0].x,n.trail[0].y);for(let e=1;e<n.trail.length;e+=1)f.lineTo(n.trail[e].x,n.trail[e].y);f.strokeStyle=`${n.color}${Math.round(__(n.opacity*.45,.08,.45)*255).toString(16).padStart(2,`0`)}`,f.lineWidth=1.8,f.stroke()}if(a<=m+2||n.opacity<=.02||n.size<=1.4){ee.splice(t,1),p.consumed+=1,e(`اختفى ${n.label} داخل أفق الحدث.`);continue}f.beginPath(),f.arc(n.x,n.y,Math.max(n.size,2),0,Math.PI*2),f.fillStyle=`${n.color}${Math.round(__(n.opacity,.2,1)*255).toString(16).padStart(2,`0`)}`,f.fill(),f.strokeStyle=`rgba(255,255,255,${n.opacity*.55})`,f.lineWidth=1,f.stroke()}f.fillStyle=`rgba(244, 208, 255, 0.92)`,f.font=`600 12px Cairo, sans-serif`,f.textAlign=`center`,f.fillText(`أفق الحدث`,c,l-m-14),f.fillStyle=`rgba(255,255,255,0.72)`,f.font=`500 12px Cairo, sans-serif`,f.fillText(`منطقة الإسقاط`,c,o-22),i.current=requestAnimationFrame(g)};i.current=requestAnimationFrame(g);let _=e=>{if(!o.current)return;l({token:o.current,x:e.clientX,y:e.clientY});let t=u.getBoundingClientRect();d(e.clientX>=t.left&&e.clientX<=t.right&&e.clientY>=t.top&&e.clientY<=t.bottom)},v=t=>{if(!o.current)return;let n=o.current,r=u.getBoundingClientRect();t.clientX>=r.left&&t.clientX<=r.right&&t.clientY>=r.top&&t.clientY<=r.bottom&&(h(n,{x:__(t.clientX-r.left,18,r.width-18),y:__(t.clientY-r.top,18,r.height-18)},{x:t.clientX-r.left,y:t.clientY-r.top}),e(`تم إسقاط ${n.label} في مجال الجاذبية.`)),o.current=null,l(null),d(!1)};return window.addEventListener(`pointermove`,_),window.addEventListener(`pointerup`,v),()=>{window.removeEventListener(`resize`,m),window.removeEventListener(`pointermove`,_),window.removeEventListener(`pointerup`,v),cancelAnimationFrame(i.current)}},[e,t]);let f=(e,t)=>{o.current=e,l({token:e,x:t.clientX,y:t.clientY})};return(0,$.jsxs)(`div`,{className:`bh-sim-card`,children:[(0,$.jsxs)(`div`,{className:`bh-sim-head`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`span`,{className:`bh-section-tag`,children:`المحاكي التفاعلي`}),(0,$.jsx)(`h2`,{className:`bh-sim-title`,children:`اسحب الأجسام نحو الثقب الأسود`})]}),(0,$.jsx)(`p`,{className:`bh-sim-copy`,children:`ارْمِ جسماً داخل المجال، وشاهد كيف يلتف حول القرص ثم يتلاشى بالكامل عند عبور أفق الحدث.`})]}),(0,$.jsxs)(`div`,{ref:r,className:`bh-scene ${u?`is-armed`:``}`,children:[(0,$.jsx)(`canvas`,{ref:n,className:`bh-canvas`}),(0,$.jsxs)(`div`,{className:`bh-scene-overlay bh-scene-top`,children:[(0,$.jsx)(`span`,{children:`عدسة جاذبية`}),(0,$.jsx)(`span`,{children:`قرص تراكم`}),(0,$.jsx)(`span`,{children:`تفكك بصري`})]}),(0,$.jsxs)(`div`,{className:`bh-center-label`,children:[(0,$.jsx)(`span`,{children:`نقطة اللاعودة`}),(0,$.jsx)(`strong`,{children:`Black Hole Core`})]}),(0,$.jsx)(`div`,{className:`bh-drop-hint`,children:`أفلت الجسم هنا ليبدأ الانجذاب`}),(0,$.jsx)(`div`,{className:`bh-launcher`,children:h_.map(e=>(0,$.jsxs)(`button`,{type:`button`,className:`bh-token`,onPointerDown:t=>f(e,t),style:{"--token":e.color},children:[(0,$.jsx)(`span`,{className:`bh-token-icon`,children:e.icon}),(0,$.jsx)(`span`,{className:`bh-token-label`,children:e.label})]},e.id))})]}),c&&(0,$.jsxs)(`div`,{className:`bh-drag-ghost`,style:{left:c.x,top:c.y,"--token":c.token.color},children:[(0,$.jsx)(`span`,{children:c.token.icon}),(0,$.jsx)(`small`,{children:c.token.label})]})]})}function b_(){let[e,t]=(0,x.useState)(g_),[n,r]=(0,x.useState)({consumed:0,distortion:68,horizon:128,energy:8});return(0,$.jsxs)($.Fragment,{children:[(0,$.jsx)(`style`,{children:`
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Syne:wght@700;800&display=swap');
 
         html, body, #root {
           margin: 0 !important;
@@ -1578,276 +1578,545 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
         main {
           margin: 0;
           padding: 0;
-          border: none !important;
-          outline: none !important;
           width: 100%;
           min-height: 100vh;
-          display: block;
           background: #05070f !important;
         }
 
         .bh-root {
           min-height: 100vh;
-          min-width: 100vw;
-          background: #05070f;
+          min-width: 100%;
+          background:
+            radial-gradient(circle at top right, rgba(212,175,55,0.08), transparent 26%),
+            radial-gradient(circle at bottom left, rgba(139,92,246,0.12), transparent 28%),
+            linear-gradient(180deg, #04060d 0%, #070b14 45%, #05070f 100%);
           font-family: 'Cairo', sans-serif;
           direction: rtl;
-          padding: 0;
-          margin: 0;
           position: relative;
           overflow-x: hidden;
-          width: 100%;
         }
 
         .bh-bg-glow {
-          position: fixed; border-radius: 50%;
-          filter: blur(90px); pointer-events: none; z-index: 0;
-        }
-        .bh-bg-1 {
-          width: 600px; height: 600px; top: -150px; right: -120px;
-          background: radial-gradient(circle, rgba(212,175,55,.06) 0%, transparent 65%);
-        }
-        .bh-bg-2 {
-          width: 500px; height: 500px; bottom: 0; left: -80px;
-          background: radial-gradient(circle, rgba(168,85,247,.07) 0%, transparent 65%);
-        }
-        .bh-bg-3 {
-          width: 400px; height: 400px; top: 40%; left: 40%;
-          background: radial-gradient(circle, rgba(0,229,212,.05) 0%, transparent 65%);
-        }
-        .bh-grid {
-          position: fixed; inset: 0; z-index: 0; pointer-events: none;
-          background-image:
-            linear-gradient(rgba(212,175,55,.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(212,175,55,.02) 1px, transparent 1px);
-          background-size: 68px 68px;
-          mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 15%, transparent 100%);
+          position: fixed;
+          border-radius: 50%;
+          filter: blur(90px);
+          pointer-events: none;
+          z-index: 0;
         }
 
-        .bh-content { 
-          position: relative; 
-          z-index: 1; 
+        .bh-bg-1 {
+          width: 560px;
+          height: 560px;
+          top: -180px;
+          right: -80px;
+          background: radial-gradient(circle, rgba(212,175,55,0.09) 0%, transparent 70%);
+        }
+
+        .bh-bg-2 {
+          width: 520px;
+          height: 520px;
+          left: -140px;
+          bottom: -80px;
+          background: radial-gradient(circle, rgba(168,85,247,0.12) 0%, transparent 70%);
+        }
+
+        .bh-grid {
+          position: fixed;
+          inset: 0;
+          z-index: 0;
+          pointer-events: none;
+          background-image:
+            linear-gradient(rgba(212,175,55,0.024) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(212,175,55,0.024) 1px, transparent 1px);
+          background-size: 72px 72px;
+          mask-image: radial-gradient(circle at center, black 22%, transparent 100%);
+        }
+
+        .bh-content {
+          position: relative;
+          z-index: 1;
           max-width: 1340px;
           margin: 0 auto;
-          padding: 2rem 1.5rem 4rem;
+          padding: 5.8rem 1.5rem 4rem;
         }
 
-        .bh-page-header {
-          text-align: center;
-          margin-bottom: 2.5rem;
-          padding-top: 1rem;
-          margin: 0;
-        }
-        .bh-page-eyebrow {
-          display: inline-flex; align-items: center; gap: .45rem;
-          background: rgba(212,175,55,.07); border: 1px solid rgba(212,175,55,.18);
-          padding: .28rem .85rem; border-radius: 50px;
-          font-size: .68rem; font-weight: 700; color: #d4af37;
-          letter-spacing: .14em; text-transform: uppercase; margin-bottom: 1rem;
-        }
-        .bh-page-title {
-          font-family: 'Syne', sans-serif;
-          font-size: clamp(1.8rem, 4vw, 3rem);
-          font-weight: 800; color: #e8eaf5;
-          letter-spacing: -.02em; line-height: 1.1;
-          margin-bottom: .55rem;
-        }
-        .bh-page-title span { color: #d4af37; }
-        .bh-page-sub {
-          font-size: .85rem; color: rgba(180,185,210,.45);
-          font-weight: 300; letter-spacing: .03em;
-        }
-
-        .bh-grid-cards {
+        .bh-hero {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 1.2rem;
-          margin-bottom: 1.5rem;
+          grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+          gap: 1.25rem;
+          align-items: start;
         }
 
-        .obj-card {
-          background: rgba(10,13,28,.82);
-          border: 1px solid var(--bd);
-          border-radius: 20px;
-          overflow: hidden;
+        .bh-section-tag {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.45rem;
+          padding: 0.35rem 0.8rem;
+          border-radius: 999px;
+          border: 1px solid rgba(212,175,55,0.2);
+          background: rgba(212,175,55,0.08);
+          color: #d4af37;
+          font-size: 0.72rem;
+          font-weight: 800;
+          letter-spacing: 0.12em;
+        }
+
+        .bh-page-title {
+          margin: 1rem 0 0.75rem;
+          font-family: 'Syne', sans-serif;
+          font-size: clamp(2.4rem, 5vw, 4.2rem);
+          line-height: 0.95;
+          color: #f4f7ff;
+        }
+
+        .bh-page-title span {
+          color: #d4af37;
+        }
+
+        .bh-page-copy {
+          margin: 0;
+          max-width: 640px;
+          color: rgba(218,223,242,0.72);
+          font-size: 1rem;
+          line-height: 1.95;
+        }
+
+        .bh-side-panel,
+        .bh-sim-card,
+        .bh-metric-card,
+        .bh-log,
+        .bh-info-card {
+          background: rgba(10,13,28,0.78);
+          border: 1px solid rgba(212,175,55,0.14);
+          border-radius: 24px;
+          backdrop-filter: blur(16px);
+          box-shadow: 0 22px 60px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.03);
+        }
+
+        .bh-side-panel {
+          padding: 1.15rem;
+          display: grid;
+          gap: 0.9rem;
+        }
+
+        .bh-side-title {
+          margin: 0;
+          color: #f7f5ff;
+          font-size: 1.05rem;
+          font-weight: 800;
+        }
+
+        .bh-side-copy {
+          margin: 0;
+          color: rgba(205,211,232,0.68);
+          font-size: 0.9rem;
+          line-height: 1.85;
+        }
+
+        .bh-mini-stat {
           display: flex;
-          flex-direction: column;
-          gap: 0;
-          backdrop-filter: blur(12px);
-          box-shadow: 0 0 30px rgba(0,0,0,.4);
-          transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s;
-        }
-        .obj-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 20px 50px rgba(0,0,0,.5), 0 0 0 1px var(--bd), 0 0 40px var(--glow);
-        }
-
-        .obj-header {
-          display: flex; align-items: center; justify-content: space-between;
-          padding: .85rem 1.1rem;
-        }
-        .obj-title {
-          font-size: 1.05rem; font-weight: 700;
-          color: var(--accent);
-          letter-spacing: -.01em;
-        }
-        .obj-icon-badge {
-          font-size: 1.2rem;
-          filter: drop-shadow(0 0 6px var(--accent));
-        }
-
-        .obj-slider-row {
-          display: flex; align-items: center; gap: .6rem;
-          padding: .6rem 1.1rem .4rem;
-        }
-        .slider-label {
-          font-size: .65rem; font-weight: 700;
-          color: rgba(180,185,210,.4);
-          letter-spacing: .06em; white-space: nowrap;
-        }
-        .slider-wrap {
-          flex: 1; position: relative; height: 6px;
-          background: rgba(100,100,120,.15); border-radius: 3px;
-        }
-        .slider-fill {
-          position: absolute; top: 0; right: 0;
-          height: 100%; border-radius: 3px;
-          pointer-events: none; transition: width .05s;
-        }
-        .slider-input {
-          position: absolute; inset: -5px 0;
-          width: 100%; opacity: 0; cursor: pointer;
-          height: 16px;
-        }
-
-        .obj-stats {
-          padding: .4rem 1.1rem .6rem;
-          display: flex; flex-direction: column; gap: .35rem;
-        }
-        .obj-stat {
-          display: flex; align-items: center;
+          align-items: center;
           justify-content: space-between;
-          font-size: .72rem; font-weight: 600;
-          color: rgba(180,185,210,.55);
+          gap: 0.75rem;
+          padding: 0.8rem 0.95rem;
+          border-radius: 16px;
+          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(255,255,255,0.05);
         }
-        .stat-val {
-          font-size: .85rem; font-weight: 700;
-          font-family: 'Syne', monospace;
-        }
-        .stat-bar-wrap {
-          display: flex; height: 3px; border-radius: 2px; overflow: hidden; gap: 1px;
-        }
-        .stat-bar { height: 100%; border-radius: 2px; transition: width .1s; }
 
-        .obj-canvas-wrap {
-          flex: 1; min-height: 220px;
-          margin: 0 .8rem .8rem;
-          border-radius: 14px;
-          overflow: hidden;
-          background: rgba(0,0,0,.5);
+        .bh-mini-stat strong {
+          color: #f8fafc;
+          font-size: 1rem;
+        }
+
+        .bh-mini-stat span {
+          color: rgba(205,211,232,0.6);
+          font-size: 0.8rem;
+        }
+
+        .bh-sim-card {
+          margin-top: 1.25rem;
+          padding: 1rem;
+        }
+
+        .bh-sim-head {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 1rem;
+          margin-bottom: 1rem;
+        }
+
+        .bh-sim-title {
+          margin: 0.55rem 0 0;
+          color: #f8fafc;
+          font-size: 1.45rem;
+          font-weight: 800;
+        }
+
+        .bh-sim-copy {
+          margin: 0;
+          max-width: 420px;
+          color: rgba(205,211,232,0.64);
+          line-height: 1.8;
+          font-size: 0.9rem;
+        }
+
+        .bh-scene {
           position: relative;
+          min-height: 560px;
+          border-radius: 22px;
+          overflow: hidden;
+          border: 1px solid rgba(255,255,255,0.06);
+          background: #03050c;
+          isolation: isolate;
         }
 
-        .obj-actions {
-          display: flex; justify-content: center;
-          gap: .55rem;
-          padding: 0 .8rem 1rem;
+        .bh-scene::after {
+          content: "";
+          position: absolute;
+          inset: auto 0 0;
+          height: 120px;
+          background: linear-gradient(180deg, rgba(2,4,11,0) 0%, rgba(2,4,11,0.82) 55%, rgba(2,4,11,0.96) 100%);
+          z-index: 1;
+          pointer-events: none;
         }
-        .action-btn {
-          display: flex; flex-direction: column;
-          align-items: center; gap: .2rem;
-          background: rgba(255,255,255,.05);
-          border: none;
-          border-radius: 12px;
-          padding: .5rem .65rem;
-          cursor: pointer;
+
+        .bh-scene.is-armed {
+          box-shadow: inset 0 0 0 1px rgba(255,194,102,0.3), 0 0 35px rgba(168,85,247,0.16);
+        }
+
+        .bh-canvas {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
+
+        .bh-scene-overlay {
+          position: absolute;
+          left: 1rem;
+          right: 1rem;
+          z-index: 2;
+          display: flex;
+          gap: 0.55rem;
+          pointer-events: none;
+        }
+
+        .bh-scene-top {
+          top: 1rem;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+        }
+
+        .bh-scene-top span {
+          padding: 0.32rem 0.68rem;
+          border-radius: 999px;
+          background: rgba(8,10,22,0.56);
+          border: 1px solid rgba(255,255,255,0.08);
+          color: rgba(236,239,251,0.72);
+          font-size: 0.72rem;
+        }
+
+        .bh-center-label {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, calc(-50% + 112px));
+          z-index: 2;
+          text-align: center;
+          pointer-events: none;
+        }
+
+        .bh-center-label span {
+          display: block;
+          color: rgba(236,239,251,0.75);
+          font-size: 0.82rem;
+        }
+
+        .bh-center-label strong {
+          color: #d4af37;
+          font-family: 'Syne', sans-serif;
+          font-size: 0.98rem;
+          letter-spacing: 0.08em;
+        }
+
+        .bh-drop-hint {
+          position: absolute;
+          left: 50%;
+          top: 1.4rem;
+          transform: translateX(-50%);
+          z-index: 2;
+          padding: 0.45rem 0.85rem;
+          border-radius: 999px;
+          background: rgba(5,7,18,0.72);
+          border: 1px solid rgba(212,175,55,0.18);
+          color: rgba(244,246,255,0.82);
+          font-size: 0.75rem;
+          pointer-events: none;
+        }
+
+        .bh-launcher {
+          position: absolute;
+          left: 1rem;
+          right: 1rem;
+          bottom: 1rem;
+          z-index: 3;
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 0.8rem;
+        }
+
+        .bh-token {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.55rem;
+          min-height: 56px;
+          border-radius: 18px;
+          border: 1px solid color-mix(in srgb, var(--token) 38%, rgba(255,255,255,0.1));
+          background: linear-gradient(180deg, rgba(12,14,30,0.88), rgba(8,10,20,0.95));
+          color: #f8fafc;
+          cursor: grab;
           font-family: 'Cairo', sans-serif;
-          transition: all .22s ease;
-          flex: 1;
+          transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
         }
-        .action-btn:hover {
-          background: var(--btn-glow);
-          border-color: var(--btn-color);
+
+        .bh-token:hover {
           transform: translateY(-2px);
-          box-shadow: 0 4px 16px var(--btn-glow);
+          border-color: var(--token);
+          box-shadow: 0 10px 25px color-mix(in srgb, var(--token) 18%, transparent);
         }
-        .action-btn:active { transform: translateY(0) scale(.96); }
-        .action-icon { font-size: 1.1rem; line-height: 1; }
-        .action-label {
-          font-size: .58rem; font-weight: 700;
-          color: rgba(180,185,210,.55);
-          letter-spacing: .04em;
-          white-space: nowrap;
+
+        .bh-token:active {
+          cursor: grabbing;
+          transform: scale(0.98);
         }
-        .action-btn:hover .action-label { color: var(--btn-color); }
+
+        .bh-token-icon {
+          width: 34px;
+          height: 34px;
+          display: grid;
+          place-items: center;
+          border-radius: 50%;
+          background: color-mix(in srgb, var(--token) 18%, rgba(255,255,255,0.02));
+          color: var(--token);
+          font-size: 1rem;
+          box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--token) 25%, transparent);
+        }
+
+        .bh-token-label {
+          font-size: 0.9rem;
+          font-weight: 700;
+        }
+
+        .bh-drag-ghost {
+          position: fixed;
+          z-index: 100;
+          transform: translate(-50%, -50%);
+          display: inline-flex;
+          align-items: center;
+          gap: 0.45rem;
+          padding: 0.55rem 0.8rem;
+          border-radius: 999px;
+          border: 1px solid color-mix(in srgb, var(--token) 45%, rgba(255,255,255,0.08));
+          background: rgba(6,8,18,0.92);
+          color: #fff;
+          pointer-events: none;
+          box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+        }
+
+        .bh-drag-ghost span {
+          color: var(--token);
+        }
+
+        .bh-drag-ghost small {
+          font-size: 0.78rem;
+          font-weight: 700;
+        }
+
+        .bh-metrics {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 1rem;
+          margin-top: 1.25rem;
+        }
+
+        .bh-metric-card {
+          padding: 1rem 1.1rem;
+        }
+
+        .bh-metric-card span {
+          display: block;
+          color: rgba(205,211,232,0.58);
+          font-size: 0.78rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .bh-metric-card strong {
+          display: block;
+          color: #d4af37;
+          font-size: 1.45rem;
+          font-family: 'Syne', sans-serif;
+          margin-bottom: 0.45rem;
+        }
+
+        .bh-metric-card p {
+          margin: 0;
+          color: rgba(236,239,251,0.68);
+          font-size: 0.84rem;
+          line-height: 1.8;
+        }
+
+        .bh-info-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 1rem;
+          margin-top: 1rem;
+        }
+
+        .bh-info-card {
+          padding: 1rem 1.1rem;
+        }
+
+        .bh-info-card span {
+          display: block;
+          color: #d4af37;
+          font-size: 0.9rem;
+          font-weight: 800;
+          margin-bottom: 0.35rem;
+        }
+
+        .bh-info-card strong {
+          display: block;
+          color: #f8fafc;
+          font-size: 1.08rem;
+          margin-bottom: 0.2rem;
+        }
+
+        .bh-info-card p {
+          margin: 0;
+          color: rgba(205,211,232,0.6);
+          font-size: 0.82rem;
+        }
 
         .bh-log {
-          background: rgba(10,13,28,.85);
-          border: 1px solid rgba(212,175,55,.13);
-          border-radius: 18px;
+          margin-top: 1.25rem;
           overflow: hidden;
-          backdrop-filter: blur(12px);
         }
-        .bh-log-header {
-          display: flex; align-items: center; justify-content: space-between;
-          padding: .85rem 1.2rem;
-          background: rgba(212,175,55,.05);
-        }
-        .bh-log-title {
-          font-size: .88rem; font-weight: 700; color: #d4af37;
-          display: flex; align-items: center; gap: .45rem;
-        }
-        .bh-log-clear {
-          background: transparent;
-          border: 1px solid rgba(212,175,55,.2);
-          border-radius: 7px;
-          color: rgba(180,185,210,.5);
-          font-family: 'Cairo', sans-serif;
-          font-size: .72rem; font-weight: 600;
-          padding: .28rem .75rem;
-          cursor: pointer;
-          transition: all .2s;
-        }
-        .bh-log-clear:hover { border-color: rgba(239,68,68,.4); color: #f87171; }
-        .bh-log-body {
-          padding: .8rem 1.2rem;
-          max-height: 200px;
-          overflow-y: auto;
-          display: flex; flex-direction: column; gap: .4rem;
-        }
-        .bh-log-body::-webkit-scrollbar { width: 4px; }
-        .bh-log-body::-webkit-scrollbar-thumb { background: rgba(212,175,55,.2); border-radius: 2px; }
-        .log-entry {
-          display: flex; align-items: baseline;
-          justify-content: space-between; gap: .75rem;
-          padding: .38rem .6rem;
-          border-radius: 8px;
-          background: transparent;
-          font-size: .76rem;
-          animation: log-in .25s cubic-bezier(.16,1,.3,1);
-        }
-        @keyframes log-in {
-          from { opacity:0; transform: translateX(8px); }
-          to   { opacity:1; transform: translateX(0); }
-        }
-        .log-text { color: rgba(200,205,225,.75); font-weight: 400; flex: 1; }
-        .log-time {
-          font-size: .65rem; color: rgba(180,185,210,.3);
-          font-weight: 300; white-space: nowrap; font-family: monospace;
-        }
-        .log-entry:first-child { background: rgba(212,175,55,.05); }
-        .log-entry:first-child .log-text { color: rgba(212,175,55,.85); }
 
-        @media (max-width: 900px) {
-          .bh-grid-cards { grid-template-columns: 1fr; }
+        .bh-log-head {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
+          padding: 0.95rem 1.1rem;
+          border-bottom: 1px solid rgba(255,255,255,0.06);
+          background: rgba(212,175,55,0.04);
         }
-        @media (max-width: 480px) {
-          .bh-root { padding: 1.5rem .9rem 3rem; }
-          .obj-actions { gap: .35rem; }
-          .action-btn { padding: .45rem .45rem; }
-          .action-label { display: none; }
+
+        .bh-log-head h3 {
+          margin: 0;
+          color: #f8fafc;
+          font-size: 1rem;
         }
-      `}),(0,$.jsxs)(`div`,{className:`bh-root`,children:[(0,$.jsx)(`div`,{className:`bh-bg-glow bh-bg-1`}),(0,$.jsx)(`div`,{className:`bh-bg-glow bh-bg-2`}),(0,$.jsx)(`div`,{className:`bh-bg-glow bh-bg-3`}),(0,$.jsx)(`div`,{className:`bh-grid`}),(0,$.jsxs)(`div`,{className:`bh-content`,children:[(0,$.jsxs)(`div`,{className:`bh-page-header`,children:[(0,$.jsx)(`div`,{className:`bh-page-eyebrow`,children:`◉ محاكاة تفاعلية`}),(0,$.jsxs)(`h1`,{className:`bh-page-title`,children:[`الثقوب `,(0,$.jsx)(`span`,{children:`السوداء`})]}),(0,$.jsx)(`p`,{className:`bh-page-sub`,children:`اسحب بإصبعك · تمدد زمن · ازاحة · أشياء عشوائية`})]}),(0,$.jsxs)(`div`,{className:`bh-grid-cards`,children:[(0,$.jsx)(g_,{typeKey:`white`,onLog:n}),(0,$.jsx)(g_,{typeKey:`neutron`,onLog:n}),(0,$.jsx)(g_,{typeKey:`black`,onLog:n})]}),(0,$.jsxs)(`div`,{className:`bh-log`,children:[(0,$.jsxs)(`div`,{className:`bh-log-header`,children:[(0,$.jsx)(`span`,{className:`bh-log-title`,children:`📋 سجل الأحداث`}),(0,$.jsx)(`button`,{className:`bh-log-clear`,onClick:()=>t([]),children:`مسح`})]}),(0,$.jsxs)(`div`,{className:`bh-log-body`,children:[e.length===0&&(0,$.jsx)(`span`,{style:{fontSize:`.76rem`,color:`rgba(180,185,210,.3)`,padding:`.3rem .6rem`},children:`لا توجد أحداث بعد...`}),e.map(e=>(0,$.jsxs)(`div`,{className:`log-entry`,children:[(0,$.jsx)(`span`,{className:`log-text`,children:e.text}),e.time&&(0,$.jsx)(`span`,{className:`log-time`,children:e.time})]},e.id))]})]})]})]})]})}var v_=[{label:`قمر صغير`,value:12},{label:`كوكب صخري`,value:28},{label:`نجم قزم`,value:54},{label:`نجم نيوتروني`,value:82},{label:`ثقب أسود حاد`,value:100}];function y_(e){return e>=90?`ثقب أسود حاد`:e>=70?`نجم نيوتروني`:e>=45?`نجم كثيف`:e>=20?`كوكب/نجم صغير`:`جسم خفيف`}function b_(e){return e>=90?`انحناء قوي - الزمن يتمدد بشكل حاد`:e>=70?`انحناء شديد جدا`:e>=45?`انحناء واضح حول مركز الكتلة`:e>=20?`انحناء متوسط وسلس`:`انحناء خفيف`}function x_({mass:e,dragging:t,onPointerChange:n}){let r=(0,x.useRef)(null),i=(0,x.useRef)({x:.24,y:.5,active:!1}),a=(0,x.useRef)(Math.PI*.9),o=(0,x.useRef)(null);return(0,x.useEffect)(()=>{let t=r.current;if(!t)return;let s=t.getContext(`2d`),c=window.devicePixelRatio||1,l=()=>{let e=t.getBoundingClientRect();t.width=e.width*c,t.height=e.height*c,s.setTransform(c,0,0,c,0,0)};l(),window.addEventListener(`resize`,l);let u=()=>{let n=t.clientWidth,r=t.clientHeight,c=n/2,l=r/2,d=e/100,f=18+d*118,p=70+(1-d)*90;s.clearRect(0,0,n,r);let m=s.createLinearGradient(0,0,n,r);m.addColorStop(0,`rgba(8,10,24,0.98)`),m.addColorStop(1,`rgba(11,13,30,0.98)`),s.fillStyle=m,s.fillRect(0,0,n,r),s.save(),s.beginPath(),s.roundRect(1,1,n-2,r-2,18),s.clip();let h=s.createRadialGradient(c,l,0,c,l,180);h.addColorStop(0,`rgba(166,91,255,${.44+d*.18})`),h.addColorStop(.35,`rgba(135,70,255,0.18)`),h.addColorStop(1,`rgba(135,70,255,0)`),s.fillStyle=h,s.fillRect(0,0,n,r),s.strokeStyle=`rgba(137,88,255,0.34)`,s.lineWidth=1;for(let e=0;e<13;e+=1){let t=e/12*r;s.beginPath();for(let e=0;e<=120;e+=1){let r=e/120*n,i=r-c,a=t-l,o=Math.sqrt(i*i+a*a)+22,u=f*110/(o+55)*Math.exp((-Math.abs(i)/(n*.52))**1.8),d=t+(a>=0?1:-1)*u;e===0?s.moveTo(r,d):s.lineTo(r,d)}s.stroke()}for(let e=0;e<19;e+=1){let t=e/18*n;s.beginPath();for(let e=0;e<=90;e+=1){let n=e/90*r,i=t-c,a=n-l,o=Math.sqrt(i*i+a*a)+26,u=f*48/(o+40),d=t-Math.sign(i||1)*u*Math.exp((Math.abs(a)/(r*.7))**2);e===0?s.moveTo(d,n):s.lineTo(d,n)}s.stroke()}a.current+=.012-d*.0045;let g=i.current,_=g.active?g.x*n:c-Math.cos(a.current)*p,v=g.active?g.y*r:l+Math.sin(a.current*1.2)*(40+(1-d)*42),y=_-c,b=v-l,x=Math.sqrt(y*y+b*b)+1,ee=Math.max(42,p+8-d*18),S=Math.min(x,ee)/x,C=c+y*S,w=l+b*S;s.beginPath(),s.moveTo(C,w),s.quadraticCurveTo((C+c)/2,w-24-d*34,c,l),s.strokeStyle=`rgba(255, 198, 53, 0.25)`,s.lineWidth=1.5,s.stroke(),s.beginPath(),s.arc(C,w,5.2,0,Math.PI*2),s.fillStyle=`#ffc83a`,s.shadowColor=`rgba(255, 200, 58, 0.95)`,s.shadowBlur=20,s.fill(),s.shadowBlur=0;let te=28+d*22,ne=s.createRadialGradient(c,l,0,c,l,78+d*24);ne.addColorStop(0,`rgba(231,217,255,0.98)`),ne.addColorStop(.14,`rgba(204,169,255,0.95)`),ne.addColorStop(.4,`rgba(154,92,255,0.68)`),ne.addColorStop(1,`rgba(140,76,255,0)`),s.fillStyle=ne,s.beginPath(),s.arc(c,l,80+d*22,0,Math.PI*2),s.fill();for(let e=0;e<3;e+=1){s.beginPath();let t=te+26+e*28+Math.sin(a.current*3+e)*2;s.strokeStyle=`rgba(145, 92, 255, ${.42-e*.1})`,s.lineWidth=1.1,s.arc(c,l,t,0,Math.PI*2),s.stroke()}s.strokeStyle=`rgba(140, 92, 255, 0.5)`,s.lineWidth=1.1,s.beginPath(),s.moveTo(c,0),s.lineTo(c,r),s.stroke(),s.fillStyle=`rgba(167, 140, 255, 0.42)`,s.font=`11px Cairo, sans-serif`,s.textAlign=`right`,s.fillText(`محاكاة غشاء الزمكان`,n-16,r-14),s.restore(),s.strokeStyle=`rgba(120, 88, 255, 0.24)`,s.lineWidth=1,s.beginPath(),s.roundRect(1,1,n-2,r-2,18),s.stroke(),o.current=requestAnimationFrame(u)};o.current=requestAnimationFrame(u);let d=(e,r)=>{let a=t.getBoundingClientRect();i.current={x:Math.max(0,Math.min(1,(e-a.left)/a.width)),y:Math.max(0,Math.min(1,(r-a.top)/a.height)),active:!0},n(!0)},f=e=>d(e.clientX,e.clientY),p=e=>{let t=e.touches[0];t&&d(t.clientX,t.clientY)},m=()=>{i.current.active=!1,n(!1)};return t.addEventListener(`mousemove`,f),t.addEventListener(`touchstart`,p,{passive:!0}),t.addEventListener(`touchmove`,p,{passive:!0}),t.addEventListener(`mouseleave`,m),t.addEventListener(`touchend`,m),()=>{cancelAnimationFrame(o.current),window.removeEventListener(`resize`,l),t.removeEventListener(`mousemove`,f),t.removeEventListener(`touchstart`,p),t.removeEventListener(`touchmove`,p),t.removeEventListener(`mouseleave`,m),t.removeEventListener(`touchend`,m)}},[e,t,n]),(0,$.jsx)(`canvas`,{ref:r,className:`spacetime-canvas`})}function S_({value:e,label:t,sublabel:n,hint:r,accent:i=`purple`}){return(0,$.jsx)(`div`,{className:`metric-card metric-${i}`,children:(0,$.jsxs)(`div`,{className:`metric-head`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`div`,{className:`metric-value`,children:e}),(0,$.jsx)(`div`,{className:`metric-chip`,children:r})]}),(0,$.jsxs)(`div`,{className:`metric-copy`,children:[(0,$.jsx)(`h3`,{children:t}),(0,$.jsx)(`p`,{children:n})]})]})})}function C_(){let[e,t]=(0,x.useState)(100),[n,r]=(0,x.useState)(!1),i=(0,x.useMemo)(()=>{let t=e/100,n=Math.round(t*100),r=Math.round(25+t*155);return{massLabel:y_(e),curveLevel:n,spacetimeFactor:r,hint:b_(e)}},[e]);return(0,$.jsxs)($.Fragment,{children:[(0,$.jsx)(`style`,{children:`
+
+        .bh-log-head span {
+          color: rgba(205,211,232,0.6);
+          font-size: 0.8rem;
+        }
+
+        .bh-log-body {
+          display: grid;
+          gap: 0.7rem;
+          padding: 1rem 1.1rem 1.15rem;
+        }
+
+        .bh-log-entry {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 1rem;
+          padding: 0.8rem 0.9rem;
+          border-radius: 16px;
+          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .bh-log-entry p {
+          margin: 0;
+          color: rgba(241,245,255,0.78);
+          font-size: 0.88rem;
+          line-height: 1.8;
+        }
+
+        .bh-log-entry time {
+          color: rgba(205,211,232,0.4);
+          font-size: 0.75rem;
+          white-space: nowrap;
+          margin-top: 0.1rem;
+        }
+
+        @media (max-width: 1100px) {
+          .bh-hero {
+            grid-template-columns: 1fr;
+          }
+
+          .bh-sim-head {
+            flex-direction: column;
+          }
+        }
+
+        @media (max-width: 820px) {
+          .bh-content {
+            padding-top: 5.2rem;
+          }
+
+          .bh-scene {
+            min-height: 500px;
+          }
+
+          .bh-launcher,
+          .bh-metrics,
+          .bh-info-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+
+        @media (max-width: 560px) {
+          .bh-content {
+            padding: 5rem 1rem 3rem;
+          }
+
+          .bh-page-title {
+            font-size: 2.15rem;
+          }
+
+          .bh-scene {
+            min-height: 460px;
+          }
+
+          .bh-drop-hint {
+            width: calc(100% - 2.4rem);
+            text-align: center;
+          }
+
+          .bh-launcher,
+          .bh-metrics,
+          .bh-info-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .bh-center-label {
+            transform: translate(-50%, calc(-50% + 102px));
+          }
+
+          .bh-log-entry {
+            flex-direction: column;
+          }
+        }
+      `}),(0,$.jsxs)(`div`,{className:`bh-root`,children:[(0,$.jsx)(`div`,{className:`bh-bg-glow bh-bg-1`}),(0,$.jsx)(`div`,{className:`bh-bg-glow bh-bg-2`}),(0,$.jsx)(`div`,{className:`bh-grid`}),(0,$.jsxs)(`div`,{className:`bh-content`,children:[(0,$.jsxs)(`section`,{className:`bh-hero`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`span`,{className:`bh-section-tag`,children:`◉ محاكاة تفاعلية`}),(0,$.jsxs)(`h1`,{className:`bh-page-title`,children:[`الثقوب `,(0,$.jsx)(`span`,{children:`السوداء`})]}),(0,$.jsx)(`p`,{className:`bh-page-copy`,children:`تم تحويل الصفحة إلى مشهد واحد أقرب للصورة المرجعية لكن بشكل أغنى وأكثر حيوية: قرص تراكم مضيء، عدسة جاذبية، وسلوك ابتلاع واضح يجعل الجسم يختفي تدريجياً عند عبور أفق الحدث.`})]}),(0,$.jsxs)(`aside`,{className:`bh-side-panel`,children:[(0,$.jsx)(`h2`,{className:`bh-side-title`,children:`كيف تستخدم المحاكي؟`}),(0,$.jsx)(`p`,{className:`bh-side-copy`,children:`اختر جسماً من الأسفل، اسحبه داخل ساحة العرض، ثم أفلته قرب الثقب الأسود. سيبدأ بالدوران والانجذاب حتى يختفي بالكامل داخل الأفق.`}),(0,$.jsxs)(`div`,{className:`bh-mini-stat`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`strong`,{children:n.consumed}),(0,$.jsx)(`span`,{children:`أجسام ابتُلعت`})]}),(0,$.jsxs)(`div`,{children:[(0,$.jsxs)(`strong`,{children:[n.horizon,`px`]}),(0,$.jsx)(`span`,{children:`قطر الأفق الحالي`})]})]}),(0,$.jsxs)(`div`,{className:`bh-mini-stat`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsxs)(`strong`,{children:[n.distortion,`%`]}),(0,$.jsx)(`span`,{children:`تشوه الضوء`})]}),(0,$.jsxs)(`div`,{children:[(0,$.jsxs)(`strong`,{children:[n.energy,`%`]}),(0,$.jsx)(`span`,{children:`نشاط القرص`})]})]})]})]}),(0,$.jsx)(y_,{onLog:e=>{t(t=>[{id:Date.now()+Math.random(),text:e,time:v_()},...t].slice(0,8))},onMetricsChange:r}),(0,$.jsxs)(`section`,{className:`bh-metrics`,children:[(0,$.jsxs)(`article`,{className:`bh-metric-card`,children:[(0,$.jsx)(`span`,{children:`تشوه الزمكان`}),(0,$.jsxs)(`strong`,{children:[n.distortion,`%`]}),(0,$.jsx)(`p`,{children:`يزداد بصرياً كلما عبرت أجسام جديدة نحو مركز الثقب الأسود.`})]}),(0,$.jsxs)(`article`,{className:`bh-metric-card`,children:[(0,$.jsx)(`span`,{children:`قطر أفق الحدث`}),(0,$.jsxs)(`strong`,{children:[n.horizon,` px`]}),(0,$.jsx)(`p`,{children:`الحافة التي بعدها لا يمكن لأي جسم أو ضوء العودة منها.`})]}),(0,$.jsxs)(`article`,{className:`bh-metric-card`,children:[(0,$.jsx)(`span`,{children:`ابتلاع تراكمي`}),(0,$.jsx)(`strong`,{children:n.consumed}),(0,$.jsx)(`p`,{children:`عدد الأجسام التي اختفت فعلياً داخل أفق الحدث في هذه الجلسة.`})]})]}),(0,$.jsxs)(`section`,{className:`bh-info-grid`,children:[(0,$.jsxs)(`article`,{className:`bh-info-card`,children:[(0,$.jsx)(`span`,{children:`الكتلة`}),(0,$.jsx)(`strong`,{children:m_.mass}),(0,$.jsx)(`p`,{children:`تمثيل تقريبي لثقب أسود فائق الضخامة.`})]}),(0,$.jsxs)(`article`,{className:`bh-info-card`,children:[(0,$.jsx)(`span`,{children:`نصف القطر`}),(0,$.jsx)(`strong`,{children:m_.radius}),(0,$.jsx)(`p`,{children:`قيمة مرجعية معروضة بنفس أسلوب البطاقات في الصفحات الأخرى.`})]}),(0,$.jsxs)(`article`,{className:`bh-info-card`,children:[(0,$.jsx)(`span`,{children:`النوع`}),(0,$.jsx)(`strong`,{children:m_.type}),(0,$.jsx)(`p`,{children:`المشهد يركز على القرص المتوهج والاختفاء داخل نقطة اللاعودة.`})]})]}),(0,$.jsxs)(`section`,{className:`bh-log`,children:[(0,$.jsx)(`div`,{className:`bh-log-head`,children:(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`h3`,{children:`سجل الأحداث`}),(0,$.jsx)(`span`,{children:`آخر ما حدث داخل المحاكاة`})]})}),(0,$.jsx)(`div`,{className:`bh-log-body`,children:e.map(e=>(0,$.jsxs)(`article`,{className:`bh-log-entry`,children:[(0,$.jsx)(`p`,{children:e.text}),e.time?(0,$.jsx)(`time`,{children:e.time}):(0,$.jsx)(`time`,{children:`الآن`})]},e.id))})]})]})]})]})}var x_=[{label:`قمر صغير`,value:12},{label:`كوكب صخري`,value:28},{label:`نجم قزم`,value:54},{label:`نجم نيوتروني`,value:82},{label:`ثقب أسود حاد`,value:100}];function S_(e){return e>=90?`ثقب أسود حاد`:e>=70?`نجم نيوتروني`:e>=45?`نجم كثيف`:e>=20?`كوكب/نجم صغير`:`جسم خفيف`}function C_(e){return e>=90?`انحناء قوي - الزمن يتمدد بشكل حاد`:e>=70?`انحناء شديد جدا`:e>=45?`انحناء واضح حول مركز الكتلة`:e>=20?`انحناء متوسط وسلس`:`انحناء خفيف`}function w_({mass:e,dragging:t,onPointerChange:n}){let r=(0,x.useRef)(null),i=(0,x.useRef)({x:.24,y:.5,active:!1}),a=(0,x.useRef)(Math.PI*.9),o=(0,x.useRef)(null);return(0,x.useEffect)(()=>{let t=r.current;if(!t)return;let s=t.getContext(`2d`),c=window.devicePixelRatio||1,l=()=>{let e=t.getBoundingClientRect();t.width=e.width*c,t.height=e.height*c,s.setTransform(c,0,0,c,0,0)};l(),window.addEventListener(`resize`,l);let u=()=>{let n=t.clientWidth,r=t.clientHeight,c=n/2,l=r/2,d=e/100,f=18+d*118,p=70+(1-d)*90;s.clearRect(0,0,n,r);let m=s.createLinearGradient(0,0,n,r);m.addColorStop(0,`rgba(8,10,24,0.98)`),m.addColorStop(1,`rgba(11,13,30,0.98)`),s.fillStyle=m,s.fillRect(0,0,n,r),s.save(),s.beginPath(),s.roundRect(1,1,n-2,r-2,18),s.clip();let h=s.createRadialGradient(c,l,0,c,l,180);h.addColorStop(0,`rgba(166,91,255,${.44+d*.18})`),h.addColorStop(.35,`rgba(135,70,255,0.18)`),h.addColorStop(1,`rgba(135,70,255,0)`),s.fillStyle=h,s.fillRect(0,0,n,r),s.strokeStyle=`rgba(137,88,255,0.34)`,s.lineWidth=1;for(let e=0;e<13;e+=1){let t=e/12*r;s.beginPath();for(let e=0;e<=120;e+=1){let r=e/120*n,i=r-c,a=t-l,o=Math.sqrt(i*i+a*a)+22,u=f*110/(o+55)*Math.exp((-Math.abs(i)/(n*.52))**1.8),d=t+(a>=0?1:-1)*u;e===0?s.moveTo(r,d):s.lineTo(r,d)}s.stroke()}for(let e=0;e<19;e+=1){let t=e/18*n;s.beginPath();for(let e=0;e<=90;e+=1){let n=e/90*r,i=t-c,a=n-l,o=Math.sqrt(i*i+a*a)+26,u=f*48/(o+40),d=t-Math.sign(i||1)*u*Math.exp((Math.abs(a)/(r*.7))**2);e===0?s.moveTo(d,n):s.lineTo(d,n)}s.stroke()}a.current+=.012-d*.0045;let g=i.current,_=g.active?g.x*n:c-Math.cos(a.current)*p,v=g.active?g.y*r:l+Math.sin(a.current*1.2)*(40+(1-d)*42),y=_-c,b=v-l,x=Math.sqrt(y*y+b*b)+1,ee=Math.max(42,p+8-d*18),S=Math.min(x,ee)/x,C=c+y*S,w=l+b*S;s.beginPath(),s.moveTo(C,w),s.quadraticCurveTo((C+c)/2,w-24-d*34,c,l),s.strokeStyle=`rgba(255, 198, 53, 0.25)`,s.lineWidth=1.5,s.stroke(),s.beginPath(),s.arc(C,w,5.2,0,Math.PI*2),s.fillStyle=`#ffc83a`,s.shadowColor=`rgba(255, 200, 58, 0.95)`,s.shadowBlur=20,s.fill(),s.shadowBlur=0;let te=28+d*22,ne=s.createRadialGradient(c,l,0,c,l,78+d*24);ne.addColorStop(0,`rgba(231,217,255,0.98)`),ne.addColorStop(.14,`rgba(204,169,255,0.95)`),ne.addColorStop(.4,`rgba(154,92,255,0.68)`),ne.addColorStop(1,`rgba(140,76,255,0)`),s.fillStyle=ne,s.beginPath(),s.arc(c,l,80+d*22,0,Math.PI*2),s.fill();for(let e=0;e<3;e+=1){s.beginPath();let t=te+26+e*28+Math.sin(a.current*3+e)*2;s.strokeStyle=`rgba(145, 92, 255, ${.42-e*.1})`,s.lineWidth=1.1,s.arc(c,l,t,0,Math.PI*2),s.stroke()}s.strokeStyle=`rgba(140, 92, 255, 0.5)`,s.lineWidth=1.1,s.beginPath(),s.moveTo(c,0),s.lineTo(c,r),s.stroke(),s.fillStyle=`rgba(167, 140, 255, 0.42)`,s.font=`11px Cairo, sans-serif`,s.textAlign=`right`,s.fillText(`محاكاة غشاء الزمكان`,n-16,r-14),s.restore(),s.strokeStyle=`rgba(120, 88, 255, 0.24)`,s.lineWidth=1,s.beginPath(),s.roundRect(1,1,n-2,r-2,18),s.stroke(),o.current=requestAnimationFrame(u)};o.current=requestAnimationFrame(u);let d=(e,r)=>{let a=t.getBoundingClientRect();i.current={x:Math.max(0,Math.min(1,(e-a.left)/a.width)),y:Math.max(0,Math.min(1,(r-a.top)/a.height)),active:!0},n(!0)},f=e=>d(e.clientX,e.clientY),p=e=>{let t=e.touches[0];t&&d(t.clientX,t.clientY)},m=()=>{i.current.active=!1,n(!1)};return t.addEventListener(`mousemove`,f),t.addEventListener(`touchstart`,p,{passive:!0}),t.addEventListener(`touchmove`,p,{passive:!0}),t.addEventListener(`mouseleave`,m),t.addEventListener(`touchend`,m),()=>{cancelAnimationFrame(o.current),window.removeEventListener(`resize`,l),t.removeEventListener(`mousemove`,f),t.removeEventListener(`touchstart`,p),t.removeEventListener(`touchmove`,p),t.removeEventListener(`mouseleave`,m),t.removeEventListener(`touchend`,m)}},[e,t,n]),(0,$.jsx)(`canvas`,{ref:r,className:`spacetime-canvas`})}function T_({value:e,label:t,sublabel:n,hint:r,accent:i=`purple`}){return(0,$.jsx)(`div`,{className:`metric-card metric-${i}`,children:(0,$.jsxs)(`div`,{className:`metric-head`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`div`,{className:`metric-value`,children:e}),(0,$.jsx)(`div`,{className:`metric-chip`,children:r})]}),(0,$.jsxs)(`div`,{className:`metric-copy`,children:[(0,$.jsx)(`h3`,{children:t}),(0,$.jsx)(`p`,{children:n})]})]})})}function E_(){let[e,t]=(0,x.useState)(100),[n,r]=(0,x.useState)(!1),i=(0,x.useMemo)(()=>{let t=e/100,n=Math.round(t*100),r=Math.round(25+t*155);return{massLabel:S_(e),curveLevel:n,spacetimeFactor:r,hint:C_(e)}},[e]);return(0,$.jsxs)($.Fragment,{children:[(0,$.jsx)(`style`,{children:`
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Syne:wght@700;800&display=swap');
 
         html, body, #root {
@@ -2194,7 +2463,7 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
             width: 100%;
           }
         }
-      `}),(0,$.jsx)(`div`,{className:`spacetime-root`,children:(0,$.jsxs)(`div`,{className:`spacetime-shell`,children:[(0,$.jsxs)(`header`,{className:`spacetime-header`,children:[(0,$.jsx)(`div`,{className:`spacetime-pill`,children:`◉ محاكاة تفاعلية`}),(0,$.jsxs)(`h1`,{className:`spacetime-title`,children:[`انحناء `,(0,$.jsx)(`span`,{children:`غشاء الزمكان`})]}),(0,$.jsx)(`div`,{className:`spacetime-subtitle`,children:`SPACETIME CURVATURE`}),(0,$.jsx)(`p`,{className:`spacetime-lead`,children:`انحناء الزمكان من الأساس في النسبية العامة حيث تشوّه الكتلة والطاقة نسيج الفضاء-الزمن، وهنا يمكنك تتبع أثر الجاذبية على حركة الجسم القريب من البئر الجذبي.`})]}),(0,$.jsx)(`section`,{className:`visual-card`,children:(0,$.jsx)(x_,{mass:e,dragging:n,onPointerChange:r})}),(0,$.jsxs)(`section`,{className:`facts-card`,children:[(0,$.jsxs)(`div`,{className:`fact-item`,children:[(0,$.jsx)(`span`,{className:`fact-dot`}),(0,$.jsxs)(`span`,{children:[(0,$.jsx)(`strong`,{children:`النسبية العامة:`}),` الكتلة تثني الفضاء كما تثني قوة اليد سطحًا مرنًا، والأجسام تتبع هذا الانحناء.`]})]}),(0,$.jsxs)(`div`,{className:`fact-item`,children:[(0,$.jsx)(`span`,{className:`fact-dot`}),(0,$.jsxs)(`span`,{children:[(0,$.jsx)(`strong`,{children:`التأثير:`}),` كلما اقترب الجسم من المركز زاد انحراف مساره وتسارع سقوطه نحو البئر الجذبي.`]})]})]}),(0,$.jsxs)(`section`,{className:`metrics-grid`,children:[(0,$.jsx)(S_,{value:e,label:`الكتلة والتشويه`,sublabel:`Mass and Distortion`,hint:i.massLabel}),(0,$.jsx)(S_,{value:`${i.curveLevel}%`,label:`مستوى الانحناء`,sublabel:`Curvature Level`,hint:i.hint}),(0,$.jsx)(S_,{value:`${i.spacetimeFactor}%`,label:`معامل انحناء الزمكان`,sublabel:`Spacetime Curvature Factor`,hint:e>=90?`أفق الحدث قريب`:`زمن محلي يتمدد تدريجيًا`})]}),(0,$.jsxs)(`section`,{className:`control-card`,children:[(0,$.jsxs)(`div`,{className:`control-head`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`h3`,{children:`تحكم بالكتلة المركزية`}),(0,$.jsx)(`p`,{children:`غيّر شدة الكتلة أو حرّك المؤشر فوق الرسم لرؤية تغير المسار بشكل فوري.`})]}),(0,$.jsx)(`div`,{className:`pointer-chip`,children:n?`المسبار يتبع المؤشر الآن`:`حرّك المؤشر داخل الرسم`})]}),(0,$.jsxs)(`div`,{className:`slider-group`,children:[(0,$.jsxs)(`div`,{className:`slider-wrap`,children:[(0,$.jsx)(`div`,{className:`slider-fill`}),(0,$.jsx)(`input`,{className:`slider-input`,type:`range`,min:`0`,max:`100`,value:e,onChange:e=>t(Number(e.target.value))})]}),(0,$.jsxs)(`div`,{className:`slider-scale`,children:[(0,$.jsx)(`span`,{children:`0 مجال شبه مسطّح`}),(0,$.jsx)(`span`,{children:`100 تشوّه حاد`})]})]}),(0,$.jsx)(`div`,{className:`preset-row`,children:v_.map(n=>(0,$.jsx)(`button`,{type:`button`,className:`preset-btn${e===n.value?` active`:``}`,onClick:()=>t(n.value),children:n.label},n.label))}),(0,$.jsx)(`div`,{className:`canvas-help`,children:`الفكرة هنا بصرية تعليمية: الشبكة تتمدد نحو المركز مع زيادة الكتلة، والنقطة الصفراء تمثل جسمًا قريبًا يتأثر بالانحناء ويتغير مساره عند تحريكك للمؤشر.`})]})]})})]})}var w_=[{id:`mercury`,name:`عطارد`,en:`Mercury`,color:`#b7a488`,orbit:58,size:4.5,speed:4.15,day:`88 يوم`,year:`88 يوم`,fact:`أقرب الكواكب إلى الشمس وأسرعها دورانًا حولها.`},{id:`venus`,name:`الزهرة`,en:`Venus`,color:`#d8a46a`,orbit:108,size:7.5,speed:1.62,day:`243 يوم`,year:`225 يوم`,fact:`أشد الكواكب حرارة بسبب غلافه الجوي الكثيف.`},{id:`earth`,name:`الأرض`,en:`Earth`,color:`#3c82ff`,orbit:150,size:7.9,speed:1,day:`24 ساعة`,year:`365 يوم`,fact:`الكوكب الوحيد المعروف بوجود حياة ومحيطات سائلة على سطحه.`},{id:`mars`,name:`المريخ`,en:`Mars`,color:`#d95f4c`,orbit:228,size:6.1,speed:.53,day:`24.6 ساعة`,year:`687 يوم`,fact:`يتميز بلونه الأحمر نتيجة أكاسيد الحديد على سطحه.`},{id:`jupiter`,name:`المشتري`,en:`Jupiter`,color:`#d6a13f`,orbit:778,size:18,speed:.084,day:`10 ساعات`,year:`11.86 سنة`,fact:`أكبر كواكب النظام الشمسي ويملك عاصفة هائلة تسمى البقعة الحمراء الكبرى.`},{id:`saturn`,name:`زحل`,en:`Saturn`,color:`#e4c07d`,orbit:1433,size:15.5,speed:.034,day:`10.7 ساعة`,year:`29.4 سنة`,fact:`يشتهر بحلقاته الواسعة المكوّنة من الجليد والصخور.`},{id:`uranus`,name:`أورانوس`,en:`Uranus`,color:`#7dd8e7`,orbit:2872,size:11,speed:.012,day:`17 ساعة`,year:`84 سنة`,fact:`يميل على جانبه تقريبًا، لذلك يبدو كأنه يدور وهو متمدّد.`},{id:`neptune`,name:`نبتون`,en:`Neptune`,color:`#517cff`,orbit:4495,size:10.8,speed:.006,day:`16 ساعة`,year:`165 سنة`,fact:`أبعد كوكب رئيسي، ويتميز برياح من الأسرع في النظام الشمسي.`}];function T_({speed:e,selectedPlanet:t,onSelectPlanet:n}){let r=(0,x.useRef)(null),i=(0,x.useRef)(null),a=(0,x.useRef)(null);return(0,x.useEffect)(()=>{let o=r.current;if(!o)return;let s=o.getContext(`2d`),c=window.devicePixelRatio||1,l=0,u=[],d=()=>{let e=o.getBoundingClientRect();o.width=e.width*c,o.height=e.height*c,s.setTransform(c,0,0,c,0,0)},f=(e,t)=>54+Math.sqrt(e.orbit/w_[w_.length-1].orbit)*t,p=()=>{let n=o.clientWidth,r=o.clientHeight,c=n/2,d=r/2+18,m=Math.min(n*.42,390),h=.34;s.clearRect(0,0,n,r);let g=s.createLinearGradient(0,0,n,r);g.addColorStop(0,`rgba(11,14,31,0.98)`),g.addColorStop(1,`rgba(10,13,27,0.98)`),s.fillStyle=g,s.fillRect(0,0,n,r);for(let e=0;e<100;e+=1){let t=e*97.13%n,i=e*53.71%r,a=.06+e%6*.03;s.beginPath(),s.arc(t,i,e%3+.6,0,Math.PI*2),s.fillStyle=`rgba(255,255,255,${a})`,s.fill()}let _=s.createRadialGradient(c,d,0,c,d,90);_.addColorStop(0,`rgba(255,242,150,0.95)`),_.addColorStop(.28,`rgba(255,212,90,0.7)`),_.addColorStop(1,`rgba(255,200,70,0)`),s.fillStyle=_,s.beginPath(),s.arc(c,d,90,0,Math.PI*2),s.fill(),s.strokeStyle=`rgba(121, 130, 175, 0.19)`,s.lineWidth=1,w_.forEach(e=>{let t=f(e,m);s.beginPath(),s.ellipse(c,d,t,t*h,0,0,Math.PI*2),s.stroke()}),s.beginPath(),s.arc(c,d,33,0,Math.PI*2),s.fillStyle=`#f6e972`,s.shadowColor=`rgba(255, 224, 95, 0.6)`,s.shadowBlur=32,s.fill(),s.shadowBlur=0,u=[],l+=.0038*e,w_.forEach((e,n)=>{let r=f(e,m),i=r*h,o=l*e.speed+n*.85,p=c+Math.cos(o)*r,g=d+Math.sin(o)*i,_=t===e.id,v=e.size+(_?2.5:0);e.id===`saturn`&&(s.save(),s.translate(p,g),s.rotate(-.22),s.beginPath(),s.ellipse(0,0,v+9,v+3.2,0,0,Math.PI*2),s.strokeStyle=`rgba(226, 196, 138, 0.8)`,s.lineWidth=2.1,s.stroke(),s.restore()),s.beginPath(),s.arc(p,g,v+12,0,Math.PI*2),s.fillStyle=_?`rgba(168,117,255,0.17)`:`rgba(255,255,255,0.02)`,s.fill(),s.beginPath(),s.arc(p,g,v,0,Math.PI*2),s.fillStyle=e.color,s.shadowColor=_?`rgba(168,117,255,0.7)`:`${e.color}99`,s.shadowBlur=_?20:8,s.fill(),s.shadowBlur=0,(_||a.current===e.id)&&(s.fillStyle=`rgba(230,225,255,0.82)`,s.font=`12px Cairo, sans-serif`,s.textAlign=`center`,s.fillText(e.name,p,g-v-16)),u.push({id:e.id,x:p,y:g,radius:v+8})}),s.fillStyle=`rgba(176, 184, 215, 0.38)`,s.font=`12px Cairo, sans-serif`,s.textAlign=`right`,s.fillText(`محاكاة مدارات كوكبية`,n-16,r-18),i.current=requestAnimationFrame(p)};d(),window.addEventListener(`resize`,d),i.current=requestAnimationFrame(p);let m=(e,t)=>{let n=o.getBoundingClientRect(),r=e-n.left,i=t-n.top;return u.find(e=>{let t=r-e.x,n=i-e.y;return Math.sqrt(t*t+n*n)<=e.radius})},h=e=>{let t=m(e.clientX,e.clientY);a.current=t?.id||null,o.style.cursor=t?`pointer`:`crosshair`},g=()=>{a.current=null,o.style.cursor=`crosshair`},_=e=>{let t=m(e.clientX,e.clientY);t&&n(t.id)};return o.addEventListener(`mousemove`,h),o.addEventListener(`mouseleave`,g),o.addEventListener(`click`,_),()=>{cancelAnimationFrame(i.current),window.removeEventListener(`resize`,d),o.removeEventListener(`mousemove`,h),o.removeEventListener(`mouseleave`,g),o.removeEventListener(`click`,_)}},[e,t,n]),(0,$.jsx)(`canvas`,{ref:r,className:`solar-canvas`})}function E_(){let[e,t]=(0,x.useState)(50),[n,r]=(0,x.useState)(`earth`),i=(0,x.useMemo)(()=>w_.find(e=>e.id===n)||w_[2],[n]);return(0,$.jsxs)($.Fragment,{children:[(0,$.jsx)(`style`,{children:`
+      `}),(0,$.jsx)(`div`,{className:`spacetime-root`,children:(0,$.jsxs)(`div`,{className:`spacetime-shell`,children:[(0,$.jsxs)(`header`,{className:`spacetime-header`,children:[(0,$.jsx)(`div`,{className:`spacetime-pill`,children:`◉ محاكاة تفاعلية`}),(0,$.jsxs)(`h1`,{className:`spacetime-title`,children:[`انحناء `,(0,$.jsx)(`span`,{children:`غشاء الزمكان`})]}),(0,$.jsx)(`div`,{className:`spacetime-subtitle`,children:`SPACETIME CURVATURE`}),(0,$.jsx)(`p`,{className:`spacetime-lead`,children:`انحناء الزمكان من الأساس في النسبية العامة حيث تشوّه الكتلة والطاقة نسيج الفضاء-الزمن، وهنا يمكنك تتبع أثر الجاذبية على حركة الجسم القريب من البئر الجذبي.`})]}),(0,$.jsx)(`section`,{className:`visual-card`,children:(0,$.jsx)(w_,{mass:e,dragging:n,onPointerChange:r})}),(0,$.jsxs)(`section`,{className:`facts-card`,children:[(0,$.jsxs)(`div`,{className:`fact-item`,children:[(0,$.jsx)(`span`,{className:`fact-dot`}),(0,$.jsxs)(`span`,{children:[(0,$.jsx)(`strong`,{children:`النسبية العامة:`}),` الكتلة تثني الفضاء كما تثني قوة اليد سطحًا مرنًا، والأجسام تتبع هذا الانحناء.`]})]}),(0,$.jsxs)(`div`,{className:`fact-item`,children:[(0,$.jsx)(`span`,{className:`fact-dot`}),(0,$.jsxs)(`span`,{children:[(0,$.jsx)(`strong`,{children:`التأثير:`}),` كلما اقترب الجسم من المركز زاد انحراف مساره وتسارع سقوطه نحو البئر الجذبي.`]})]})]}),(0,$.jsxs)(`section`,{className:`metrics-grid`,children:[(0,$.jsx)(T_,{value:e,label:`الكتلة والتشويه`,sublabel:`Mass and Distortion`,hint:i.massLabel}),(0,$.jsx)(T_,{value:`${i.curveLevel}%`,label:`مستوى الانحناء`,sublabel:`Curvature Level`,hint:i.hint}),(0,$.jsx)(T_,{value:`${i.spacetimeFactor}%`,label:`معامل انحناء الزمكان`,sublabel:`Spacetime Curvature Factor`,hint:e>=90?`أفق الحدث قريب`:`زمن محلي يتمدد تدريجيًا`})]}),(0,$.jsxs)(`section`,{className:`control-card`,children:[(0,$.jsxs)(`div`,{className:`control-head`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`h3`,{children:`تحكم بالكتلة المركزية`}),(0,$.jsx)(`p`,{children:`غيّر شدة الكتلة أو حرّك المؤشر فوق الرسم لرؤية تغير المسار بشكل فوري.`})]}),(0,$.jsx)(`div`,{className:`pointer-chip`,children:n?`المسبار يتبع المؤشر الآن`:`حرّك المؤشر داخل الرسم`})]}),(0,$.jsxs)(`div`,{className:`slider-group`,children:[(0,$.jsxs)(`div`,{className:`slider-wrap`,children:[(0,$.jsx)(`div`,{className:`slider-fill`}),(0,$.jsx)(`input`,{className:`slider-input`,type:`range`,min:`0`,max:`100`,value:e,onChange:e=>t(Number(e.target.value))})]}),(0,$.jsxs)(`div`,{className:`slider-scale`,children:[(0,$.jsx)(`span`,{children:`0 مجال شبه مسطّح`}),(0,$.jsx)(`span`,{children:`100 تشوّه حاد`})]})]}),(0,$.jsx)(`div`,{className:`preset-row`,children:x_.map(n=>(0,$.jsx)(`button`,{type:`button`,className:`preset-btn${e===n.value?` active`:``}`,onClick:()=>t(n.value),children:n.label},n.label))}),(0,$.jsx)(`div`,{className:`canvas-help`,children:`الفكرة هنا بصرية تعليمية: الشبكة تتمدد نحو المركز مع زيادة الكتلة، والنقطة الصفراء تمثل جسمًا قريبًا يتأثر بالانحناء ويتغير مساره عند تحريكك للمؤشر.`})]})]})})]})}var D_=[{id:`mercury`,name:`عطارد`,en:`Mercury`,color:`#b7a488`,orbit:58,size:4.5,speed:4.15,day:`88 يوم`,year:`88 يوم`,fact:`أقرب الكواكب إلى الشمس وأسرعها دورانًا حولها.`},{id:`venus`,name:`الزهرة`,en:`Venus`,color:`#d8a46a`,orbit:108,size:7.5,speed:1.62,day:`243 يوم`,year:`225 يوم`,fact:`أشد الكواكب حرارة بسبب غلافه الجوي الكثيف.`},{id:`earth`,name:`الأرض`,en:`Earth`,color:`#3c82ff`,orbit:150,size:7.9,speed:1,day:`24 ساعة`,year:`365 يوم`,fact:`الكوكب الوحيد المعروف بوجود حياة ومحيطات سائلة على سطحه.`},{id:`mars`,name:`المريخ`,en:`Mars`,color:`#d95f4c`,orbit:228,size:6.1,speed:.53,day:`24.6 ساعة`,year:`687 يوم`,fact:`يتميز بلونه الأحمر نتيجة أكاسيد الحديد على سطحه.`},{id:`jupiter`,name:`المشتري`,en:`Jupiter`,color:`#d6a13f`,orbit:778,size:18,speed:.084,day:`10 ساعات`,year:`11.86 سنة`,fact:`أكبر كواكب النظام الشمسي ويملك عاصفة هائلة تسمى البقعة الحمراء الكبرى.`},{id:`saturn`,name:`زحل`,en:`Saturn`,color:`#e4c07d`,orbit:1433,size:15.5,speed:.034,day:`10.7 ساعة`,year:`29.4 سنة`,fact:`يشتهر بحلقاته الواسعة المكوّنة من الجليد والصخور.`},{id:`uranus`,name:`أورانوس`,en:`Uranus`,color:`#7dd8e7`,orbit:2872,size:11,speed:.012,day:`17 ساعة`,year:`84 سنة`,fact:`يميل على جانبه تقريبًا، لذلك يبدو كأنه يدور وهو متمدّد.`},{id:`neptune`,name:`نبتون`,en:`Neptune`,color:`#517cff`,orbit:4495,size:10.8,speed:.006,day:`16 ساعة`,year:`165 سنة`,fact:`أبعد كوكب رئيسي، ويتميز برياح من الأسرع في النظام الشمسي.`}];function O_({speed:e,selectedPlanet:t,onSelectPlanet:n}){let r=(0,x.useRef)(null),i=(0,x.useRef)(null),a=(0,x.useRef)(null);return(0,x.useEffect)(()=>{let o=r.current;if(!o)return;let s=o.getContext(`2d`),c=window.devicePixelRatio||1,l=0,u=[],d=()=>{let e=o.getBoundingClientRect();o.width=e.width*c,o.height=e.height*c,s.setTransform(c,0,0,c,0,0)},f=(e,t)=>54+Math.sqrt(e.orbit/D_[D_.length-1].orbit)*t,p=()=>{let n=o.clientWidth,r=o.clientHeight,c=n/2,d=r/2+18,m=Math.min(n*.42,390),h=.34;s.clearRect(0,0,n,r);let g=s.createLinearGradient(0,0,n,r);g.addColorStop(0,`rgba(11,14,31,0.98)`),g.addColorStop(1,`rgba(10,13,27,0.98)`),s.fillStyle=g,s.fillRect(0,0,n,r);for(let e=0;e<100;e+=1){let t=e*97.13%n,i=e*53.71%r,a=.06+e%6*.03;s.beginPath(),s.arc(t,i,e%3+.6,0,Math.PI*2),s.fillStyle=`rgba(255,255,255,${a})`,s.fill()}let _=s.createRadialGradient(c,d,0,c,d,90);_.addColorStop(0,`rgba(255,242,150,0.95)`),_.addColorStop(.28,`rgba(255,212,90,0.7)`),_.addColorStop(1,`rgba(255,200,70,0)`),s.fillStyle=_,s.beginPath(),s.arc(c,d,90,0,Math.PI*2),s.fill(),s.strokeStyle=`rgba(121, 130, 175, 0.19)`,s.lineWidth=1,D_.forEach(e=>{let t=f(e,m);s.beginPath(),s.ellipse(c,d,t,t*h,0,0,Math.PI*2),s.stroke()}),s.beginPath(),s.arc(c,d,33,0,Math.PI*2),s.fillStyle=`#f6e972`,s.shadowColor=`rgba(255, 224, 95, 0.6)`,s.shadowBlur=32,s.fill(),s.shadowBlur=0,u=[],l+=.0038*e,D_.forEach((e,n)=>{let r=f(e,m),i=r*h,o=l*e.speed+n*.85,p=c+Math.cos(o)*r,g=d+Math.sin(o)*i,_=t===e.id,v=e.size+(_?2.5:0);e.id===`saturn`&&(s.save(),s.translate(p,g),s.rotate(-.22),s.beginPath(),s.ellipse(0,0,v+9,v+3.2,0,0,Math.PI*2),s.strokeStyle=`rgba(226, 196, 138, 0.8)`,s.lineWidth=2.1,s.stroke(),s.restore()),s.beginPath(),s.arc(p,g,v+12,0,Math.PI*2),s.fillStyle=_?`rgba(168,117,255,0.17)`:`rgba(255,255,255,0.02)`,s.fill(),s.beginPath(),s.arc(p,g,v,0,Math.PI*2),s.fillStyle=e.color,s.shadowColor=_?`rgba(168,117,255,0.7)`:`${e.color}99`,s.shadowBlur=_?20:8,s.fill(),s.shadowBlur=0,(_||a.current===e.id)&&(s.fillStyle=`rgba(230,225,255,0.82)`,s.font=`12px Cairo, sans-serif`,s.textAlign=`center`,s.fillText(e.name,p,g-v-16)),u.push({id:e.id,x:p,y:g,radius:v+8})}),s.fillStyle=`rgba(176, 184, 215, 0.38)`,s.font=`12px Cairo, sans-serif`,s.textAlign=`right`,s.fillText(`محاكاة مدارات كوكبية`,n-16,r-18),i.current=requestAnimationFrame(p)};d(),window.addEventListener(`resize`,d),i.current=requestAnimationFrame(p);let m=(e,t)=>{let n=o.getBoundingClientRect(),r=e-n.left,i=t-n.top;return u.find(e=>{let t=r-e.x,n=i-e.y;return Math.sqrt(t*t+n*n)<=e.radius})},h=e=>{let t=m(e.clientX,e.clientY);a.current=t?.id||null,o.style.cursor=t?`pointer`:`crosshair`},g=()=>{a.current=null,o.style.cursor=`crosshair`},_=e=>{let t=m(e.clientX,e.clientY);t&&n(t.id)};return o.addEventListener(`mousemove`,h),o.addEventListener(`mouseleave`,g),o.addEventListener(`click`,_),()=>{cancelAnimationFrame(i.current),window.removeEventListener(`resize`,d),o.removeEventListener(`mousemove`,h),o.removeEventListener(`mouseleave`,g),o.removeEventListener(`click`,_)}},[e,t,n]),(0,$.jsx)(`canvas`,{ref:r,className:`solar-canvas`})}function k_(){let[e,t]=(0,x.useState)(50),[n,r]=(0,x.useState)(`earth`),i=(0,x.useMemo)(()=>D_.find(e=>e.id===n)||D_[2],[n]);return(0,$.jsxs)($.Fragment,{children:[(0,$.jsx)(`style`,{children:`
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Syne:wght@700;800&display=swap');
 
         html, body, #root {
@@ -2503,7 +2772,7 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
           .solar-canvas { height: 320px; }
           .section-head, .planet-top { flex-direction: column; align-items: flex-start; }
         }
-      `}),(0,$.jsx)(`div`,{className:`solar-root`,children:(0,$.jsxs)(`div`,{className:`solar-shell`,children:[(0,$.jsxs)(`header`,{className:`solar-header`,children:[(0,$.jsx)(`div`,{className:`solar-pill`,children:`☉ محاكاة مدارية`}),(0,$.jsxs)(`h1`,{className:`solar-title`,children:[(0,$.jsx)(`span`,{children:`النظام الشمسي`}),` بدقة بصرية أعلى`]}),(0,$.jsx)(`div`,{className:`solar-subtitle`,children:`SOLAR SYSTEM SIMULATION`}),(0,$.jsx)(`p`,{className:`solar-lead`,children:`نموذج بصري تفاعلي لحركة الكواكب حول الشمس بأسلوب أقرب للواقع من النسخة السابقة، مع مدارات أوضح، أحجام منمّقة، وسرعة زمنية قابلة للتحكم دون الخروج عن لغة التصميم الداكنة للمشروع.`})]}),(0,$.jsx)(`section`,{className:`solar-visual`,children:(0,$.jsx)(T_,{speed:Math.max(e/16,.2),selectedPlanet:n,onSelectPlanet:r})}),(0,$.jsxs)(`section`,{className:`solar-info`,children:[(0,$.jsxs)(`div`,{className:`solar-info-row`,children:[(0,$.jsx)(`span`,{className:`solar-dot`}),(0,$.jsxs)(`span`,{children:[(0,$.jsx)(`strong`,{children:`المدارات:`}),` تم توزيعها بصريًا باستخدام مقياس مضغوط حتى تظهر الكواكب الداخلية والخارجية في نفس المشهد بشكل مقروء.`]})]}),(0,$.jsxs)(`div`,{className:`solar-info-row`,children:[(0,$.jsx)(`span`,{className:`solar-dot`}),(0,$.jsxs)(`span`,{children:[(0,$.jsx)(`strong`,{children:`التفاعل:`}),` حرّك المؤشر فوق الرسم أو اضغط على كوكب لتحديده، ثم راقب تفاصيله وسرعته المدارية مقارنة ببقية الأجرام.`]})]})]}),(0,$.jsxs)(`div`,{className:`solar-bottom`,children:[(0,$.jsxs)(`section`,{className:`solar-control`,children:[(0,$.jsxs)(`div`,{className:`section-head`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`h3`,{children:`تحكم بالزمن المداري`}),(0,$.jsx)(`p`,{children:`عدّل سرعة المحاكاة أو اختر كوكبًا محددًا للتركيز عليه.`})]}),(0,$.jsxs)(`div`,{className:`speed-chip`,children:[`سرعة المحاكاة: `,e,`%`]})]}),(0,$.jsxs)(`div`,{className:`slider-wrap`,children:[(0,$.jsx)(`div`,{className:`slider-fill`}),(0,$.jsx)(`input`,{className:`slider-input`,type:`range`,min:`0`,max:`100`,value:e,onChange:e=>t(Number(e.target.value))})]}),(0,$.jsxs)(`div`,{className:`slider-scale`,children:[(0,$.jsx)(`span`,{children:`بطيء`}),(0,$.jsx)(`span`,{children:`سريع`})]}),(0,$.jsx)(`div`,{className:`planet-pills`,children:w_.map(e=>(0,$.jsx)(`button`,{type:`button`,className:`planet-pill${n===e.id?` active`:``}`,onClick:()=>r(e.id),children:e.name},e.id))}),(0,$.jsx)(`div`,{className:`solar-help`,children:`تحسين الدقة هنا بصري وتعليمي: الكواكب الخارجية ما تزال أصغر نسبيًا من الصورة الواقعية، لكن توزيع المسافات والحركة صار أوضح وأكثر اتزانًا داخل نفس تصميم صفحاتك.`})]}),(0,$.jsxs)(`section`,{className:`solar-planet-card`,children:[(0,$.jsxs)(`div`,{className:`planet-top`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`h2`,{className:`planet-title`,children:i.name}),(0,$.jsx)(`div`,{className:`planet-sub`,children:i.en})]}),(0,$.jsx)(`div`,{className:`planet-preview${i.id===`saturn`?` saturn`:``}`})]}),(0,$.jsxs)(`div`,{className:`planet-grid`,children:[(0,$.jsxs)(`div`,{className:`planet-metric`,children:[(0,$.jsx)(`span`,{children:`زمن الدوران حول الشمس`}),(0,$.jsx)(`strong`,{children:i.year})]}),(0,$.jsxs)(`div`,{className:`planet-metric`,children:[(0,$.jsx)(`span`,{children:`طول اليوم`}),(0,$.jsx)(`strong`,{children:i.day})]}),(0,$.jsxs)(`div`,{className:`planet-metric`,children:[(0,$.jsx)(`span`,{children:`المسافة المدارية`}),(0,$.jsxs)(`strong`,{children:[i.orbit,` مليون كم`]})]}),(0,$.jsxs)(`div`,{className:`planet-metric`,children:[(0,$.jsx)(`span`,{children:`السرعة النسبية`}),(0,$.jsxs)(`strong`,{children:[i.speed.toFixed(2),`x`]})]})]}),(0,$.jsx)(`div`,{className:`planet-fact`,children:i.fact})]})]})]})})]})}var D_=[{id:`alive-calm`,label:`القط السالم`,en:`Alive / Calm`,color:`#67d96a`,icon:`🐈`},{id:`alive-alert`,label:`القط المتحفز`,en:`Alive / Alert`,color:`#1fd4ff`,icon:`👁️`},{id:`alive-curious`,label:`القط الفضولي`,en:`Alive / Curious`,color:`#7c9dff`,icon:`🌌`},{id:`dead-silent`,label:`القط الساكن`,en:`Dead / Silent`,color:`#a855f7`,icon:`🕯️`},{id:`dead-toxic`,label:`الغاز المنبعث`,en:`Toxic Release`,color:`#ff7a59`,icon:`☢️`},{id:`dead-box`,label:`الصندوق المغلق`,en:`Closed Box`,color:`#ff4f9b`,icon:`📦`}];function O_(e,t,n){let r=Math.max(.12,e/100*.68+(100-t)/100*.52-n/100*.12),i=Math.max(.12,t/100*.74+n/100*.3),a={"alive-calm":r*(.44+e/280),"alive-alert":r*(.24+n/230),"alive-curious":r*(.2+(100-t)/300),"dead-silent":i*(.34+t/260),"dead-toxic":i*(.27+t/180),"dead-box":i*(.2+n/220)},o=Object.values(a).reduce((e,t)=>e+t,0);return D_.map(e=>({...e,probability:Math.round(a[e.id]/o*100)})).map((e,t,n)=>{if(t!==n.length-1)return e;let r=100-n.reduce((e,t)=>e+t.probability,0);return{...e,probability:e.probability+r}})}function k_({collapseColor:e,measuring:t}){let n=(0,x.useRef)(null);return(0,x.useEffect)(()=>{let e=n.current;if(!e)return;let t=t=>{let n=e.getBoundingClientRect(),r=((t.clientX-n.left)/n.width-.5)*18,i=((t.clientY-n.top)/n.height-.5)*18;e.style.setProperty(`--mx`,`${r}px`),e.style.setProperty(`--my`,`${i}px`)},r=()=>{e.style.setProperty(`--mx`,`0px`),e.style.setProperty(`--my`,`0px`)};return e.addEventListener(`mousemove`,t),e.addEventListener(`mouseleave`,r),()=>{e.removeEventListener(`mousemove`,t),e.removeEventListener(`mouseleave`,r)}},[]),(0,$.jsxs)(`div`,{ref:n,className:`quantum-orb${t?` measuring`:``}`,style:{"--collapse":e},children:[(0,$.jsx)(`div`,{className:`orb-core`}),(0,$.jsx)(`div`,{className:`orb-halo`}),(0,$.jsx)(`div`,{className:`orb-noise orb-noise-a`}),(0,$.jsx)(`div`,{className:`orb-noise orb-noise-b`}),(0,$.jsx)(`div`,{className:`orb-rings`})]})}function A_(){let[e,t]=(0,x.useState)(63),[n,r]=(0,x.useState)(38),[i,a]=(0,x.useState)(27),[o,s]=(0,x.useState)(null),[c,l]=(0,x.useState)([]),[u,d]=(0,x.useState)(!1),f=(0,x.useMemo)(()=>O_(e,n,i),[e,n,i]),p=(0,x.useMemo)(()=>f.filter(e=>e.id.startsWith(`alive`)).reduce((e,t)=>e+t.probability,0),[f]),m=(0,x.useMemo)(()=>o?{title:o.label,subtitle:`انهارت الدالة الموجية على الحالة: ${o.en}`,color:o.color}:{title:`حالة تراكب كمّي`,subtitle:`يمكن أن يكون القط حيًا أو ميتًا في الوقت نفسه حتى لحظة القياس.`,color:`#8b5cf6`},[o]);return(0,$.jsxs)($.Fragment,{children:[(0,$.jsx)(`style`,{children:`
+      `}),(0,$.jsx)(`div`,{className:`solar-root`,children:(0,$.jsxs)(`div`,{className:`solar-shell`,children:[(0,$.jsxs)(`header`,{className:`solar-header`,children:[(0,$.jsx)(`div`,{className:`solar-pill`,children:`☉ محاكاة مدارية`}),(0,$.jsxs)(`h1`,{className:`solar-title`,children:[(0,$.jsx)(`span`,{children:`النظام الشمسي`}),` بدقة بصرية أعلى`]}),(0,$.jsx)(`div`,{className:`solar-subtitle`,children:`SOLAR SYSTEM SIMULATION`}),(0,$.jsx)(`p`,{className:`solar-lead`,children:`نموذج بصري تفاعلي لحركة الكواكب حول الشمس بأسلوب أقرب للواقع من النسخة السابقة، مع مدارات أوضح، أحجام منمّقة، وسرعة زمنية قابلة للتحكم دون الخروج عن لغة التصميم الداكنة للمشروع.`})]}),(0,$.jsx)(`section`,{className:`solar-visual`,children:(0,$.jsx)(O_,{speed:Math.max(e/16,.2),selectedPlanet:n,onSelectPlanet:r})}),(0,$.jsxs)(`section`,{className:`solar-info`,children:[(0,$.jsxs)(`div`,{className:`solar-info-row`,children:[(0,$.jsx)(`span`,{className:`solar-dot`}),(0,$.jsxs)(`span`,{children:[(0,$.jsx)(`strong`,{children:`المدارات:`}),` تم توزيعها بصريًا باستخدام مقياس مضغوط حتى تظهر الكواكب الداخلية والخارجية في نفس المشهد بشكل مقروء.`]})]}),(0,$.jsxs)(`div`,{className:`solar-info-row`,children:[(0,$.jsx)(`span`,{className:`solar-dot`}),(0,$.jsxs)(`span`,{children:[(0,$.jsx)(`strong`,{children:`التفاعل:`}),` حرّك المؤشر فوق الرسم أو اضغط على كوكب لتحديده، ثم راقب تفاصيله وسرعته المدارية مقارنة ببقية الأجرام.`]})]})]}),(0,$.jsxs)(`div`,{className:`solar-bottom`,children:[(0,$.jsxs)(`section`,{className:`solar-control`,children:[(0,$.jsxs)(`div`,{className:`section-head`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`h3`,{children:`تحكم بالزمن المداري`}),(0,$.jsx)(`p`,{children:`عدّل سرعة المحاكاة أو اختر كوكبًا محددًا للتركيز عليه.`})]}),(0,$.jsxs)(`div`,{className:`speed-chip`,children:[`سرعة المحاكاة: `,e,`%`]})]}),(0,$.jsxs)(`div`,{className:`slider-wrap`,children:[(0,$.jsx)(`div`,{className:`slider-fill`}),(0,$.jsx)(`input`,{className:`slider-input`,type:`range`,min:`0`,max:`100`,value:e,onChange:e=>t(Number(e.target.value))})]}),(0,$.jsxs)(`div`,{className:`slider-scale`,children:[(0,$.jsx)(`span`,{children:`بطيء`}),(0,$.jsx)(`span`,{children:`سريع`})]}),(0,$.jsx)(`div`,{className:`planet-pills`,children:D_.map(e=>(0,$.jsx)(`button`,{type:`button`,className:`planet-pill${n===e.id?` active`:``}`,onClick:()=>r(e.id),children:e.name},e.id))}),(0,$.jsx)(`div`,{className:`solar-help`,children:`تحسين الدقة هنا بصري وتعليمي: الكواكب الخارجية ما تزال أصغر نسبيًا من الصورة الواقعية، لكن توزيع المسافات والحركة صار أوضح وأكثر اتزانًا داخل نفس تصميم صفحاتك.`})]}),(0,$.jsxs)(`section`,{className:`solar-planet-card`,children:[(0,$.jsxs)(`div`,{className:`planet-top`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`h2`,{className:`planet-title`,children:i.name}),(0,$.jsx)(`div`,{className:`planet-sub`,children:i.en})]}),(0,$.jsx)(`div`,{className:`planet-preview${i.id===`saturn`?` saturn`:``}`})]}),(0,$.jsxs)(`div`,{className:`planet-grid`,children:[(0,$.jsxs)(`div`,{className:`planet-metric`,children:[(0,$.jsx)(`span`,{children:`زمن الدوران حول الشمس`}),(0,$.jsx)(`strong`,{children:i.year})]}),(0,$.jsxs)(`div`,{className:`planet-metric`,children:[(0,$.jsx)(`span`,{children:`طول اليوم`}),(0,$.jsx)(`strong`,{children:i.day})]}),(0,$.jsxs)(`div`,{className:`planet-metric`,children:[(0,$.jsx)(`span`,{children:`المسافة المدارية`}),(0,$.jsxs)(`strong`,{children:[i.orbit,` مليون كم`]})]}),(0,$.jsxs)(`div`,{className:`planet-metric`,children:[(0,$.jsx)(`span`,{children:`السرعة النسبية`}),(0,$.jsxs)(`strong`,{children:[i.speed.toFixed(2),`x`]})]})]}),(0,$.jsx)(`div`,{className:`planet-fact`,children:i.fact})]})]})]})})]})}var A_=[{id:`alive-calm`,label:`القط السالم`,en:`Alive / Calm`,color:`#67d96a`,icon:`🐈`},{id:`alive-alert`,label:`القط المتحفز`,en:`Alive / Alert`,color:`#1fd4ff`,icon:`👁️`},{id:`alive-curious`,label:`القط الفضولي`,en:`Alive / Curious`,color:`#7c9dff`,icon:`🌌`},{id:`dead-silent`,label:`القط الساكن`,en:`Dead / Silent`,color:`#a855f7`,icon:`🕯️`},{id:`dead-toxic`,label:`الغاز المنبعث`,en:`Toxic Release`,color:`#ff7a59`,icon:`☢️`},{id:`dead-box`,label:`الصندوق المغلق`,en:`Closed Box`,color:`#ff4f9b`,icon:`📦`}];function j_(e,t,n){let r=Math.max(.12,e/100*.68+(100-t)/100*.52-n/100*.12),i=Math.max(.12,t/100*.74+n/100*.3),a={"alive-calm":r*(.44+e/280),"alive-alert":r*(.24+n/230),"alive-curious":r*(.2+(100-t)/300),"dead-silent":i*(.34+t/260),"dead-toxic":i*(.27+t/180),"dead-box":i*(.2+n/220)},o=Object.values(a).reduce((e,t)=>e+t,0);return A_.map(e=>({...e,probability:Math.round(a[e.id]/o*100)})).map((e,t,n)=>{if(t!==n.length-1)return e;let r=100-n.reduce((e,t)=>e+t.probability,0);return{...e,probability:e.probability+r}})}function M_({collapseColor:e,measuring:t}){let n=(0,x.useRef)(null);return(0,x.useEffect)(()=>{let e=n.current;if(!e)return;let t=t=>{let n=e.getBoundingClientRect(),r=((t.clientX-n.left)/n.width-.5)*18,i=((t.clientY-n.top)/n.height-.5)*18;e.style.setProperty(`--mx`,`${r}px`),e.style.setProperty(`--my`,`${i}px`)},r=()=>{e.style.setProperty(`--mx`,`0px`),e.style.setProperty(`--my`,`0px`)};return e.addEventListener(`mousemove`,t),e.addEventListener(`mouseleave`,r),()=>{e.removeEventListener(`mousemove`,t),e.removeEventListener(`mouseleave`,r)}},[]),(0,$.jsxs)(`div`,{ref:n,className:`quantum-orb${t?` measuring`:``}`,style:{"--collapse":e},children:[(0,$.jsx)(`div`,{className:`orb-core`}),(0,$.jsx)(`div`,{className:`orb-halo`}),(0,$.jsx)(`div`,{className:`orb-noise orb-noise-a`}),(0,$.jsx)(`div`,{className:`orb-noise orb-noise-b`}),(0,$.jsx)(`div`,{className:`orb-rings`})]})}function N_(){let[e,t]=(0,x.useState)(63),[n,r]=(0,x.useState)(38),[i,a]=(0,x.useState)(27),[o,s]=(0,x.useState)(null),[c,l]=(0,x.useState)([]),[u,d]=(0,x.useState)(!1),f=(0,x.useMemo)(()=>j_(e,n,i),[e,n,i]),p=(0,x.useMemo)(()=>f.filter(e=>e.id.startsWith(`alive`)).reduce((e,t)=>e+t.probability,0),[f]),m=(0,x.useMemo)(()=>o?{title:o.label,subtitle:`انهارت الدالة الموجية على الحالة: ${o.en}`,color:o.color}:{title:`حالة تراكب كمّي`,subtitle:`يمكن أن يكون القط حيًا أو ميتًا في الوقت نفسه حتى لحظة القياس.`,color:`#8b5cf6`},[o]);return(0,$.jsxs)($.Fragment,{children:[(0,$.jsx)(`style`,{children:`
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Syne:wght@700;800&display=swap');
 
         html, body, #root {
@@ -3014,7 +3283,7 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
             height: 280px;
           }
         }
-      `}),(0,$.jsx)(`div`,{className:`sch-root`,children:(0,$.jsxs)(`div`,{className:`sch-shell`,children:[(0,$.jsxs)(`section`,{className:`sch-hero`,children:[(0,$.jsxs)(`div`,{className:`sch-copy`,children:[(0,$.jsx)(`div`,{className:`sch-pill`,children:`🌀 تجربة فكرية كمية`}),(0,$.jsxs)(`h1`,{className:`sch-title`,children:[(0,$.jsx)(`span`,{children:`قطة شرودنجر`}),` والتراكب الكمي`]}),(0,$.jsx)(`p`,{className:`sch-lead`,children:`قبل القياس تبقى الحالة في تراكب بين احتمالات متعددة. عند الرصد تنهار الدالة الموجية ويجبر النظام الكمّي على اختيار نتيجة واحدة فقط من بين جميع الإمكانات.`}),(0,$.jsxs)(`div`,{className:`status-row`,children:[(0,$.jsxs)(`div`,{className:`status-chip`,children:[`احتمال الحياة: `,p,`%`]}),(0,$.jsxs)(`div`,{className:`status-chip`,children:[`الرصد الحالي: `,i,`%`]})]})]}),(0,$.jsx)(`div`,{className:`hero-visual sch-card`,children:(0,$.jsx)(k_,{collapseColor:m.color,measuring:u})})]}),(0,$.jsxs)(`section`,{className:`sch-measure-card`,children:[(0,$.jsxs)(`div`,{className:`measure-top`,children:[(0,$.jsxs)(`div`,{className:`measure-head`,children:[(0,$.jsx)(`h3`,{children:m.title}),(0,$.jsx)(`p`,{children:m.subtitle})]}),(0,$.jsx)(`div`,{className:`collapse-badge`,children:`انهيار الدالة الموجية`})]}),(0,$.jsx)(`button`,{className:`measure-button`,onClick:()=>{d(!0),window.setTimeout(()=>{let e=Math.random()*100,t=0,n=f.find(n=>(t+=n.probability,e<=t))||f[0],r=new Date,i=`${r.getHours()}:${String(r.getMinutes()).padStart(2,`0`)}:${String(r.getSeconds()).padStart(2,`0`)}`;s(n),l(e=>[{...n,stamp:i},...e].slice(0,5)),d(!1)},950)},disabled:u,children:u?`جاري القياس الكمّي...`:`قياس الحالة الآن`}),(0,$.jsx)(`div`,{className:`collapse-sub`,children:`[COLLAPSE WAVEFUNCTION] - forcing reality to choose one state`})]}),(0,$.jsxs)(`section`,{className:`control-grid`,children:[(0,$.jsxs)(`div`,{className:`sch-grid-card`,children:[(0,$.jsx)(`h4`,{children:`تماسك الحالة`}),(0,$.jsx)(`p`,{children:`Quantum Coherence`}),(0,$.jsxs)(`div`,{className:`metric-value`,children:[e,`%`]}),(0,$.jsxs)(`div`,{className:`slider-wrap`,children:[(0,$.jsx)(`div`,{className:`slider-fill`,style:{width:`${e}%`}}),(0,$.jsx)(`input`,{className:`slider-input`,type:`range`,min:`0`,max:`100`,value:e,onChange:e=>t(Number(e.target.value))})]}),(0,$.jsxs)(`div`,{className:`slider-scale`,children:[(0,$.jsx)(`span`,{children:`فوضى`}),(0,$.jsx)(`span`,{children:`تماسك`})]})]}),(0,$.jsxs)(`div`,{className:`sch-grid-card`,children:[(0,$.jsx)(`h4`,{children:`معدل الاضمحلال`}),(0,$.jsx)(`p`,{children:`Decay Trigger`}),(0,$.jsxs)(`div`,{className:`metric-value`,children:[n,`%`]}),(0,$.jsxs)(`div`,{className:`slider-wrap`,children:[(0,$.jsx)(`div`,{className:`slider-fill`,style:{width:`${n}%`}}),(0,$.jsx)(`input`,{className:`slider-input`,type:`range`,min:`0`,max:`100`,value:n,onChange:e=>r(Number(e.target.value))})]}),(0,$.jsxs)(`div`,{className:`slider-scale`,children:[(0,$.jsx)(`span`,{children:`هادئ`}),(0,$.jsx)(`span`,{children:`نشط`})]})]}),(0,$.jsxs)(`div`,{className:`sch-grid-card`,children:[(0,$.jsx)(`h4`,{children:`شدة الملاحظة`}),(0,$.jsx)(`p`,{children:`Observation Strength`}),(0,$.jsxs)(`div`,{className:`metric-value`,children:[i,`%`]}),(0,$.jsxs)(`div`,{className:`slider-wrap`,children:[(0,$.jsx)(`div`,{className:`slider-fill`,style:{width:`${i}%`}}),(0,$.jsx)(`input`,{className:`slider-input`,type:`range`,min:`0`,max:`100`,value:i,onChange:e=>a(Number(e.target.value))})]}),(0,$.jsxs)(`div`,{className:`slider-scale`,children:[(0,$.jsx)(`span`,{children:`خفية`}),(0,$.jsx)(`span`,{children:`رصد مباشر`})]})]})]}),(0,$.jsxs)(`section`,{className:`sch-outcomes`,children:[(0,$.jsx)(`h3`,{className:`outcomes-title`,children:`احتمالات التراكب قبل القياس`}),(0,$.jsx)(`div`,{className:`outcomes-grid`,children:f.map(e=>(0,$.jsxs)(`div`,{className:`outcome-card`,children:[(0,$.jsxs)(`div`,{className:`outcome-top`,children:[(0,$.jsxs)(`div`,{className:`outcome-label`,style:{color:e.color},children:[e.icon,` `,e.label]}),(0,$.jsxs)(`div`,{className:`outcome-pct`,style:{color:e.color},children:[e.probability,`%`]})]}),(0,$.jsx)(`div`,{className:`outcome-bar`,children:(0,$.jsx)(`span`,{style:{width:`${e.probability}%`,background:e.color}})})]},e.id))})]}),(0,$.jsxs)(`section`,{className:`sch-bottom`,children:[(0,$.jsxs)(`div`,{className:`concept-grid`,children:[(0,$.jsxs)(`div`,{className:`concept-card`,children:[(0,$.jsx)(`h4`,{style:{color:`#1fd4ff`},children:`التراكب الكمي`}),(0,$.jsx)(`p`,{children:`قبل القياس لا نملك حالة مفردة مؤكدة، بل تتعايش عدة إمكانات معًا داخل وصف موجي واحد.`})]}),(0,$.jsxs)(`div`,{className:`concept-card`,children:[(0,$.jsx)(`h4`,{style:{color:`#9f8cff`},children:`انهيار الدالة`}),(0,$.jsx)(`p`,{children:`عند القياس تختفي بقية الاحتمالات من المشهد المرصود وتبقى نتيجة واحدة فقط قابلة للملاحظة.`})]}),(0,$.jsxs)(`div`,{className:`concept-card`,children:[(0,$.jsx)(`h4`,{style:{color:`#ff7a59`},children:`عدم اليقين`}),(0,$.jsx)(`p`,{children:`كلما ازدادت التفاعلات أو المراقبة، ضعفت نقاوة التراكب وأصبح النظام أقرب إلى حالة محددة.`})]})]}),(0,$.jsxs)(`aside`,{className:`sch-history`,children:[(0,$.jsx)(`h3`,{children:`نتائج القياس الأخيرة`}),c.length===0?(0,$.jsx)(`div`,{className:`history-item`,children:(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`strong`,{children:`لا توجد قياسات بعد`}),(0,$.jsx)(`span`,{children:`اضغط على زر القياس لرؤية نتيجة انهيار الدالة الموجية.`})]})}):c.map((e,t)=>(0,$.jsxs)(`div`,{className:`history-item`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`strong`,{style:{color:e.color},children:e.label}),(0,$.jsx)(`span`,{children:e.en})]}),(0,$.jsx)(`div`,{className:`history-time`,children:e.stamp})]},`${e.id}-${e.stamp}-${t}`))]})]})]})})]})}var j_=[{id:`blue-giant`,name:`النجوم الزرقاء العملاقة`,en:`Blue Giants`,color:`#4f7cff`,glow:`rgba(79,124,255,0.45)`,radius:24,temp:`20,000 - 50,000 كلفن`,life:`قصير جدًا`,mass:`10 - 50 كتلة شمسية`,fact:`نجوم شديدة السخونة واللمعان، تستهلك وقودها بسرعة هائلة وتعيش عمرًا قصيرًا نسبيًا.`,bullets:[`سطوع استثنائي`,`حرارة فائقة`,`نهاية عنيفة غالبًا`]},{id:`red-giant`,name:`العمالقة الحمر`,en:`Red Giants`,color:`#ff5f3d`,glow:`rgba(255,95,61,0.42)`,radius:31,temp:`3,000 - 4,500 كلفن`,life:`مرحلة متأخرة`,mass:`0.5 - 8 كتل شمسية`,fact:`تتمدد هذه النجوم عندما تنفد نواتها من الهيدروجين، فتزداد حجمًا ويبرد سطحها نسبيًا.`,bullets:[`سطح أبرد`,`حجم هائل`,`مرحلة انتقالية قبل النهاية`]},{id:`yellow-dwarf`,name:`النجوم القزمة`,en:`Dwarf Stars`,color:`#ffb703`,glow:`rgba(255,183,3,0.4)`,radius:16,temp:`2,500 - 50,000 كلفن`,life:`قد تطول مليارات السنين`,mass:`أقل من 1 كتلة شمسية غالبًا`,fact:`تشمل عدة أنواع، لكنها عمومًا أكثر شيوعًا واستقرارًا من النجوم العملاقة.`,bullets:[`منتشرة بكثرة`,`أحجام أصغر`,`استقرار أعلى`]},{id:`variable`,name:`النجوم المتغيرة`,en:`Variable Stars`,color:`#c93cff`,glow:`rgba(201,60,255,0.38)`,radius:18,temp:`متفاوتة`,life:`تذبذب مستمر`,mass:`متنوعة`,fact:`يتغير سطوعها مع الزمن نتيجة نبضات داخلية أو ظروف فيزيائية خارجية أو ثنائيات نجمية.`,bullets:[`سطوع متبدل`,`مفيدة في القياس الكوني`,`أنماط نبض مختلفة`]},{id:`neutron`,name:`النجوم النيوترونية`,en:`Neutron Stars`,color:`#14b8ff`,glow:`rgba(20,184,255,0.4)`,radius:11,temp:`ملايين الدرجات داخليًا`,life:`بقايا فائقة الكثافة`,mass:`1.4 - 2.1 كتلة شمسية`,fact:`تتشكل بعد انفجار نجوم ضخمة، وتُعد من أكثر الأجسام كثافة في الكون بعد الثقوب السوداء.`,bullets:[`دوران سريع جدًا`,`نبضات راديوية محتملة`,`جاذبية هائلة`]},{id:`white-dwarf`,name:`الأقزام البيضاء`,en:`White Dwarfs`,color:`#e9eefb`,glow:`rgba(233,238,251,0.35)`,radius:13,temp:`8,000 - 100,000 كلفن`,life:`تبرد تدريجيًا`,mass:`قرابة كتلة شمسية ضمن حجم صغير`,fact:`نوى نجمية متبقية بعد طرد الطبقات الخارجية، وهي صغيرة جدًا لكنها كثيفة بشكل ملحوظ.`,bullets:[`كثافة مرتفعة`,`حجم أرضي تقريبًا`,`بقايا نجوم متوسطة`]}];function M_({activeStar:e,pulse:t}){let n=(0,x.useRef)(null),r=(0,x.useRef)(null);return(0,x.useEffect)(()=>{let i=n.current;if(!i)return;let a=i.getContext(`2d`),o=window.devicePixelRatio||1,s=0,c=Array.from({length:120},(e,t)=>({x:t*71.3%1e3/1e3,y:t*41.7%1e3/1e3,size:.8+t%3*.55,alpha:.12+t%5*.05})),l=()=>{let e=i.getBoundingClientRect();i.width=e.width*o,i.height=e.height*o,a.setTransform(o,0,0,o,0,0)},u=(e,t,n,r=1,i=!1)=>{let o=e.radius*r,c=a.createRadialGradient(t,n,0,t,n,o*2.6);if(c.addColorStop(0,e.color),c.addColorStop(.3,e.glow),c.addColorStop(1,`rgba(255,255,255,0)`),a.fillStyle=c,a.beginPath(),a.arc(t,n,o*2.6,0,Math.PI*2),a.fill(),e.id===`variable`)a.beginPath(),a.arc(t,n,o*(.84+Math.sin(s*.08)*.08),0,Math.PI*2),a.fillStyle=e.color,a.fill();else if(e.id===`neutron`){a.beginPath(),a.arc(t,n,o*.9,0,Math.PI*2),a.fillStyle=e.color,a.fill(),a.save(),a.translate(t,n),a.rotate(s*.05);let r=a.createLinearGradient(0,0,o*5,0);r.addColorStop(0,`rgba(20,184,255,0.65)`),r.addColorStop(1,`rgba(20,184,255,0)`),a.fillStyle=r,a.fillRect(0,-2,o*5,4),a.rotate(Math.PI),a.fillStyle=r,a.fillRect(0,-2,o*5,4),a.restore()}else if(e.id===`white-dwarf`)a.beginPath(),a.arc(t,n,o,0,Math.PI*2),a.fillStyle=`#f7fbff`,a.fill();else{let r=a.createRadialGradient(t-o*.3,n-o*.3,0,t,n,o*1.15);r.addColorStop(0,`rgba(255,255,255,0.9)`),r.addColorStop(.32,e.color),r.addColorStop(1,e.color),a.fillStyle=r,a.beginPath(),a.arc(t,n,o,0,Math.PI*2),a.fill()}i&&(a.beginPath(),a.arc(t,n,o*1.65,0,Math.PI*2),a.strokeStyle=`rgba(255,255,255,0.28)`,a.lineWidth=1.5,a.stroke())},d=()=>{let n=i.clientWidth,o=i.clientHeight;s+=1,a.clearRect(0,0,n,o);let l=a.createLinearGradient(0,0,n,o);l.addColorStop(0,`rgba(8,12,26,1)`),l.addColorStop(1,`rgba(4,7,16,1)`),a.fillStyle=l,a.fillRect(0,0,n,o),c.forEach((e,t)=>{a.beginPath(),a.arc(e.x*n,e.y*o,e.size,0,Math.PI*2);let r=e.alpha+Math.sin(s*.015+t)*.08;a.fillStyle=`rgba(255,255,255,${Math.max(.06,r)})`,a.fill()});let f=[{x:n*.2,y:o*.68,scale:.95},{x:n*.34,y:o*.36,scale:1.12},{x:n*.52,y:o*.58,scale:.85},{x:n*.66,y:o*.33,scale:1},{x:n*.79,y:o*.63,scale:.84},{x:n*.9,y:o*.42,scale:.92}];j_.forEach((n,r)=>{let i=f[r],o=e.id===n.id,s=o&&t?1.22:o?1.08:1;u(n,i.x,i.y,i.scale*s,o),o&&(a.fillStyle=`rgba(236, 239, 255, 0.88)`,a.font=`13px Cairo, sans-serif`,a.textAlign=`center`,a.fillText(n.name,i.x,i.y-n.radius*i.scale*s-22))}),a.fillStyle=`rgba(198, 204, 233, 0.32)`,a.textAlign=`right`,a.font=`12px Cairo, sans-serif`,a.fillText(`محاكاة أنواع النجوم`,n-18,o-18),r.current=requestAnimationFrame(d)};return l(),window.addEventListener(`resize`,l),r.current=requestAnimationFrame(d),()=>{cancelAnimationFrame(r.current),window.removeEventListener(`resize`,l)}},[e,t]),(0,$.jsx)(`canvas`,{ref:n,className:`stars-canvas`})}function N_(){let[e,t]=(0,x.useState)(`blue-giant`),[n,r]=(0,x.useState)(!1),i=(0,x.useMemo)(()=>j_.find(t=>t.id===e)||j_[0],[e]),a=e=>{t(e),r(!0),window.setTimeout(()=>r(!1),650)};return(0,$.jsxs)($.Fragment,{children:[(0,$.jsx)(`style`,{children:`
+      `}),(0,$.jsx)(`div`,{className:`sch-root`,children:(0,$.jsxs)(`div`,{className:`sch-shell`,children:[(0,$.jsxs)(`section`,{className:`sch-hero`,children:[(0,$.jsxs)(`div`,{className:`sch-copy`,children:[(0,$.jsx)(`div`,{className:`sch-pill`,children:`🌀 تجربة فكرية كمية`}),(0,$.jsxs)(`h1`,{className:`sch-title`,children:[(0,$.jsx)(`span`,{children:`قطة شرودنجر`}),` والتراكب الكمي`]}),(0,$.jsx)(`p`,{className:`sch-lead`,children:`قبل القياس تبقى الحالة في تراكب بين احتمالات متعددة. عند الرصد تنهار الدالة الموجية ويجبر النظام الكمّي على اختيار نتيجة واحدة فقط من بين جميع الإمكانات.`}),(0,$.jsxs)(`div`,{className:`status-row`,children:[(0,$.jsxs)(`div`,{className:`status-chip`,children:[`احتمال الحياة: `,p,`%`]}),(0,$.jsxs)(`div`,{className:`status-chip`,children:[`الرصد الحالي: `,i,`%`]})]})]}),(0,$.jsx)(`div`,{className:`hero-visual sch-card`,children:(0,$.jsx)(M_,{collapseColor:m.color,measuring:u})})]}),(0,$.jsxs)(`section`,{className:`sch-measure-card`,children:[(0,$.jsxs)(`div`,{className:`measure-top`,children:[(0,$.jsxs)(`div`,{className:`measure-head`,children:[(0,$.jsx)(`h3`,{children:m.title}),(0,$.jsx)(`p`,{children:m.subtitle})]}),(0,$.jsx)(`div`,{className:`collapse-badge`,children:`انهيار الدالة الموجية`})]}),(0,$.jsx)(`button`,{className:`measure-button`,onClick:()=>{d(!0),window.setTimeout(()=>{let e=Math.random()*100,t=0,n=f.find(n=>(t+=n.probability,e<=t))||f[0],r=new Date,i=`${r.getHours()}:${String(r.getMinutes()).padStart(2,`0`)}:${String(r.getSeconds()).padStart(2,`0`)}`;s(n),l(e=>[{...n,stamp:i},...e].slice(0,5)),d(!1)},950)},disabled:u,children:u?`جاري القياس الكمّي...`:`قياس الحالة الآن`}),(0,$.jsx)(`div`,{className:`collapse-sub`,children:`[COLLAPSE WAVEFUNCTION] - forcing reality to choose one state`})]}),(0,$.jsxs)(`section`,{className:`control-grid`,children:[(0,$.jsxs)(`div`,{className:`sch-grid-card`,children:[(0,$.jsx)(`h4`,{children:`تماسك الحالة`}),(0,$.jsx)(`p`,{children:`Quantum Coherence`}),(0,$.jsxs)(`div`,{className:`metric-value`,children:[e,`%`]}),(0,$.jsxs)(`div`,{className:`slider-wrap`,children:[(0,$.jsx)(`div`,{className:`slider-fill`,style:{width:`${e}%`}}),(0,$.jsx)(`input`,{className:`slider-input`,type:`range`,min:`0`,max:`100`,value:e,onChange:e=>t(Number(e.target.value))})]}),(0,$.jsxs)(`div`,{className:`slider-scale`,children:[(0,$.jsx)(`span`,{children:`فوضى`}),(0,$.jsx)(`span`,{children:`تماسك`})]})]}),(0,$.jsxs)(`div`,{className:`sch-grid-card`,children:[(0,$.jsx)(`h4`,{children:`معدل الاضمحلال`}),(0,$.jsx)(`p`,{children:`Decay Trigger`}),(0,$.jsxs)(`div`,{className:`metric-value`,children:[n,`%`]}),(0,$.jsxs)(`div`,{className:`slider-wrap`,children:[(0,$.jsx)(`div`,{className:`slider-fill`,style:{width:`${n}%`}}),(0,$.jsx)(`input`,{className:`slider-input`,type:`range`,min:`0`,max:`100`,value:n,onChange:e=>r(Number(e.target.value))})]}),(0,$.jsxs)(`div`,{className:`slider-scale`,children:[(0,$.jsx)(`span`,{children:`هادئ`}),(0,$.jsx)(`span`,{children:`نشط`})]})]}),(0,$.jsxs)(`div`,{className:`sch-grid-card`,children:[(0,$.jsx)(`h4`,{children:`شدة الملاحظة`}),(0,$.jsx)(`p`,{children:`Observation Strength`}),(0,$.jsxs)(`div`,{className:`metric-value`,children:[i,`%`]}),(0,$.jsxs)(`div`,{className:`slider-wrap`,children:[(0,$.jsx)(`div`,{className:`slider-fill`,style:{width:`${i}%`}}),(0,$.jsx)(`input`,{className:`slider-input`,type:`range`,min:`0`,max:`100`,value:i,onChange:e=>a(Number(e.target.value))})]}),(0,$.jsxs)(`div`,{className:`slider-scale`,children:[(0,$.jsx)(`span`,{children:`خفية`}),(0,$.jsx)(`span`,{children:`رصد مباشر`})]})]})]}),(0,$.jsxs)(`section`,{className:`sch-outcomes`,children:[(0,$.jsx)(`h3`,{className:`outcomes-title`,children:`احتمالات التراكب قبل القياس`}),(0,$.jsx)(`div`,{className:`outcomes-grid`,children:f.map(e=>(0,$.jsxs)(`div`,{className:`outcome-card`,children:[(0,$.jsxs)(`div`,{className:`outcome-top`,children:[(0,$.jsxs)(`div`,{className:`outcome-label`,style:{color:e.color},children:[e.icon,` `,e.label]}),(0,$.jsxs)(`div`,{className:`outcome-pct`,style:{color:e.color},children:[e.probability,`%`]})]}),(0,$.jsx)(`div`,{className:`outcome-bar`,children:(0,$.jsx)(`span`,{style:{width:`${e.probability}%`,background:e.color}})})]},e.id))})]}),(0,$.jsxs)(`section`,{className:`sch-bottom`,children:[(0,$.jsxs)(`div`,{className:`concept-grid`,children:[(0,$.jsxs)(`div`,{className:`concept-card`,children:[(0,$.jsx)(`h4`,{style:{color:`#1fd4ff`},children:`التراكب الكمي`}),(0,$.jsx)(`p`,{children:`قبل القياس لا نملك حالة مفردة مؤكدة، بل تتعايش عدة إمكانات معًا داخل وصف موجي واحد.`})]}),(0,$.jsxs)(`div`,{className:`concept-card`,children:[(0,$.jsx)(`h4`,{style:{color:`#9f8cff`},children:`انهيار الدالة`}),(0,$.jsx)(`p`,{children:`عند القياس تختفي بقية الاحتمالات من المشهد المرصود وتبقى نتيجة واحدة فقط قابلة للملاحظة.`})]}),(0,$.jsxs)(`div`,{className:`concept-card`,children:[(0,$.jsx)(`h4`,{style:{color:`#ff7a59`},children:`عدم اليقين`}),(0,$.jsx)(`p`,{children:`كلما ازدادت التفاعلات أو المراقبة، ضعفت نقاوة التراكب وأصبح النظام أقرب إلى حالة محددة.`})]})]}),(0,$.jsxs)(`aside`,{className:`sch-history`,children:[(0,$.jsx)(`h3`,{children:`نتائج القياس الأخيرة`}),c.length===0?(0,$.jsx)(`div`,{className:`history-item`,children:(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`strong`,{children:`لا توجد قياسات بعد`}),(0,$.jsx)(`span`,{children:`اضغط على زر القياس لرؤية نتيجة انهيار الدالة الموجية.`})]})}):c.map((e,t)=>(0,$.jsxs)(`div`,{className:`history-item`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`strong`,{style:{color:e.color},children:e.label}),(0,$.jsx)(`span`,{children:e.en})]}),(0,$.jsx)(`div`,{className:`history-time`,children:e.stamp})]},`${e.id}-${e.stamp}-${t}`))]})]})]})})]})}var P_=[{id:`blue-giant`,name:`النجوم الزرقاء العملاقة`,en:`Blue Giants`,color:`#4f7cff`,glow:`rgba(79,124,255,0.45)`,radius:24,temp:`20,000 - 50,000 كلفن`,life:`قصير جدًا`,mass:`10 - 50 كتلة شمسية`,fact:`نجوم شديدة السخونة واللمعان، تستهلك وقودها بسرعة هائلة وتعيش عمرًا قصيرًا نسبيًا.`,bullets:[`سطوع استثنائي`,`حرارة فائقة`,`نهاية عنيفة غالبًا`]},{id:`red-giant`,name:`العمالقة الحمر`,en:`Red Giants`,color:`#ff5f3d`,glow:`rgba(255,95,61,0.42)`,radius:31,temp:`3,000 - 4,500 كلفن`,life:`مرحلة متأخرة`,mass:`0.5 - 8 كتل شمسية`,fact:`تتمدد هذه النجوم عندما تنفد نواتها من الهيدروجين، فتزداد حجمًا ويبرد سطحها نسبيًا.`,bullets:[`سطح أبرد`,`حجم هائل`,`مرحلة انتقالية قبل النهاية`]},{id:`yellow-dwarf`,name:`النجوم القزمة`,en:`Dwarf Stars`,color:`#ffb703`,glow:`rgba(255,183,3,0.4)`,radius:16,temp:`2,500 - 50,000 كلفن`,life:`قد تطول مليارات السنين`,mass:`أقل من 1 كتلة شمسية غالبًا`,fact:`تشمل عدة أنواع، لكنها عمومًا أكثر شيوعًا واستقرارًا من النجوم العملاقة.`,bullets:[`منتشرة بكثرة`,`أحجام أصغر`,`استقرار أعلى`]},{id:`variable`,name:`النجوم المتغيرة`,en:`Variable Stars`,color:`#c93cff`,glow:`rgba(201,60,255,0.38)`,radius:18,temp:`متفاوتة`,life:`تذبذب مستمر`,mass:`متنوعة`,fact:`يتغير سطوعها مع الزمن نتيجة نبضات داخلية أو ظروف فيزيائية خارجية أو ثنائيات نجمية.`,bullets:[`سطوع متبدل`,`مفيدة في القياس الكوني`,`أنماط نبض مختلفة`]},{id:`neutron`,name:`النجوم النيوترونية`,en:`Neutron Stars`,color:`#14b8ff`,glow:`rgba(20,184,255,0.4)`,radius:11,temp:`ملايين الدرجات داخليًا`,life:`بقايا فائقة الكثافة`,mass:`1.4 - 2.1 كتلة شمسية`,fact:`تتشكل بعد انفجار نجوم ضخمة، وتُعد من أكثر الأجسام كثافة في الكون بعد الثقوب السوداء.`,bullets:[`دوران سريع جدًا`,`نبضات راديوية محتملة`,`جاذبية هائلة`]},{id:`white-dwarf`,name:`الأقزام البيضاء`,en:`White Dwarfs`,color:`#e9eefb`,glow:`rgba(233,238,251,0.35)`,radius:13,temp:`8,000 - 100,000 كلفن`,life:`تبرد تدريجيًا`,mass:`قرابة كتلة شمسية ضمن حجم صغير`,fact:`نوى نجمية متبقية بعد طرد الطبقات الخارجية، وهي صغيرة جدًا لكنها كثيفة بشكل ملحوظ.`,bullets:[`كثافة مرتفعة`,`حجم أرضي تقريبًا`,`بقايا نجوم متوسطة`]}];function F_({activeStar:e,pulse:t}){let n=(0,x.useRef)(null),r=(0,x.useRef)(null);return(0,x.useEffect)(()=>{let i=n.current;if(!i)return;let a=i.getContext(`2d`),o=window.devicePixelRatio||1,s=0,c=Array.from({length:120},(e,t)=>({x:t*71.3%1e3/1e3,y:t*41.7%1e3/1e3,size:.8+t%3*.55,alpha:.12+t%5*.05})),l=()=>{let e=i.getBoundingClientRect();i.width=e.width*o,i.height=e.height*o,a.setTransform(o,0,0,o,0,0)},u=(e,t,n,r=1,i=!1)=>{let o=e.radius*r,c=a.createRadialGradient(t,n,0,t,n,o*2.6);if(c.addColorStop(0,e.color),c.addColorStop(.3,e.glow),c.addColorStop(1,`rgba(255,255,255,0)`),a.fillStyle=c,a.beginPath(),a.arc(t,n,o*2.6,0,Math.PI*2),a.fill(),e.id===`variable`)a.beginPath(),a.arc(t,n,o*(.84+Math.sin(s*.08)*.08),0,Math.PI*2),a.fillStyle=e.color,a.fill();else if(e.id===`neutron`){a.beginPath(),a.arc(t,n,o*.9,0,Math.PI*2),a.fillStyle=e.color,a.fill(),a.save(),a.translate(t,n),a.rotate(s*.05);let r=a.createLinearGradient(0,0,o*5,0);r.addColorStop(0,`rgba(20,184,255,0.65)`),r.addColorStop(1,`rgba(20,184,255,0)`),a.fillStyle=r,a.fillRect(0,-2,o*5,4),a.rotate(Math.PI),a.fillStyle=r,a.fillRect(0,-2,o*5,4),a.restore()}else if(e.id===`white-dwarf`)a.beginPath(),a.arc(t,n,o,0,Math.PI*2),a.fillStyle=`#f7fbff`,a.fill();else{let r=a.createRadialGradient(t-o*.3,n-o*.3,0,t,n,o*1.15);r.addColorStop(0,`rgba(255,255,255,0.9)`),r.addColorStop(.32,e.color),r.addColorStop(1,e.color),a.fillStyle=r,a.beginPath(),a.arc(t,n,o,0,Math.PI*2),a.fill()}i&&(a.beginPath(),a.arc(t,n,o*1.65,0,Math.PI*2),a.strokeStyle=`rgba(255,255,255,0.28)`,a.lineWidth=1.5,a.stroke())},d=()=>{let n=i.clientWidth,o=i.clientHeight;s+=1,a.clearRect(0,0,n,o);let l=a.createLinearGradient(0,0,n,o);l.addColorStop(0,`rgba(8,12,26,1)`),l.addColorStop(1,`rgba(4,7,16,1)`),a.fillStyle=l,a.fillRect(0,0,n,o),c.forEach((e,t)=>{a.beginPath(),a.arc(e.x*n,e.y*o,e.size,0,Math.PI*2);let r=e.alpha+Math.sin(s*.015+t)*.08;a.fillStyle=`rgba(255,255,255,${Math.max(.06,r)})`,a.fill()});let f=[{x:n*.2,y:o*.68,scale:.95},{x:n*.34,y:o*.36,scale:1.12},{x:n*.52,y:o*.58,scale:.85},{x:n*.66,y:o*.33,scale:1},{x:n*.79,y:o*.63,scale:.84},{x:n*.9,y:o*.42,scale:.92}];P_.forEach((n,r)=>{let i=f[r],o=e.id===n.id,s=o&&t?1.22:o?1.08:1;u(n,i.x,i.y,i.scale*s,o),o&&(a.fillStyle=`rgba(236, 239, 255, 0.88)`,a.font=`13px Cairo, sans-serif`,a.textAlign=`center`,a.fillText(n.name,i.x,i.y-n.radius*i.scale*s-22))}),a.fillStyle=`rgba(198, 204, 233, 0.32)`,a.textAlign=`right`,a.font=`12px Cairo, sans-serif`,a.fillText(`محاكاة أنواع النجوم`,n-18,o-18),r.current=requestAnimationFrame(d)};return l(),window.addEventListener(`resize`,l),r.current=requestAnimationFrame(d),()=>{cancelAnimationFrame(r.current),window.removeEventListener(`resize`,l)}},[e,t]),(0,$.jsx)(`canvas`,{ref:n,className:`stars-canvas`})}function I_(){let[e,t]=(0,x.useState)(`blue-giant`),[n,r]=(0,x.useState)(!1),i=(0,x.useMemo)(()=>P_.find(t=>t.id===e)||P_[0],[e]),a=e=>{t(e),r(!0),window.setTimeout(()=>r(!1),650)};return(0,$.jsxs)($.Fragment,{children:[(0,$.jsx)(`style`,{children:`
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Syne:wght@700;800&display=swap');
 
         html, body, #root {
@@ -3302,4 +3571,4 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
             align-items: flex-start;
           }
         }
-      `}),(0,$.jsx)(`div`,{className:`stars-root`,children:(0,$.jsxs)(`div`,{className:`stars-shell`,children:[(0,$.jsxs)(`header`,{className:`stars-header`,children:[(0,$.jsx)(`div`,{className:`stars-pill`,children:`✦ أطياف نجمية`}),(0,$.jsxs)(`h1`,{className:`stars-title`,children:[(0,$.jsx)(`span`,{children:`النجوم`}),` وأنواعها الرئيسية`]}),(0,$.jsx)(`div`,{className:`stars-subtitle`,children:`STELLAR CLASSES AND BEHAVIOR`}),(0,$.jsx)(`p`,{className:`stars-lead`,children:`صفحة تعليمية تفاعلية تعرض طيفًا من أنواع النجوم بأسلوب بصري أقوى من النسخة البسيطة، مع محاكٍ يبرز الفروق في اللون والحجم والسلوك والسطوع ضمن نفس الهوية التصميمية للمشروع.`})]}),(0,$.jsx)(`section`,{className:`stars-visual`,children:(0,$.jsx)(M_,{activeStar:i,pulse:n})}),(0,$.jsxs)(`section`,{className:`stars-focus`,children:[(0,$.jsxs)(`div`,{className:`focus-top`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`h3`,{children:i.name}),(0,$.jsx)(`p`,{children:i.en})]}),(0,$.jsx)(`div`,{className:`focus-star`})]}),(0,$.jsxs)(`div`,{className:`focus-metrics`,children:[(0,$.jsxs)(`div`,{className:`focus-metric`,children:[(0,$.jsx)(`span`,{children:`درجة الحرارة`}),(0,$.jsx)(`strong`,{children:i.temp})]}),(0,$.jsxs)(`div`,{className:`focus-metric`,children:[(0,$.jsx)(`span`,{children:`الكتلة التقريبية`}),(0,$.jsx)(`strong`,{children:i.mass})]}),(0,$.jsxs)(`div`,{className:`focus-metric`,children:[(0,$.jsx)(`span`,{children:`العمر/الحالة`}),(0,$.jsx)(`strong`,{children:i.life})]})]}),(0,$.jsx)(`div`,{className:`focus-fact`,children:i.fact})]}),(0,$.jsx)(`section`,{className:`stars-grid`,children:j_.map(t=>(0,$.jsxs)(`div`,{className:`star-card${e===t.id?` active`:``}`,onClick:()=>a(t.id),children:[(0,$.jsx)(`div`,{className:`star-icon`,style:{background:t.color,boxShadow:`0 0 28px ${t.glow}`}}),(0,$.jsx)(`h3`,{className:`star-title`,children:t.name}),(0,$.jsx)(`div`,{className:`star-en`,children:t.en}),(0,$.jsx)(`div`,{className:`star-text`,children:t.fact}),(0,$.jsx)(`div`,{className:`star-bullets`,children:t.bullets.map(e=>(0,$.jsxs)(`div`,{className:`star-bullet`,children:[`• `,e]},e))})]},t.id))})]})})]})}(0,Jn.createRoot)(document.getElementById(`root`)).render((0,$.jsx)(x.StrictMode,{children:(0,$.jsx)(Dn,{basename:`/SimulateUniverse`,children:(0,$.jsx)(Bt,{children:(0,$.jsxs)(Rt,{element:(0,$.jsx)(c_,{}),children:[(0,$.jsx)(Rt,{path:`/`,element:(0,$.jsx)(f_,{})}),(0,$.jsx)(Rt,{path:`/black-hole`,element:(0,$.jsx)(__,{})}),(0,$.jsx)(Rt,{path:`/login`,element:(0,$.jsx)(p_,{})}),(0,$.jsx)(Rt,{path:`/spacetime`,element:(0,$.jsx)(C_,{})}),(0,$.jsx)(Rt,{path:`/solar-system`,element:(0,$.jsx)(E_,{})}),(0,$.jsx)(Rt,{path:`/schrodinger`,element:(0,$.jsx)(A_,{})}),(0,$.jsx)(Rt,{path:`/stars`,element:(0,$.jsx)(N_,{})})]})})})}));
+      `}),(0,$.jsx)(`div`,{className:`stars-root`,children:(0,$.jsxs)(`div`,{className:`stars-shell`,children:[(0,$.jsxs)(`header`,{className:`stars-header`,children:[(0,$.jsx)(`div`,{className:`stars-pill`,children:`✦ أطياف نجمية`}),(0,$.jsxs)(`h1`,{className:`stars-title`,children:[(0,$.jsx)(`span`,{children:`النجوم`}),` وأنواعها الرئيسية`]}),(0,$.jsx)(`div`,{className:`stars-subtitle`,children:`STELLAR CLASSES AND BEHAVIOR`}),(0,$.jsx)(`p`,{className:`stars-lead`,children:`صفحة تعليمية تفاعلية تعرض طيفًا من أنواع النجوم بأسلوب بصري أقوى من النسخة البسيطة، مع محاكٍ يبرز الفروق في اللون والحجم والسلوك والسطوع ضمن نفس الهوية التصميمية للمشروع.`})]}),(0,$.jsx)(`section`,{className:`stars-visual`,children:(0,$.jsx)(F_,{activeStar:i,pulse:n})}),(0,$.jsxs)(`section`,{className:`stars-focus`,children:[(0,$.jsxs)(`div`,{className:`focus-top`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`h3`,{children:i.name}),(0,$.jsx)(`p`,{children:i.en})]}),(0,$.jsx)(`div`,{className:`focus-star`})]}),(0,$.jsxs)(`div`,{className:`focus-metrics`,children:[(0,$.jsxs)(`div`,{className:`focus-metric`,children:[(0,$.jsx)(`span`,{children:`درجة الحرارة`}),(0,$.jsx)(`strong`,{children:i.temp})]}),(0,$.jsxs)(`div`,{className:`focus-metric`,children:[(0,$.jsx)(`span`,{children:`الكتلة التقريبية`}),(0,$.jsx)(`strong`,{children:i.mass})]}),(0,$.jsxs)(`div`,{className:`focus-metric`,children:[(0,$.jsx)(`span`,{children:`العمر/الحالة`}),(0,$.jsx)(`strong`,{children:i.life})]})]}),(0,$.jsx)(`div`,{className:`focus-fact`,children:i.fact})]}),(0,$.jsx)(`section`,{className:`stars-grid`,children:P_.map(t=>(0,$.jsxs)(`div`,{className:`star-card${e===t.id?` active`:``}`,onClick:()=>a(t.id),children:[(0,$.jsx)(`div`,{className:`star-icon`,style:{background:t.color,boxShadow:`0 0 28px ${t.glow}`}}),(0,$.jsx)(`h3`,{className:`star-title`,children:t.name}),(0,$.jsx)(`div`,{className:`star-en`,children:t.en}),(0,$.jsx)(`div`,{className:`star-text`,children:t.fact}),(0,$.jsx)(`div`,{className:`star-bullets`,children:t.bullets.map(e=>(0,$.jsxs)(`div`,{className:`star-bullet`,children:[`• `,e]},e))})]},t.id))})]})})]})}(0,Jn.createRoot)(document.getElementById(`root`)).render((0,$.jsx)(x.StrictMode,{children:(0,$.jsx)(Dn,{basename:`/SimulateUniverse`,children:(0,$.jsx)(Bt,{children:(0,$.jsxs)(Rt,{element:(0,$.jsx)(c_,{}),children:[(0,$.jsx)(Rt,{path:`/`,element:(0,$.jsx)(f_,{})}),(0,$.jsx)(Rt,{path:`/black-hole`,element:(0,$.jsx)(b_,{})}),(0,$.jsx)(Rt,{path:`/login`,element:(0,$.jsx)(p_,{})}),(0,$.jsx)(Rt,{path:`/spacetime`,element:(0,$.jsx)(E_,{})}),(0,$.jsx)(Rt,{path:`/solar-system`,element:(0,$.jsx)(k_,{})}),(0,$.jsx)(Rt,{path:`/schrodinger`,element:(0,$.jsx)(N_,{})}),(0,$.jsx)(Rt,{path:`/stars`,element:(0,$.jsx)(I_,{})})]})})})}));
