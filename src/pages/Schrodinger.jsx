@@ -1,49 +1,103 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+﻿import { useEffect, useMemo, useRef, useState } from "react";
 
-const OUTCOMES = [
-  { id: "alive-calm", label: "القط السالم", en: "Alive / Calm", color: "#67d96a", icon: "🐈" },
-  { id: "alive-alert", label: "القط المتحفز", en: "Alive / Alert", color: "#1fd4ff", icon: "👁️" },
-  { id: "alive-curious", label: "القط الفضولي", en: "Alive / Curious", color: "#7c9dff", icon: "🌌" },
-  { id: "dead-silent", label: "القط الساكن", en: "Dead / Silent", color: "#a855f7", icon: "🕯️" },
-  { id: "dead-toxic", label: "الغاز المنبعث", en: "Toxic Release", color: "#ff7a59", icon: "☢️" },
-  { id: "dead-box", label: "الصندوق المغلق", en: "Closed Box", color: "#ff4f9b", icon: "📦" },
+const ORBITALS = [
+  {
+    id: "1s",
+    label: "مدار 1s",
+    radius: 62,
+    color: "#60a5fa",
+    baseWeight: 0.34,
+    energy: "-13.6 eV",
+    desc: "أقرب سحابة احتمالية إلى النواة وأكثرها تماسكاً.",
+  },
+  {
+    id: "2s",
+    label: "مدار 2s",
+    radius: 98,
+    color: "#22d3ee",
+    baseWeight: 0.23,
+    energy: "-3.4 eV",
+    desc: "توزيع أوسع مع عقدة شعاعية واحتمال أقل قرب النواة.",
+  },
+  {
+    id: "2p",
+    label: "مدار 2p",
+    radius: 134,
+    color: "#c084fc",
+    baseWeight: 0.28,
+    energy: "-3.4 eV",
+    desc: "سحابة اتجاهية تمثل توزيعاً موجياً غير كروي.",
+  },
+  {
+    id: "3p",
+    label: "مدار 3p",
+    radius: 172,
+    color: "#f59e0b",
+    baseWeight: 0.15,
+    energy: "-1.5 eV",
+    desc: "مدار أبعد وأكثر حساسية للتشويش والقياس.",
+  },
 ];
 
-function buildProbabilities(coherence, decay, observation) {
-  const aliveWeight = Math.max(0.12, (coherence / 100) * 0.68 + ((100 - decay) / 100) * 0.52 - (observation / 100) * 0.12);
-  const deadWeight = Math.max(0.12, (decay / 100) * 0.74 + (observation / 100) * 0.3);
+const INITIAL_HISTORY = [
+  {
+    id: "initial",
+    title: "قبل القياس",
+    subtitle: "الإلكترون موصوف بدالة موجية منتشرة على عدة مدارات.",
+    stamp: "",
+    color: "#8b5cf6",
+  },
+];
 
-  const raw = {
-    "alive-calm": aliveWeight * (0.44 + coherence / 280),
-    "alive-alert": aliveWeight * (0.24 + observation / 230),
-    "alive-curious": aliveWeight * (0.2 + (100 - decay) / 300),
-    "dead-silent": deadWeight * (0.34 + decay / 260),
-    "dead-toxic": deadWeight * (0.27 + decay / 180),
-    "dead-box": deadWeight * (0.2 + observation / 220),
-  };
+function normalizeProbabilities(orbitals, coherence, observation, excitation) {
+  const coherenceFactor = coherence / 100;
+  const observationFactor = observation / 100;
+  const excitationFactor = excitation / 100;
 
-  const total = Object.values(raw).reduce((sum, value) => sum + value, 0);
-  return OUTCOMES.map((outcome) => ({
-    ...outcome,
-    probability: Math.round((raw[outcome.id] / total) * 100),
-  })).map((outcome, index, array) => {
-    if (index !== array.length - 1) return outcome;
-    const diff = 100 - array.reduce((sum, item) => sum + item.probability, 0);
-    return { ...outcome, probability: outcome.probability + diff };
+  const raw = orbitals.map((orbital, index) => {
+    const outerBoost = index / (orbitals.length - 1 || 1);
+    const spread = excitationFactor * (0.35 + outerBoost * 0.75);
+    const stability = coherenceFactor * (1.1 - outerBoost * 0.45);
+    const measurementBias = observationFactor * (0.85 - index * 0.12);
+    const value = orbital.baseWeight * (0.45 + spread + stability + measurementBias);
+    return Math.max(0.05, value);
   });
+
+  const total = raw.reduce((sum, value) => sum + value, 0);
+  return orbitals
+    .map((orbital, index) => ({
+      ...orbital,
+      probability: Math.round((raw[index] / total) * 100),
+    }))
+    .map((orbital, index, array) => {
+      if (index !== array.length - 1) return orbital;
+      const diff = 100 - array.reduce((sum, item) => sum + item.probability, 0);
+      return { ...orbital, probability: orbital.probability + diff };
+    });
 }
 
-function QuantumOrb({ collapseColor, measuring }) {
-  const orbRef = useRef(null);
+function pickMeasuredOrbital(probabilities) {
+  const roll = Math.random() * 100;
+  let sum = 0;
+  return (
+    probabilities.find((orbital) => {
+      sum += orbital.probability;
+      return roll <= sum;
+    }) || probabilities[0]
+  );
+}
+
+function AtomField({ orbitals, measuredOrbital, measuring }) {
+  const fieldRef = useRef(null);
 
   useEffect(() => {
-    const element = orbRef.current;
+    const element = fieldRef.current;
     if (!element) return undefined;
 
-    const handleMove = (event) => {
+    const onMove = (event) => {
       const rect = element.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width - 0.5) * 18;
-      const y = ((event.clientY - rect.top) / rect.height - 0.5) * 18;
+      const x = ((event.clientX - rect.left) / rect.width - 0.5) * 12;
+      const y = ((event.clientY - rect.top) / rect.height - 0.5) * 12;
       element.style.setProperty("--mx", `${x}px`);
       element.style.setProperty("--my", `${y}px`);
     };
@@ -53,82 +107,116 @@ function QuantumOrb({ collapseColor, measuring }) {
       element.style.setProperty("--my", "0px");
     };
 
-    element.addEventListener("mousemove", handleMove);
+    element.addEventListener("mousemove", onMove);
     element.addEventListener("mouseleave", reset);
 
     return () => {
-      element.removeEventListener("mousemove", handleMove);
+      element.removeEventListener("mousemove", onMove);
       element.removeEventListener("mouseleave", reset);
     };
   }, []);
 
   return (
-    <div
-      ref={orbRef}
-      className={`quantum-orb${measuring ? " measuring" : ""}`}
-      style={{ "--collapse": collapseColor }}
-    >
-      <div className="orb-core" />
-      <div className="orb-halo" />
-      <div className="orb-noise orb-noise-a" />
-      <div className="orb-noise orb-noise-b" />
-      <div className="orb-rings" />
+    <div ref={fieldRef} className={`atom-field${measuring ? " is-measuring" : ""}`}>
+      <div className="atom-grid" />
+      <div className="atom-nucleus">
+        <span>النواة</span>
+      </div>
+
+      {orbitals.map((orbital) => (
+        <div
+          key={orbital.id}
+          className={`orbital-shell${measuredOrbital?.id === orbital.id ? " is-selected" : ""}`}
+          style={{
+            "--shell-size": `${orbital.radius * 2}px`,
+            "--shell-color": orbital.color,
+            "--shell-opacity": measuredOrbital
+              ? measuredOrbital.id === orbital.id
+                ? 0.96
+                : 0.16
+              : Math.max(0.28, orbital.probability / 100),
+          }}
+        >
+          <div className="orbital-label">{orbital.id}</div>
+          {!measuredOrbital && (
+            <div className="probability-cloud">
+              <span style={{ opacity: orbital.probability / 100 }} />
+              <span style={{ opacity: orbital.probability / 140 }} />
+              <span style={{ opacity: orbital.probability / 160 }} />
+            </div>
+          )}
+          {measuredOrbital?.id === orbital.id && (
+            <div className="electron-marker">
+              <div className="electron-dot" />
+              <div className="electron-trail" />
+            </div>
+          )}
+        </div>
+      ))}
+
+      <div className="field-caption">
+        {measuredOrbital
+          ? `بعد القياس تموضع الإلكترون في ${measuredOrbital.label}.`
+          : "قبل القياس: الإلكترون ليس نقطة ثابتة بل توزيع احتمالي على المدارات."}
+      </div>
     </div>
   );
 }
 
 export default function Schrodinger() {
-  const [coherence, setCoherence] = useState(63);
-  const [decay, setDecay] = useState(38);
-  const [observation, setObservation] = useState(27);
-  const [measurement, setMeasurement] = useState(null);
-  const [history, setHistory] = useState([]);
+  const [coherence, setCoherence] = useState(74);
+  const [observation, setObservation] = useState(36);
+  const [excitation, setExcitation] = useState(41);
+  const [measuredOrbital, setMeasuredOrbital] = useState(null);
+  const [history, setHistory] = useState(INITIAL_HISTORY);
   const [measuring, setMeasuring] = useState(false);
 
-  const probabilities = useMemo(
-    () => buildProbabilities(coherence, decay, observation),
-    [coherence, decay, observation]
-  );
-
-  const aliveProbability = useMemo(
-    () =>
-      probabilities
-        .filter((item) => item.id.startsWith("alive"))
-        .reduce((sum, item) => sum + item.probability, 0),
-    [probabilities]
+  const orbitalProbabilities = useMemo(
+    () => normalizeProbabilities(ORBITALS, coherence, observation, excitation),
+    [coherence, observation, excitation]
   );
 
   const collapseState = useMemo(() => {
-    if (!measurement) {
+    if (!measuredOrbital) {
       return {
-        title: "حالة تراكب كمّي",
-        subtitle: "يمكن أن يكون القط حيًا أو ميتًا في الوقت نفسه حتى لحظة القياس.",
+        title: "حالة دالة موجية ممتدة",
+        subtitle: "الإلكترون موصوف باحتمالات موزعة على عدة مدارات ذرية قبل القياس.",
         color: "#8b5cf6",
       };
     }
 
     return {
-      title: measurement.label,
-      subtitle: `انهارت الدالة الموجية على الحالة: ${measurement.en}`,
-      color: measurement.color,
+      title: `تم تحديد ${measuredOrbital.label}`,
+      subtitle: `انهيار الدالة الموجية اختار المدار ${measuredOrbital.id} كموضع مرصود للإلكترون.`,
+      color: measuredOrbital.color,
     };
-  }, [measurement]);
+  }, [measuredOrbital]);
+
+  const dominantOrbital = useMemo(
+    () =>
+      orbitalProbabilities.reduce((best, current) =>
+        current.probability > best.probability ? current : best
+      ),
+    [orbitalProbabilities]
+  );
 
   const handleMeasure = () => {
     setMeasuring(true);
     window.setTimeout(() => {
-      const roll = Math.random() * 100;
-      let acc = 0;
-      const result =
-        probabilities.find((item) => {
-          acc += item.probability;
-          return roll <= acc;
-        }) || probabilities[0];
-
+      const result = pickMeasuredOrbital(orbitalProbabilities);
       const now = new Date();
       const stamp = `${now.getHours()}:${String(now.getMinutes()).padStart(2, "0")}:${String(now.getSeconds()).padStart(2, "0")}`;
-      setMeasurement(result);
-      setHistory((prev) => [{ ...result, stamp }, ...prev].slice(0, 5));
+      setMeasuredOrbital(result);
+      setHistory((prev) => [
+        {
+          id: `${result.id}-${Date.now()}`,
+          title: result.label,
+          subtitle: `رُصد الإلكترون في المدار ${result.id} بطاقة ${result.energy}.`,
+          stamp,
+          color: result.color,
+        },
+        ...prev,
+      ].slice(0, 5));
       setMeasuring(false);
     }, 950);
   };
@@ -160,8 +248,9 @@ export default function Schrodinger() {
           min-height: 100vh;
           min-width: 100vw;
           background:
-            radial-gradient(circle at 50% 0%, rgba(26, 214, 255, 0.08), transparent 18%),
-            radial-gradient(circle at 78% 18%, rgba(255, 74, 125, 0.09), transparent 22%),
+            radial-gradient(circle at 52% 0%, rgba(34, 211, 238, 0.08), transparent 18%),
+            radial-gradient(circle at 76% 16%, rgba(245, 158, 11, 0.08), transparent 20%),
+            radial-gradient(circle at 15% 70%, rgba(139, 92, 246, 0.08), transparent 22%),
             #05070f;
           color: #f2f0ff;
           font-family: 'Cairo', sans-serif;
@@ -183,27 +272,32 @@ export default function Schrodinger() {
         }
 
         .sch-shell {
-          max-width: 1120px;
+          max-width: 1180px;
           margin: 0 auto;
           padding: 5.4rem 1.5rem 4rem;
           position: relative;
           z-index: 1;
         }
 
-        .sch-hero {
+        .sch-hero,
+        .sch-bottom {
           display: grid;
-          grid-template-columns: 1.1fr 0.95fr;
-          gap: 1.25rem;
-          align-items: center;
+          grid-template-columns: 1.08fr 0.92fr;
+          gap: 1.15rem;
+        }
+
+        .sch-hero {
           margin-bottom: 1.15rem;
+          align-items: center;
         }
 
         .sch-card,
         .sch-grid-card,
         .sch-outcomes,
         .sch-measure-card,
-        .sch-history {
-          background: rgba(8, 12, 27, 0.9);
+        .sch-history,
+        .concept-card {
+          background: rgba(8, 12, 27, 0.88);
           border: 1px solid rgba(70, 124, 255, 0.14);
           border-radius: 22px;
           box-shadow: 0 20px 60px rgba(0,0,0,0.34);
@@ -211,7 +305,7 @@ export default function Schrodinger() {
         }
 
         .sch-copy {
-          padding: 1.2rem 0.2rem;
+          padding: 1rem 0.2rem;
         }
 
         .sch-pill {
@@ -230,8 +324,8 @@ export default function Schrodinger() {
 
         .sch-title {
           margin: 0;
-          font-size: clamp(2rem, 5vw, 3.15rem);
-          line-height: 1.08;
+          font-size: clamp(2rem, 5vw, 3.1rem);
+          line-height: 1.05;
           font-weight: 900;
         }
 
@@ -241,10 +335,10 @@ export default function Schrodinger() {
 
         .sch-lead {
           margin-top: 0.95rem;
-          max-width: 520px;
-          line-height: 1.9;
-          color: rgba(214, 214, 233, 0.62);
-          font-size: 0.96rem;
+          max-width: 560px;
+          line-height: 1.95;
+          color: rgba(214, 214, 233, 0.66);
+          font-size: 0.98rem;
         }
 
         .status-row {
@@ -255,7 +349,7 @@ export default function Schrodinger() {
         }
 
         .status-chip {
-          padding: 0.36rem 0.8rem;
+          padding: 0.38rem 0.82rem;
           border-radius: 999px;
           font-size: 0.78rem;
           font-weight: 700;
@@ -268,104 +362,197 @@ export default function Schrodinger() {
           padding: 1rem;
         }
 
-        .quantum-orb {
+        .atom-field {
           --mx: 0px;
           --my: 0px;
-          --collapse: #8b5cf6;
-          height: 330px;
-          border-radius: 26px;
-          background:
-            radial-gradient(circle at 50% 50%, rgba(255,255,255,0.06), transparent 38%),
-            linear-gradient(180deg, rgba(15, 20, 37, 0.98), rgba(12, 16, 29, 0.98));
-          border: 1px solid rgba(89, 119, 255, 0.14);
           position: relative;
+          min-height: 380px;
+          border-radius: 26px;
           overflow: hidden;
-          transform-style: preserve-3d;
-        }
-
-        .orb-core,
-        .orb-halo,
-        .orb-noise,
-        .orb-rings {
-          position: absolute;
-          inset: 50% auto auto 50%;
-          transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my)));
-        }
-
-        .orb-core {
-          width: 210px;
-          height: 210px;
-          border-radius: 50%;
+          border: 1px solid rgba(89, 119, 255, 0.14);
           background:
-            radial-gradient(circle at 35% 30%, rgba(125, 172, 255, 0.5), transparent 22%),
-            radial-gradient(circle at 65% 68%, rgba(195, 160, 255, 0.45), transparent 20%),
-            radial-gradient(circle at 50% 50%, rgba(242, 115, 145, 0.65), rgba(114, 20, 30, 0.95));
-          box-shadow:
-            0 0 0 12px rgba(82, 113, 255, 0.08),
-            0 0 80px rgba(255, 84, 126, 0.18);
+            radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05), transparent 32%),
+            linear-gradient(180deg, rgba(15, 20, 37, 0.98), rgba(12, 16, 29, 0.98));
         }
 
-        .orb-halo {
-          width: 300px;
-          height: 300px;
-          border-radius: 50%;
-          box-shadow: 0 0 0 1px rgba(130, 147, 255, 0.15), 0 0 60px rgba(108, 78, 255, 0.1) inset;
-        }
-
-        .orb-noise {
-          border-radius: 50%;
-          filter: blur(12px);
-          mix-blend-mode: screen;
+        .atom-grid {
+          position: absolute;
+          inset: 0;
+          background:
+            radial-gradient(circle at center, rgba(99,102,241,0.08), transparent 55%),
+            linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+          background-size: auto, 42px 42px, 42px 42px;
           opacity: 0.7;
         }
 
-        .orb-noise-a {
-          width: 260px;
-          height: 140px;
-          background: radial-gradient(circle, rgba(104, 182, 255, 0.35), transparent 68%);
-          animation: drift-a 8s ease-in-out infinite;
-        }
-
-        .orb-noise-b {
-          width: 230px;
-          height: 230px;
-          background: radial-gradient(circle, rgba(187, 104, 255, 0.25), transparent 72%);
-          animation: drift-b 9s ease-in-out infinite;
-        }
-
-        .orb-rings {
-          width: 320px;
-          height: 320px;
+        .atom-nucleus {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 70px;
+          height: 70px;
+          transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my)));
           border-radius: 50%;
-          border: 1px solid rgba(90, 106, 255, 0.14);
-          box-shadow: 0 0 0 22px rgba(77, 103, 255, 0.04), 0 0 0 46px rgba(77, 103, 255, 0.03);
+          display: grid;
+          place-items: center;
+          background:
+            radial-gradient(circle at 35% 35%, rgba(255,255,255,0.55), transparent 28%),
+            radial-gradient(circle at 65% 70%, rgba(245,158,11,0.35), transparent 24%),
+            radial-gradient(circle at center, rgba(236,72,153,0.88), rgba(76,29,149,0.95));
+          box-shadow: 0 0 0 12px rgba(124, 58, 237, 0.08), 0 0 80px rgba(168,85,247,0.16);
+          z-index: 5;
         }
 
-        .quantum-orb.measuring .orb-core {
-          animation: collapse-flash 0.95s ease;
+        .atom-nucleus span {
+          font-size: 0.78rem;
+          font-weight: 800;
+          color: #fff;
+        }
+
+        .orbital-shell {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: var(--shell-size);
+          height: var(--shell-size);
+          transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my)));
+          border-radius: 50%;
+          border: 1px dashed rgba(255,255,255,0.14);
+          box-shadow: inset 0 0 34px rgba(255,255,255,0.02);
+          opacity: var(--shell-opacity);
+          transition: opacity 0.45s ease, transform 0.45s ease, box-shadow 0.45s ease;
+        }
+
+        .orbital-shell::before {
+          content: "";
+          position: absolute;
+          inset: 10%;
+          border-radius: inherit;
+          border: 1px solid color-mix(in srgb, var(--shell-color) 55%, transparent);
+          box-shadow: 0 0 35px color-mix(in srgb, var(--shell-color) 18%, transparent);
+        }
+
+        .orbital-shell.is-selected {
           box-shadow:
-            0 0 0 12px rgba(82, 113, 255, 0.08),
-            0 0 110px color-mix(in srgb, var(--collapse) 60%, transparent);
+            inset 0 0 34px color-mix(in srgb, var(--shell-color) 14%, transparent),
+            0 0 45px color-mix(in srgb, var(--shell-color) 24%, transparent);
         }
 
-        @keyframes drift-a {
-          0%,100% { transform: translate(-45%, -48%) scale(1); }
-          50% { transform: translate(-54%, -42%) scale(1.08); }
+        .orbital-label {
+          position: absolute;
+          top: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          padding: 0.18rem 0.5rem;
+          border-radius: 999px;
+          background: rgba(5, 7, 18, 0.8);
+          border: 1px solid rgba(255,255,255,0.07);
+          color: var(--shell-color);
+          font-size: 0.72rem;
+          font-weight: 800;
         }
 
-        @keyframes drift-b {
-          0%,100% { transform: translate(-48%, -52%) scale(1); }
-          50% { transform: translate(-42%, -56%) scale(1.05); }
+        .probability-cloud {
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          animation: cloud-spin 16s linear infinite;
         }
 
-        @keyframes collapse-flash {
-          0% { transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my))) scale(0.92); filter: saturate(1); }
-          35% { transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my))) scale(1.12); filter: saturate(1.35); }
-          100% { transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my))) scale(1); filter: saturate(1); }
+        .probability-cloud span {
+          position: absolute;
+          inset: 16%;
+          border-radius: inherit;
+          filter: blur(18px);
+          background: radial-gradient(circle, color-mix(in srgb, var(--shell-color) 26%, transparent), transparent 64%);
+        }
+
+        .probability-cloud span:nth-child(2) {
+          inset: 24%;
+          animation: cloud-breathe 7s ease-in-out infinite;
+        }
+
+        .probability-cloud span:nth-child(3) {
+          inset: 32%;
+          animation: cloud-breathe 5.5s ease-in-out infinite reverse;
+        }
+
+        .electron-marker {
+          position: absolute;
+          inset: 0;
+          animation: orbit-spin 4.5s linear infinite;
+        }
+
+        .electron-dot {
+          position: absolute;
+          top: 50%;
+          right: -7px;
+          width: 14px;
+          height: 14px;
+          margin-top: -7px;
+          border-radius: 50%;
+          background: var(--shell-color);
+          box-shadow: 0 0 18px var(--shell-color), 0 0 28px color-mix(in srgb, var(--shell-color) 28%, transparent);
+        }
+
+        .electron-trail {
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          border-top: 2px solid color-mix(in srgb, var(--shell-color) 55%, transparent);
+          border-right: 2px solid transparent;
+          border-bottom: 2px solid transparent;
+          border-left: 2px solid transparent;
+          opacity: 0.9;
+        }
+
+        .atom-field.is-measuring .orbital-shell {
+          animation: shell-pulse 0.95s ease;
+        }
+
+        .field-caption {
+          position: absolute;
+          left: 50%;
+          bottom: 1rem;
+          transform: translateX(-50%);
+          width: calc(100% - 2rem);
+          padding: 0.7rem 0.9rem;
+          border-radius: 16px;
+          background: rgba(5,7,18,0.7);
+          border: 1px solid rgba(255,255,255,0.06);
+          color: rgba(226, 231, 255, 0.8);
+          font-size: 0.84rem;
+          text-align: center;
+          z-index: 6;
+        }
+
+        @keyframes cloud-spin {
+          to { transform: rotate(360deg); }
+        }
+
+        @keyframes cloud-breathe {
+          0%, 100% { transform: scale(0.96); }
+          50% { transform: scale(1.08); }
+        }
+
+        @keyframes orbit-spin {
+          to { transform: rotate(360deg); }
+        }
+
+        @keyframes shell-pulse {
+          0% { transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my))) scale(0.98); }
+          35% { transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my))) scale(1.03); }
+          100% { transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my))) scale(1); }
+        }
+
+        .sch-measure-card,
+        .sch-outcomes,
+        .sch-history {
+          padding: 1.15rem;
         }
 
         .sch-measure-card {
-          padding: 1.2rem;
           margin-bottom: 1rem;
         }
 
@@ -377,15 +564,18 @@ export default function Schrodinger() {
           margin-bottom: 1rem;
         }
 
-        .measure-head h3 {
+        .measure-head h3,
+        .sch-history h3,
+        .outcomes-title {
           margin: 0;
-          font-size: 1.1rem;
+          font-size: 1.02rem;
         }
 
         .measure-head p {
-          margin: 0.2rem 0 0;
-          color: rgba(207, 207, 229, 0.5);
-          font-size: 0.84rem;
+          margin: 0.25rem 0 0;
+          color: rgba(207, 207, 229, 0.58);
+          font-size: 0.85rem;
+          line-height: 1.8;
         }
 
         .collapse-badge {
@@ -404,7 +594,7 @@ export default function Schrodinger() {
           border: none;
           border-radius: 18px;
           padding: 1rem 1.2rem;
-          background: linear-gradient(90deg, #15c5ff, #7c4dff 55%, #a855f7);
+          background: linear-gradient(90deg, #15c5ff, #7c4dff 55%, #f59e0b);
           color: #f7fbff;
           font-family: 'Cairo', sans-serif;
           font-size: 1rem;
@@ -431,26 +621,35 @@ export default function Schrodinger() {
           font-size: 0.84rem;
         }
 
-        .control-grid {
+        .control-grid,
+        .concept-grid,
+        .outcomes-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 1rem;
+        }
+
+        .control-grid {
           margin-bottom: 1rem;
         }
 
-        .sch-grid-card {
+        .sch-grid-card,
+        .concept-card {
           padding: 1rem;
         }
 
-        .sch-grid-card h4 {
+        .sch-grid-card h4,
+        .concept-card h4 {
           margin: 0;
           font-size: 1rem;
         }
 
-        .sch-grid-card p {
-          margin: 0.15rem 0 0.7rem;
-          color: rgba(207, 207, 229, 0.42);
-          font-size: 0.78rem;
+        .sch-grid-card p,
+        .concept-card p {
+          margin: 0.2rem 0 0.7rem;
+          color: rgba(207, 207, 229, 0.5);
+          font-size: 0.82rem;
+          line-height: 1.8;
         }
 
         .metric-value {
@@ -495,21 +694,9 @@ export default function Schrodinger() {
           font-size: 0.72rem;
         }
 
-        .sch-outcomes {
-          padding: 1rem;
-          margin-bottom: 1rem;
-        }
-
         .outcomes-title {
-          margin: 0 0 0.8rem;
+          margin-bottom: 0.8rem;
           color: rgba(206, 222, 255, 0.88);
-          font-size: 0.96rem;
-        }
-
-        .outcomes-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 0.75rem;
         }
 
         .outcome-card {
@@ -524,12 +711,18 @@ export default function Schrodinger() {
           align-items: center;
           justify-content: space-between;
           gap: 0.7rem;
-          margin-bottom: 0.55rem;
+          margin-bottom: 0.45rem;
         }
 
         .outcome-label {
           font-size: 0.88rem;
           font-weight: 700;
+        }
+
+        .outcome-energy {
+          margin-top: 0.25rem;
+          color: rgba(207, 207, 229, 0.48);
+          font-size: 0.75rem;
         }
 
         .outcome-pct {
@@ -543,6 +736,7 @@ export default function Schrodinger() {
           border-radius: 999px;
           background: rgba(255,255,255,0.05);
           overflow: hidden;
+          margin-bottom: 0.5rem;
         }
 
         .outcome-bar span {
@@ -551,44 +745,15 @@ export default function Schrodinger() {
           border-radius: inherit;
         }
 
-        .sch-bottom {
-          display: grid;
-          grid-template-columns: 1.1fr 0.9fr;
-          gap: 1rem;
-        }
-
-        .concept-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 1rem;
-        }
-
-        .concept-card {
-          padding: 1rem;
-          border-radius: 20px;
-          background: rgba(8, 12, 27, 0.9);
-          border: 1px solid rgba(74, 127, 255, 0.14);
-        }
-
-        .concept-card h4 {
-          margin: 0 0 0.5rem;
-          font-size: 1rem;
+        .outcome-desc {
+          margin: 0;
+          color: rgba(210, 214, 234, 0.58);
+          font-size: 0.8rem;
+          line-height: 1.7;
         }
 
         .concept-card p {
-          margin: 0;
-          line-height: 1.85;
-          color: rgba(210, 214, 234, 0.62);
-          font-size: 0.86rem;
-        }
-
-        .sch-history {
-          padding: 1rem;
-        }
-
-        .sch-history h3 {
-          margin: 0 0 0.85rem;
-          font-size: 1rem;
+          margin-bottom: 0;
         }
 
         .history-item {
@@ -596,7 +761,7 @@ export default function Schrodinger() {
           justify-content: space-between;
           align-items: center;
           gap: 0.8rem;
-          padding: 0.72rem 0.8rem;
+          padding: 0.78rem 0.85rem;
           border-radius: 14px;
           background: rgba(255,255,255,0.03);
         }
@@ -607,18 +772,19 @@ export default function Schrodinger() {
 
         .history-item strong {
           display: block;
-          font-size: 0.86rem;
+          font-size: 0.88rem;
         }
 
         .history-item span {
-          color: rgba(196, 201, 224, 0.42);
-          font-size: 0.74rem;
+          color: rgba(196, 201, 224, 0.46);
+          font-size: 0.75rem;
         }
 
         .history-time {
           font-family: monospace;
           color: rgba(214, 219, 241, 0.55);
           font-size: 0.74rem;
+          white-space: nowrap;
         }
 
         @media (max-width: 980px) {
@@ -642,8 +808,12 @@ export default function Schrodinger() {
             align-items: flex-start;
           }
 
-          .quantum-orb {
-            height: 280px;
+          .atom-field {
+            min-height: 320px;
+          }
+
+          .field-caption {
+            font-size: 0.78rem;
           }
         }
       `}</style>
@@ -652,22 +822,29 @@ export default function Schrodinger() {
         <div className="sch-shell">
           <section className="sch-hero">
             <div className="sch-copy">
-              <div className="sch-pill">🌀 تجربة فكرية كمية</div>
+              <div className="sch-pill">Ψ الدالة الموجية والقياس</div>
               <h1 className="sch-title">
-                <span>قطة شرودنجر</span> والتراكب الكمي
+                <span>قطة شرودنجر</span> كمدخل لفهم
+                <br />
+                المدارات الذرية
               </h1>
               <p className="sch-lead">
-                قبل القياس تبقى الحالة في تراكب بين احتمالات متعددة. عند الرصد تنهار الدالة الموجية ويجبر النظام
-                الكمّي على اختيار نتيجة واحدة فقط من بين جميع الإمكانات.
+                بدلاً من تقديمها كلعبة، تعرض هذه الصفحة الفكرة العلمية الأساسية: قبل القياس يكون الإلكترون
+                موصوفاً بدالة موجية منتشرة على مدارات محتملة، وعند الرصد تنهار هذه الدالة ليظهر موضع مرصود في
+                مدار محدد داخل الذرة.
               </p>
               <div className="status-row">
-                <div className="status-chip">احتمال الحياة: {aliveProbability}%</div>
-                <div className="status-chip">الرصد الحالي: {observation}%</div>
+                <div className="status-chip">المدار الأكثر ترجيحاً: {dominantOrbital.id}</div>
+                <div className="status-chip">شدة القياس الحالية: {observation}%</div>
               </div>
             </div>
 
             <div className="hero-visual sch-card">
-              <QuantumOrb collapseColor={collapseState.color} measuring={measuring} />
+              <AtomField
+                orbitals={orbitalProbabilities}
+                measuredOrbital={measuredOrbital}
+                measuring={measuring}
+              />
             </div>
           </section>
 
@@ -681,9 +858,9 @@ export default function Schrodinger() {
             </div>
 
             <button className="measure-button" onClick={handleMeasure} disabled={measuring}>
-              {measuring ? "جاري القياس الكمّي..." : "قياس الحالة الآن"}
+              {measuring ? "جارٍ تنفيذ القياس الكمي..." : "قياس موضع الإلكترون الآن"}
             </button>
-            <div className="collapse-sub">[COLLAPSE WAVEFUNCTION] - forcing reality to choose one state</div>
+            <div className="collapse-sub">Wavefunction Collapse: measurement projects the state onto one orbital.</div>
           </section>
 
           <section className="control-grid">
@@ -695,44 +872,48 @@ export default function Schrodinger() {
                 <div className="slider-fill" style={{ width: `${coherence}%` }} />
                 <input className="slider-input" type="range" min="0" max="100" value={coherence} onChange={(e) => setCoherence(Number(e.target.value))} />
               </div>
-              <div className="slider-scale"><span>فوضى</span><span>تماسك</span></div>
+              <div className="slider-scale"><span>تشتت</span><span>تماسك</span></div>
             </div>
 
             <div className="sch-grid-card">
-              <h4>معدل الاضمحلال</h4>
-              <p>Decay Trigger</p>
-              <div className="metric-value">{decay}%</div>
-              <div className="slider-wrap">
-                <div className="slider-fill" style={{ width: `${decay}%` }} />
-                <input className="slider-input" type="range" min="0" max="100" value={decay} onChange={(e) => setDecay(Number(e.target.value))} />
-              </div>
-              <div className="slider-scale"><span>هادئ</span><span>نشط</span></div>
-            </div>
-
-            <div className="sch-grid-card">
-              <h4>شدة الملاحظة</h4>
+              <h4>شدة القياس</h4>
               <p>Observation Strength</p>
               <div className="metric-value">{observation}%</div>
               <div className="slider-wrap">
                 <div className="slider-fill" style={{ width: `${observation}%` }} />
                 <input className="slider-input" type="range" min="0" max="100" value={observation} onChange={(e) => setObservation(Number(e.target.value))} />
               </div>
-              <div className="slider-scale"><span>خفية</span><span>رصد مباشر</span></div>
+              <div className="slider-scale"><span>ضعيف</span><span>حاد</span></div>
+            </div>
+
+            <div className="sch-grid-card">
+              <h4>إثارة الإلكترون</h4>
+              <p>Excitation Level</p>
+              <div className="metric-value">{excitation}%</div>
+              <div className="slider-wrap">
+                <div className="slider-fill" style={{ width: `${excitation}%` }} />
+                <input className="slider-input" type="range" min="0" max="100" value={excitation} onChange={(e) => setExcitation(Number(e.target.value))} />
+              </div>
+              <div className="slider-scale"><span>منخفضة</span><span>عالية</span></div>
             </div>
           </section>
 
           <section className="sch-outcomes">
-            <h3 className="outcomes-title">احتمالات التراكب قبل القياس</h3>
+            <h3 className="outcomes-title">توزيع الاحتمالات على المدارات قبل القياس</h3>
             <div className="outcomes-grid">
-              {probabilities.map((item) => (
-                <div className="outcome-card" key={item.id}>
+              {orbitalProbabilities.map((orbital) => (
+                <div className="outcome-card" key={orbital.id}>
                   <div className="outcome-top">
-                    <div className="outcome-label" style={{ color: item.color }}>{item.icon} {item.label}</div>
-                    <div className="outcome-pct" style={{ color: item.color }}>{item.probability}%</div>
+                    <div>
+                      <div className="outcome-label" style={{ color: orbital.color }}>{orbital.label}</div>
+                      <div className="outcome-energy">{orbital.energy}</div>
+                    </div>
+                    <div className="outcome-pct" style={{ color: orbital.color }}>{orbital.probability}%</div>
                   </div>
                   <div className="outcome-bar">
-                    <span style={{ width: `${item.probability}%`, background: item.color }} />
+                    <span style={{ width: `${orbital.probability}%`, background: orbital.color }} />
                   </div>
+                  <p className="outcome-desc">{orbital.desc}</p>
                 </div>
               ))}
             </div>
@@ -741,39 +922,30 @@ export default function Schrodinger() {
           <section className="sch-bottom">
             <div className="concept-grid">
               <div className="concept-card">
-                <h4 style={{ color: "#1fd4ff" }}>التراكب الكمي</h4>
-                <p>قبل القياس لا نملك حالة مفردة مؤكدة، بل تتعايش عدة إمكانات معًا داخل وصف موجي واحد.</p>
+                <h4 style={{ color: "#1fd4ff" }}>التراكب الموجي</h4>
+                <p>قبل القياس لا نعامل الإلكترون ككرة تدور حول النواة، بل كدالة موجية تحدد أين يمكن العثور عليه باحتمالات مختلفة.</p>
               </div>
               <div className="concept-card">
-                <h4 style={{ color: "#9f8cff" }}>انهيار الدالة</h4>
-                <p>عند القياس تختفي بقية الاحتمالات من المشهد المرصود وتبقى نتيجة واحدة فقط قابلة للملاحظة.</p>
+                <h4 style={{ color: "#9f8cff" }}>القياس والإسقاط</h4>
+                <p>عملية القياس لا تكشف مداراً جاهزاً فقط، بل تُسقط الحالة الكمومية على نتيجة واحدة من النتائج المسموح بها.</p>
               </div>
               <div className="concept-card">
-                <h4 style={{ color: "#ff7a59" }}>عدم اليقين</h4>
-                <p>كلما ازدادت التفاعلات أو المراقبة، ضعفت نقاوة التراكب وأصبح النظام أقرب إلى حالة محددة.</p>
+                <h4 style={{ color: "#f59e0b" }}>المدارات الذرية</h4>
+                <p>المدارات هنا تمثل مستويات وسحباً احتمالية مبسطة مثل 1s و2s و2p، وليست مسارات كوكبية صلبة.</p>
               </div>
             </div>
 
             <aside className="sch-history">
-              <h3>نتائج القياس الأخيرة</h3>
-              {history.length === 0 ? (
-                <div className="history-item">
+              <h3>سجل القياسات الأخيرة</h3>
+              {history.map((item, index) => (
+                <div className="history-item" key={`${item.id}-${index}`}>
                   <div>
-                    <strong>لا توجد قياسات بعد</strong>
-                    <span>اضغط على زر القياس لرؤية نتيجة انهيار الدالة الموجية.</span>
+                    <strong style={{ color: item.color }}>{item.title}</strong>
+                    <span>{item.subtitle}</span>
                   </div>
+                  <div className="history-time">{item.stamp || "الآن"}</div>
                 </div>
-              ) : (
-                history.map((item, index) => (
-                  <div className="history-item" key={`${item.id}-${item.stamp}-${index}`}>
-                    <div>
-                      <strong style={{ color: item.color }}>{item.label}</strong>
-                      <span>{item.en}</span>
-                    </div>
-                    <div className="history-time">{item.stamp}</div>
-                  </div>
-                ))
-              )}
+              ))}
             </aside>
           </section>
         </div>

@@ -337,21 +337,23 @@ function BlackHoleSimulator({ onLog, onMetricsChange }) {
         </p>
       </div>
 
-      <div ref={sceneRef} className={`bh-scene ${isPointerInside ? "is-armed" : ""}`}>
-        <canvas ref={canvasRef} className="bh-canvas" />
+      <div className="bh-scene-shell">
+        <div ref={sceneRef} className={`bh-scene ${isPointerInside ? "is-armed" : ""}`}>
+          <canvas ref={canvasRef} className="bh-canvas" />
 
-        <div className="bh-scene-overlay bh-scene-top">
-          <span>عدسة جاذبية</span>
-          <span>قرص تراكم</span>
-          <span>تفكك بصري</span>
+          <div className="bh-scene-overlay bh-scene-top">
+            <span>عدسة جاذبية</span>
+            <span>قرص تراكم</span>
+            <span>تفكك بصري</span>
+          </div>
+
+          <div className="bh-center-label">
+            <span>نقطة اللاعودة</span>
+            <strong>Black Hole Core</strong>
+          </div>
+
+          <div className="bh-drop-hint">أفلت الجسم هنا ليبدأ الانجذاب</div>
         </div>
-
-        <div className="bh-center-label">
-          <span>نقطة اللاعودة</span>
-          <strong>Black Hole Core</strong>
-        </div>
-
-        <div className="bh-drop-hint">أفلت الجسم هنا ليبدأ الانجذاب</div>
 
         <div className="bh-launcher">
           {TOKENS.map((token) => (
@@ -589,6 +591,10 @@ export default function BlackHole() {
           color: rgba(205,211,232,0.64);
           line-height: 1.8;
           font-size: 0.9rem;
+        }
+
+        .bh-scene-shell {
+          position: relative;
         }
 
         .bh-scene {
@@ -929,6 +935,14 @@ export default function BlackHole() {
           .bh-drop-hint {
             width: calc(100% - 2.4rem);
             text-align: center;
+          }
+
+          .bh-launcher {
+            position: static;
+            left: auto;
+            right: auto;
+            bottom: auto;
+            margin-top: 1rem;
           }
 
           .bh-launcher,
