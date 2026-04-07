@@ -2784,7 +2784,7 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
           .solar-canvas { height: 320px; }
           .section-head, .planet-top { flex-direction: column; align-items: flex-start; }
         }
-      `}),(0,$.jsx)(`div`,{className:`solar-root`,children:(0,$.jsxs)(`div`,{className:`solar-shell`,children:[(0,$.jsxs)(`header`,{className:`solar-header`,children:[(0,$.jsx)(`div`,{className:`solar-pill`,children:`☉ محاكاة مدارية`}),(0,$.jsxs)(`h1`,{className:`solar-title`,children:[(0,$.jsx)(`span`,{children:`النظام الشمسي`}),` بدقة بصرية أعلى`]}),(0,$.jsx)(`div`,{className:`solar-subtitle`,children:`SOLAR SYSTEM SIMULATION`}),(0,$.jsx)(`p`,{className:`solar-lead`,children:`نموذج بصري تفاعلي لحركة الكواكب حول الشمس بأسلوب أقرب للواقع من النسخة السابقة، مع مدارات أوضح، أحجام منمّقة، وسرعة زمنية قابلة للتحكم دون الخروج عن لغة التصميم الداكنة للمشروع.`})]}),(0,$.jsx)(`section`,{className:`solar-visual`,children:(0,$.jsx)(O_,{speed:Math.max(e/16,.2),selectedPlanet:n,onSelectPlanet:r})}),(0,$.jsxs)(`section`,{className:`solar-info`,children:[(0,$.jsxs)(`div`,{className:`solar-info-row`,children:[(0,$.jsx)(`span`,{className:`solar-dot`}),(0,$.jsxs)(`span`,{children:[(0,$.jsx)(`strong`,{children:`المدارات:`}),` تم توزيعها بصريًا باستخدام مقياس مضغوط حتى تظهر الكواكب الداخلية والخارجية في نفس المشهد بشكل مقروء.`]})]}),(0,$.jsxs)(`div`,{className:`solar-info-row`,children:[(0,$.jsx)(`span`,{className:`solar-dot`}),(0,$.jsxs)(`span`,{children:[(0,$.jsx)(`strong`,{children:`التفاعل:`}),` حرّك المؤشر فوق الرسم أو اضغط على كوكب لتحديده، ثم راقب تفاصيله وسرعته المدارية مقارنة ببقية الأجرام.`]})]})]}),(0,$.jsxs)(`div`,{className:`solar-bottom`,children:[(0,$.jsxs)(`section`,{className:`solar-control`,children:[(0,$.jsxs)(`div`,{className:`section-head`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`h3`,{children:`تحكم بالزمن المداري`}),(0,$.jsx)(`p`,{children:`عدّل سرعة المحاكاة أو اختر كوكبًا محددًا للتركيز عليه.`})]}),(0,$.jsxs)(`div`,{className:`speed-chip`,children:[`سرعة المحاكاة: `,e,`%`]})]}),(0,$.jsxs)(`div`,{className:`slider-wrap`,children:[(0,$.jsx)(`div`,{className:`slider-fill`}),(0,$.jsx)(`input`,{className:`slider-input`,type:`range`,min:`0`,max:`100`,value:e,onChange:e=>t(Number(e.target.value))})]}),(0,$.jsxs)(`div`,{className:`slider-scale`,children:[(0,$.jsx)(`span`,{children:`بطيء`}),(0,$.jsx)(`span`,{children:`سريع`})]}),(0,$.jsx)(`div`,{className:`planet-pills`,children:D_.map(e=>(0,$.jsx)(`button`,{type:`button`,className:`planet-pill${n===e.id?` active`:``}`,onClick:()=>r(e.id),children:e.name},e.id))}),(0,$.jsx)(`div`,{className:`solar-help`,children:`تحسين الدقة هنا بصري وتعليمي: الكواكب الخارجية ما تزال أصغر نسبيًا من الصورة الواقعية، لكن توزيع المسافات والحركة صار أوضح وأكثر اتزانًا داخل نفس تصميم صفحاتك.`})]}),(0,$.jsxs)(`section`,{className:`solar-planet-card`,children:[(0,$.jsxs)(`div`,{className:`planet-top`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`h2`,{className:`planet-title`,children:i.name}),(0,$.jsx)(`div`,{className:`planet-sub`,children:i.en})]}),(0,$.jsx)(`div`,{className:`planet-preview${i.id===`saturn`?` saturn`:``}`})]}),(0,$.jsxs)(`div`,{className:`planet-grid`,children:[(0,$.jsxs)(`div`,{className:`planet-metric`,children:[(0,$.jsx)(`span`,{children:`زمن الدوران حول الشمس`}),(0,$.jsx)(`strong`,{children:i.year})]}),(0,$.jsxs)(`div`,{className:`planet-metric`,children:[(0,$.jsx)(`span`,{children:`طول اليوم`}),(0,$.jsx)(`strong`,{children:i.day})]}),(0,$.jsxs)(`div`,{className:`planet-metric`,children:[(0,$.jsx)(`span`,{children:`المسافة المدارية`}),(0,$.jsxs)(`strong`,{children:[i.orbit,` مليون كم`]})]}),(0,$.jsxs)(`div`,{className:`planet-metric`,children:[(0,$.jsx)(`span`,{children:`السرعة النسبية`}),(0,$.jsxs)(`strong`,{children:[i.speed.toFixed(2),`x`]})]})]}),(0,$.jsx)(`div`,{className:`planet-fact`,children:i.fact})]})]})]})})]})}var A_=[{id:`alive-calm`,label:`القط السالم`,en:`Alive / Calm`,color:`#67d96a`,icon:`🐈`},{id:`alive-alert`,label:`القط المتحفز`,en:`Alive / Alert`,color:`#1fd4ff`,icon:`👁️`},{id:`alive-curious`,label:`القط الفضولي`,en:`Alive / Curious`,color:`#7c9dff`,icon:`🌌`},{id:`dead-silent`,label:`القط الساكن`,en:`Dead / Silent`,color:`#a855f7`,icon:`🕯️`},{id:`dead-toxic`,label:`الغاز المنبعث`,en:`Toxic Release`,color:`#ff7a59`,icon:`☢️`},{id:`dead-box`,label:`الصندوق المغلق`,en:`Closed Box`,color:`#ff4f9b`,icon:`📦`}];function j_(e,t,n){let r=Math.max(.12,e/100*.68+(100-t)/100*.52-n/100*.12),i=Math.max(.12,t/100*.74+n/100*.3),a={"alive-calm":r*(.44+e/280),"alive-alert":r*(.24+n/230),"alive-curious":r*(.2+(100-t)/300),"dead-silent":i*(.34+t/260),"dead-toxic":i*(.27+t/180),"dead-box":i*(.2+n/220)},o=Object.values(a).reduce((e,t)=>e+t,0);return A_.map(e=>({...e,probability:Math.round(a[e.id]/o*100)})).map((e,t,n)=>{if(t!==n.length-1)return e;let r=100-n.reduce((e,t)=>e+t.probability,0);return{...e,probability:e.probability+r}})}function M_({collapseColor:e,measuring:t}){let n=(0,x.useRef)(null);return(0,x.useEffect)(()=>{let e=n.current;if(!e)return;let t=t=>{let n=e.getBoundingClientRect(),r=((t.clientX-n.left)/n.width-.5)*18,i=((t.clientY-n.top)/n.height-.5)*18;e.style.setProperty(`--mx`,`${r}px`),e.style.setProperty(`--my`,`${i}px`)},r=()=>{e.style.setProperty(`--mx`,`0px`),e.style.setProperty(`--my`,`0px`)};return e.addEventListener(`mousemove`,t),e.addEventListener(`mouseleave`,r),()=>{e.removeEventListener(`mousemove`,t),e.removeEventListener(`mouseleave`,r)}},[]),(0,$.jsxs)(`div`,{ref:n,className:`quantum-orb${t?` measuring`:``}`,style:{"--collapse":e},children:[(0,$.jsx)(`div`,{className:`orb-core`}),(0,$.jsx)(`div`,{className:`orb-halo`}),(0,$.jsx)(`div`,{className:`orb-noise orb-noise-a`}),(0,$.jsx)(`div`,{className:`orb-noise orb-noise-b`}),(0,$.jsx)(`div`,{className:`orb-rings`})]})}function N_(){let[e,t]=(0,x.useState)(63),[n,r]=(0,x.useState)(38),[i,a]=(0,x.useState)(27),[o,s]=(0,x.useState)(null),[c,l]=(0,x.useState)([]),[u,d]=(0,x.useState)(!1),f=(0,x.useMemo)(()=>j_(e,n,i),[e,n,i]),p=(0,x.useMemo)(()=>f.filter(e=>e.id.startsWith(`alive`)).reduce((e,t)=>e+t.probability,0),[f]),m=(0,x.useMemo)(()=>o?{title:o.label,subtitle:`انهارت الدالة الموجية على الحالة: ${o.en}`,color:o.color}:{title:`حالة تراكب كمّي`,subtitle:`يمكن أن يكون القط حيًا أو ميتًا في الوقت نفسه حتى لحظة القياس.`,color:`#8b5cf6`},[o]);return(0,$.jsxs)($.Fragment,{children:[(0,$.jsx)(`style`,{children:`
+      `}),(0,$.jsx)(`div`,{className:`solar-root`,children:(0,$.jsxs)(`div`,{className:`solar-shell`,children:[(0,$.jsxs)(`header`,{className:`solar-header`,children:[(0,$.jsx)(`div`,{className:`solar-pill`,children:`☉ محاكاة مدارية`}),(0,$.jsxs)(`h1`,{className:`solar-title`,children:[(0,$.jsx)(`span`,{children:`النظام الشمسي`}),` بدقة بصرية أعلى`]}),(0,$.jsx)(`div`,{className:`solar-subtitle`,children:`SOLAR SYSTEM SIMULATION`}),(0,$.jsx)(`p`,{className:`solar-lead`,children:`نموذج بصري تفاعلي لحركة الكواكب حول الشمس بأسلوب أقرب للواقع من النسخة السابقة، مع مدارات أوضح، أحجام منمّقة، وسرعة زمنية قابلة للتحكم دون الخروج عن لغة التصميم الداكنة للمشروع.`})]}),(0,$.jsx)(`section`,{className:`solar-visual`,children:(0,$.jsx)(O_,{speed:Math.max(e/16,.2),selectedPlanet:n,onSelectPlanet:r})}),(0,$.jsxs)(`section`,{className:`solar-info`,children:[(0,$.jsxs)(`div`,{className:`solar-info-row`,children:[(0,$.jsx)(`span`,{className:`solar-dot`}),(0,$.jsxs)(`span`,{children:[(0,$.jsx)(`strong`,{children:`المدارات:`}),` تم توزيعها بصريًا باستخدام مقياس مضغوط حتى تظهر الكواكب الداخلية والخارجية في نفس المشهد بشكل مقروء.`]})]}),(0,$.jsxs)(`div`,{className:`solar-info-row`,children:[(0,$.jsx)(`span`,{className:`solar-dot`}),(0,$.jsxs)(`span`,{children:[(0,$.jsx)(`strong`,{children:`التفاعل:`}),` حرّك المؤشر فوق الرسم أو اضغط على كوكب لتحديده، ثم راقب تفاصيله وسرعته المدارية مقارنة ببقية الأجرام.`]})]})]}),(0,$.jsxs)(`div`,{className:`solar-bottom`,children:[(0,$.jsxs)(`section`,{className:`solar-control`,children:[(0,$.jsxs)(`div`,{className:`section-head`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`h3`,{children:`تحكم بالزمن المداري`}),(0,$.jsx)(`p`,{children:`عدّل سرعة المحاكاة أو اختر كوكبًا محددًا للتركيز عليه.`})]}),(0,$.jsxs)(`div`,{className:`speed-chip`,children:[`سرعة المحاكاة: `,e,`%`]})]}),(0,$.jsxs)(`div`,{className:`slider-wrap`,children:[(0,$.jsx)(`div`,{className:`slider-fill`}),(0,$.jsx)(`input`,{className:`slider-input`,type:`range`,min:`0`,max:`100`,value:e,onChange:e=>t(Number(e.target.value))})]}),(0,$.jsxs)(`div`,{className:`slider-scale`,children:[(0,$.jsx)(`span`,{children:`بطيء`}),(0,$.jsx)(`span`,{children:`سريع`})]}),(0,$.jsx)(`div`,{className:`planet-pills`,children:D_.map(e=>(0,$.jsx)(`button`,{type:`button`,className:`planet-pill${n===e.id?` active`:``}`,onClick:()=>r(e.id),children:e.name},e.id))}),(0,$.jsx)(`div`,{className:`solar-help`,children:`تحسين الدقة هنا بصري وتعليمي: الكواكب الخارجية ما تزال أصغر نسبيًا من الصورة الواقعية، لكن توزيع المسافات والحركة صار أوضح وأكثر اتزانًا داخل نفس تصميم صفحاتك.`})]}),(0,$.jsxs)(`section`,{className:`solar-planet-card`,children:[(0,$.jsxs)(`div`,{className:`planet-top`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`h2`,{className:`planet-title`,children:i.name}),(0,$.jsx)(`div`,{className:`planet-sub`,children:i.en})]}),(0,$.jsx)(`div`,{className:`planet-preview${i.id===`saturn`?` saturn`:``}`})]}),(0,$.jsxs)(`div`,{className:`planet-grid`,children:[(0,$.jsxs)(`div`,{className:`planet-metric`,children:[(0,$.jsx)(`span`,{children:`زمن الدوران حول الشمس`}),(0,$.jsx)(`strong`,{children:i.year})]}),(0,$.jsxs)(`div`,{className:`planet-metric`,children:[(0,$.jsx)(`span`,{children:`طول اليوم`}),(0,$.jsx)(`strong`,{children:i.day})]}),(0,$.jsxs)(`div`,{className:`planet-metric`,children:[(0,$.jsx)(`span`,{children:`المسافة المدارية`}),(0,$.jsxs)(`strong`,{children:[i.orbit,` مليون كم`]})]}),(0,$.jsxs)(`div`,{className:`planet-metric`,children:[(0,$.jsx)(`span`,{children:`السرعة النسبية`}),(0,$.jsxs)(`strong`,{children:[i.speed.toFixed(2),`x`]})]})]}),(0,$.jsx)(`div`,{className:`planet-fact`,children:i.fact})]})]})]})})]})}var A_=[{id:`1s`,label:`مدار 1s`,radius:62,color:`#60a5fa`,baseWeight:.34,energy:`-13.6 eV`,desc:`أقرب سحابة احتمالية إلى النواة وأكثرها تماسكاً.`},{id:`2s`,label:`مدار 2s`,radius:98,color:`#22d3ee`,baseWeight:.23,energy:`-3.4 eV`,desc:`توزيع أوسع مع عقدة شعاعية واحتمال أقل قرب النواة.`},{id:`2p`,label:`مدار 2p`,radius:134,color:`#c084fc`,baseWeight:.28,energy:`-3.4 eV`,desc:`سحابة اتجاهية تمثل توزيعاً موجياً غير كروي.`},{id:`3p`,label:`مدار 3p`,radius:172,color:`#f59e0b`,baseWeight:.15,energy:`-1.5 eV`,desc:`مدار أبعد وأكثر حساسية للتشويش والقياس.`}],j_=[{id:`initial`,title:`قبل القياس`,subtitle:`الإلكترون موصوف بدالة موجية منتشرة على عدة مدارات.`,stamp:``,color:`#8b5cf6`}];function M_(e,t,n,r){let i=t/100,a=n/100,o=r/100,s=e.map((t,n)=>{let r=n/(e.length-1||1),s=o*(.35+r*.75),c=i*(1.1-r*.45),l=a*(.85-n*.12),u=t.baseWeight*(.45+s+c+l);return Math.max(.05,u)}),c=s.reduce((e,t)=>e+t,0);return e.map((e,t)=>({...e,probability:Math.round(s[t]/c*100)})).map((e,t,n)=>{if(t!==n.length-1)return e;let r=100-n.reduce((e,t)=>e+t.probability,0);return{...e,probability:e.probability+r}})}function N_(e){let t=Math.random()*100,n=0;return e.find(e=>(n+=e.probability,t<=n))||e[0]}function P_({orbitals:e,measuredOrbital:t,measuring:n}){let r=(0,x.useRef)(null);return(0,x.useEffect)(()=>{let e=r.current;if(!e)return;let t=t=>{let n=e.getBoundingClientRect(),r=((t.clientX-n.left)/n.width-.5)*12,i=((t.clientY-n.top)/n.height-.5)*12;e.style.setProperty(`--mx`,`${r}px`),e.style.setProperty(`--my`,`${i}px`)},n=()=>{e.style.setProperty(`--mx`,`0px`),e.style.setProperty(`--my`,`0px`)};return e.addEventListener(`mousemove`,t),e.addEventListener(`mouseleave`,n),()=>{e.removeEventListener(`mousemove`,t),e.removeEventListener(`mouseleave`,n)}},[]),(0,$.jsxs)(`div`,{ref:r,className:`atom-field${n?` is-measuring`:``}`,children:[(0,$.jsx)(`div`,{className:`atom-grid`}),(0,$.jsx)(`div`,{className:`atom-nucleus`,children:(0,$.jsx)(`span`,{children:`النواة`})}),e.map(e=>(0,$.jsxs)(`div`,{className:`orbital-shell${t?.id===e.id?` is-selected`:``}`,style:{"--shell-size":`${e.radius*2}px`,"--shell-color":e.color,"--shell-opacity":t?t.id===e.id?.96:.16:Math.max(.28,e.probability/100)},children:[(0,$.jsx)(`div`,{className:`orbital-label`,children:e.id}),!t&&(0,$.jsxs)(`div`,{className:`probability-cloud`,children:[(0,$.jsx)(`span`,{style:{opacity:e.probability/100}}),(0,$.jsx)(`span`,{style:{opacity:e.probability/140}}),(0,$.jsx)(`span`,{style:{opacity:e.probability/160}})]}),t?.id===e.id&&(0,$.jsxs)(`div`,{className:`electron-marker`,children:[(0,$.jsx)(`div`,{className:`electron-dot`}),(0,$.jsx)(`div`,{className:`electron-trail`})]})]},e.id)),(0,$.jsx)(`div`,{className:`field-caption`,children:t?`بعد القياس تموضع الإلكترون في ${t.label}.`:`قبل القياس: الإلكترون ليس نقطة ثابتة بل توزيع احتمالي على المدارات.`})]})}function F_(){let[e,t]=(0,x.useState)(74),[n,r]=(0,x.useState)(36),[i,a]=(0,x.useState)(41),[o,s]=(0,x.useState)(null),[c,l]=(0,x.useState)(j_),[u,d]=(0,x.useState)(!1),f=(0,x.useMemo)(()=>M_(A_,e,n,i),[e,n,i]),p=(0,x.useMemo)(()=>o?{title:`تم تحديد ${o.label}`,subtitle:`انهيار الدالة الموجية اختار المدار ${o.id} كموضع مرصود للإلكترون.`,color:o.color}:{title:`حالة دالة موجية ممتدة`,subtitle:`الإلكترون موصوف باحتمالات موزعة على عدة مدارات ذرية قبل القياس.`,color:`#8b5cf6`},[o]),m=(0,x.useMemo)(()=>f.reduce((e,t)=>t.probability>e.probability?t:e),[f]);return(0,$.jsxs)($.Fragment,{children:[(0,$.jsx)(`style`,{children:`
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Syne:wght@700;800&display=swap');
 
         html, body, #root {
@@ -2809,8 +2809,9 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
           min-height: 100vh;
           min-width: 100vw;
           background:
-            radial-gradient(circle at 50% 0%, rgba(26, 214, 255, 0.08), transparent 18%),
-            radial-gradient(circle at 78% 18%, rgba(255, 74, 125, 0.09), transparent 22%),
+            radial-gradient(circle at 52% 0%, rgba(34, 211, 238, 0.08), transparent 18%),
+            radial-gradient(circle at 76% 16%, rgba(245, 158, 11, 0.08), transparent 20%),
+            radial-gradient(circle at 15% 70%, rgba(139, 92, 246, 0.08), transparent 22%),
             #05070f;
           color: #f2f0ff;
           font-family: 'Cairo', sans-serif;
@@ -2832,27 +2833,32 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
         }
 
         .sch-shell {
-          max-width: 1120px;
+          max-width: 1180px;
           margin: 0 auto;
           padding: 5.4rem 1.5rem 4rem;
           position: relative;
           z-index: 1;
         }
 
-        .sch-hero {
+        .sch-hero,
+        .sch-bottom {
           display: grid;
-          grid-template-columns: 1.1fr 0.95fr;
-          gap: 1.25rem;
-          align-items: center;
+          grid-template-columns: 1.08fr 0.92fr;
+          gap: 1.15rem;
+        }
+
+        .sch-hero {
           margin-bottom: 1.15rem;
+          align-items: center;
         }
 
         .sch-card,
         .sch-grid-card,
         .sch-outcomes,
         .sch-measure-card,
-        .sch-history {
-          background: rgba(8, 12, 27, 0.9);
+        .sch-history,
+        .concept-card {
+          background: rgba(8, 12, 27, 0.88);
           border: 1px solid rgba(70, 124, 255, 0.14);
           border-radius: 22px;
           box-shadow: 0 20px 60px rgba(0,0,0,0.34);
@@ -2860,7 +2866,7 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
         }
 
         .sch-copy {
-          padding: 1.2rem 0.2rem;
+          padding: 1rem 0.2rem;
         }
 
         .sch-pill {
@@ -2879,8 +2885,8 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
 
         .sch-title {
           margin: 0;
-          font-size: clamp(2rem, 5vw, 3.15rem);
-          line-height: 1.08;
+          font-size: clamp(2rem, 5vw, 3.1rem);
+          line-height: 1.05;
           font-weight: 900;
         }
 
@@ -2890,10 +2896,10 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
 
         .sch-lead {
           margin-top: 0.95rem;
-          max-width: 520px;
-          line-height: 1.9;
-          color: rgba(214, 214, 233, 0.62);
-          font-size: 0.96rem;
+          max-width: 560px;
+          line-height: 1.95;
+          color: rgba(214, 214, 233, 0.66);
+          font-size: 0.98rem;
         }
 
         .status-row {
@@ -2904,7 +2910,7 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
         }
 
         .status-chip {
-          padding: 0.36rem 0.8rem;
+          padding: 0.38rem 0.82rem;
           border-radius: 999px;
           font-size: 0.78rem;
           font-weight: 700;
@@ -2917,104 +2923,197 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
           padding: 1rem;
         }
 
-        .quantum-orb {
+        .atom-field {
           --mx: 0px;
           --my: 0px;
-          --collapse: #8b5cf6;
-          height: 330px;
-          border-radius: 26px;
-          background:
-            radial-gradient(circle at 50% 50%, rgba(255,255,255,0.06), transparent 38%),
-            linear-gradient(180deg, rgba(15, 20, 37, 0.98), rgba(12, 16, 29, 0.98));
-          border: 1px solid rgba(89, 119, 255, 0.14);
           position: relative;
+          min-height: 380px;
+          border-radius: 26px;
           overflow: hidden;
-          transform-style: preserve-3d;
-        }
-
-        .orb-core,
-        .orb-halo,
-        .orb-noise,
-        .orb-rings {
-          position: absolute;
-          inset: 50% auto auto 50%;
-          transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my)));
-        }
-
-        .orb-core {
-          width: 210px;
-          height: 210px;
-          border-radius: 50%;
+          border: 1px solid rgba(89, 119, 255, 0.14);
           background:
-            radial-gradient(circle at 35% 30%, rgba(125, 172, 255, 0.5), transparent 22%),
-            radial-gradient(circle at 65% 68%, rgba(195, 160, 255, 0.45), transparent 20%),
-            radial-gradient(circle at 50% 50%, rgba(242, 115, 145, 0.65), rgba(114, 20, 30, 0.95));
-          box-shadow:
-            0 0 0 12px rgba(82, 113, 255, 0.08),
-            0 0 80px rgba(255, 84, 126, 0.18);
+            radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05), transparent 32%),
+            linear-gradient(180deg, rgba(15, 20, 37, 0.98), rgba(12, 16, 29, 0.98));
         }
 
-        .orb-halo {
-          width: 300px;
-          height: 300px;
-          border-radius: 50%;
-          box-shadow: 0 0 0 1px rgba(130, 147, 255, 0.15), 0 0 60px rgba(108, 78, 255, 0.1) inset;
-        }
-
-        .orb-noise {
-          border-radius: 50%;
-          filter: blur(12px);
-          mix-blend-mode: screen;
+        .atom-grid {
+          position: absolute;
+          inset: 0;
+          background:
+            radial-gradient(circle at center, rgba(99,102,241,0.08), transparent 55%),
+            linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+          background-size: auto, 42px 42px, 42px 42px;
           opacity: 0.7;
         }
 
-        .orb-noise-a {
-          width: 260px;
-          height: 140px;
-          background: radial-gradient(circle, rgba(104, 182, 255, 0.35), transparent 68%);
-          animation: drift-a 8s ease-in-out infinite;
-        }
-
-        .orb-noise-b {
-          width: 230px;
-          height: 230px;
-          background: radial-gradient(circle, rgba(187, 104, 255, 0.25), transparent 72%);
-          animation: drift-b 9s ease-in-out infinite;
-        }
-
-        .orb-rings {
-          width: 320px;
-          height: 320px;
+        .atom-nucleus {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 70px;
+          height: 70px;
+          transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my)));
           border-radius: 50%;
-          border: 1px solid rgba(90, 106, 255, 0.14);
-          box-shadow: 0 0 0 22px rgba(77, 103, 255, 0.04), 0 0 0 46px rgba(77, 103, 255, 0.03);
+          display: grid;
+          place-items: center;
+          background:
+            radial-gradient(circle at 35% 35%, rgba(255,255,255,0.55), transparent 28%),
+            radial-gradient(circle at 65% 70%, rgba(245,158,11,0.35), transparent 24%),
+            radial-gradient(circle at center, rgba(236,72,153,0.88), rgba(76,29,149,0.95));
+          box-shadow: 0 0 0 12px rgba(124, 58, 237, 0.08), 0 0 80px rgba(168,85,247,0.16);
+          z-index: 5;
         }
 
-        .quantum-orb.measuring .orb-core {
-          animation: collapse-flash 0.95s ease;
+        .atom-nucleus span {
+          font-size: 0.78rem;
+          font-weight: 800;
+          color: #fff;
+        }
+
+        .orbital-shell {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: var(--shell-size);
+          height: var(--shell-size);
+          transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my)));
+          border-radius: 50%;
+          border: 1px dashed rgba(255,255,255,0.14);
+          box-shadow: inset 0 0 34px rgba(255,255,255,0.02);
+          opacity: var(--shell-opacity);
+          transition: opacity 0.45s ease, transform 0.45s ease, box-shadow 0.45s ease;
+        }
+
+        .orbital-shell::before {
+          content: "";
+          position: absolute;
+          inset: 10%;
+          border-radius: inherit;
+          border: 1px solid color-mix(in srgb, var(--shell-color) 55%, transparent);
+          box-shadow: 0 0 35px color-mix(in srgb, var(--shell-color) 18%, transparent);
+        }
+
+        .orbital-shell.is-selected {
           box-shadow:
-            0 0 0 12px rgba(82, 113, 255, 0.08),
-            0 0 110px color-mix(in srgb, var(--collapse) 60%, transparent);
+            inset 0 0 34px color-mix(in srgb, var(--shell-color) 14%, transparent),
+            0 0 45px color-mix(in srgb, var(--shell-color) 24%, transparent);
         }
 
-        @keyframes drift-a {
-          0%,100% { transform: translate(-45%, -48%) scale(1); }
-          50% { transform: translate(-54%, -42%) scale(1.08); }
+        .orbital-label {
+          position: absolute;
+          top: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          padding: 0.18rem 0.5rem;
+          border-radius: 999px;
+          background: rgba(5, 7, 18, 0.8);
+          border: 1px solid rgba(255,255,255,0.07);
+          color: var(--shell-color);
+          font-size: 0.72rem;
+          font-weight: 800;
         }
 
-        @keyframes drift-b {
-          0%,100% { transform: translate(-48%, -52%) scale(1); }
-          50% { transform: translate(-42%, -56%) scale(1.05); }
+        .probability-cloud {
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          animation: cloud-spin 16s linear infinite;
         }
 
-        @keyframes collapse-flash {
-          0% { transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my))) scale(0.92); filter: saturate(1); }
-          35% { transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my))) scale(1.12); filter: saturate(1.35); }
-          100% { transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my))) scale(1); filter: saturate(1); }
+        .probability-cloud span {
+          position: absolute;
+          inset: 16%;
+          border-radius: inherit;
+          filter: blur(18px);
+          background: radial-gradient(circle, color-mix(in srgb, var(--shell-color) 26%, transparent), transparent 64%);
+        }
+
+        .probability-cloud span:nth-child(2) {
+          inset: 24%;
+          animation: cloud-breathe 7s ease-in-out infinite;
+        }
+
+        .probability-cloud span:nth-child(3) {
+          inset: 32%;
+          animation: cloud-breathe 5.5s ease-in-out infinite reverse;
+        }
+
+        .electron-marker {
+          position: absolute;
+          inset: 0;
+          animation: orbit-spin 4.5s linear infinite;
+        }
+
+        .electron-dot {
+          position: absolute;
+          top: 50%;
+          right: -7px;
+          width: 14px;
+          height: 14px;
+          margin-top: -7px;
+          border-radius: 50%;
+          background: var(--shell-color);
+          box-shadow: 0 0 18px var(--shell-color), 0 0 28px color-mix(in srgb, var(--shell-color) 28%, transparent);
+        }
+
+        .electron-trail {
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          border-top: 2px solid color-mix(in srgb, var(--shell-color) 55%, transparent);
+          border-right: 2px solid transparent;
+          border-bottom: 2px solid transparent;
+          border-left: 2px solid transparent;
+          opacity: 0.9;
+        }
+
+        .atom-field.is-measuring .orbital-shell {
+          animation: shell-pulse 0.95s ease;
+        }
+
+        .field-caption {
+          position: absolute;
+          left: 50%;
+          bottom: 1rem;
+          transform: translateX(-50%);
+          width: calc(100% - 2rem);
+          padding: 0.7rem 0.9rem;
+          border-radius: 16px;
+          background: rgba(5,7,18,0.7);
+          border: 1px solid rgba(255,255,255,0.06);
+          color: rgba(226, 231, 255, 0.8);
+          font-size: 0.84rem;
+          text-align: center;
+          z-index: 6;
+        }
+
+        @keyframes cloud-spin {
+          to { transform: rotate(360deg); }
+        }
+
+        @keyframes cloud-breathe {
+          0%, 100% { transform: scale(0.96); }
+          50% { transform: scale(1.08); }
+        }
+
+        @keyframes orbit-spin {
+          to { transform: rotate(360deg); }
+        }
+
+        @keyframes shell-pulse {
+          0% { transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my))) scale(0.98); }
+          35% { transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my))) scale(1.03); }
+          100% { transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my))) scale(1); }
+        }
+
+        .sch-measure-card,
+        .sch-outcomes,
+        .sch-history {
+          padding: 1.15rem;
         }
 
         .sch-measure-card {
-          padding: 1.2rem;
           margin-bottom: 1rem;
         }
 
@@ -3026,15 +3125,18 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
           margin-bottom: 1rem;
         }
 
-        .measure-head h3 {
+        .measure-head h3,
+        .sch-history h3,
+        .outcomes-title {
           margin: 0;
-          font-size: 1.1rem;
+          font-size: 1.02rem;
         }
 
         .measure-head p {
-          margin: 0.2rem 0 0;
-          color: rgba(207, 207, 229, 0.5);
-          font-size: 0.84rem;
+          margin: 0.25rem 0 0;
+          color: rgba(207, 207, 229, 0.58);
+          font-size: 0.85rem;
+          line-height: 1.8;
         }
 
         .collapse-badge {
@@ -3043,8 +3145,8 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
           font-size: 0.78rem;
           font-weight: 700;
           color: #fff;
-          background: color-mix(in srgb, ${m.color} 70%, #0f1120);
-          border: 1px solid color-mix(in srgb, ${m.color} 40%, transparent);
+          background: color-mix(in srgb, ${p.color} 70%, #0f1120);
+          border: 1px solid color-mix(in srgb, ${p.color} 40%, transparent);
           white-space: nowrap;
         }
 
@@ -3053,7 +3155,7 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
           border: none;
           border-radius: 18px;
           padding: 1rem 1.2rem;
-          background: linear-gradient(90deg, #15c5ff, #7c4dff 55%, #a855f7);
+          background: linear-gradient(90deg, #15c5ff, #7c4dff 55%, #f59e0b);
           color: #f7fbff;
           font-family: 'Cairo', sans-serif;
           font-size: 1rem;
@@ -3080,26 +3182,35 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
           font-size: 0.84rem;
         }
 
-        .control-grid {
+        .control-grid,
+        .concept-grid,
+        .outcomes-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 1rem;
+        }
+
+        .control-grid {
           margin-bottom: 1rem;
         }
 
-        .sch-grid-card {
+        .sch-grid-card,
+        .concept-card {
           padding: 1rem;
         }
 
-        .sch-grid-card h4 {
+        .sch-grid-card h4,
+        .concept-card h4 {
           margin: 0;
           font-size: 1rem;
         }
 
-        .sch-grid-card p {
-          margin: 0.15rem 0 0.7rem;
-          color: rgba(207, 207, 229, 0.42);
-          font-size: 0.78rem;
+        .sch-grid-card p,
+        .concept-card p {
+          margin: 0.2rem 0 0.7rem;
+          color: rgba(207, 207, 229, 0.5);
+          font-size: 0.82rem;
+          line-height: 1.8;
         }
 
         .metric-value {
@@ -3144,21 +3255,9 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
           font-size: 0.72rem;
         }
 
-        .sch-outcomes {
-          padding: 1rem;
-          margin-bottom: 1rem;
-        }
-
         .outcomes-title {
-          margin: 0 0 0.8rem;
+          margin-bottom: 0.8rem;
           color: rgba(206, 222, 255, 0.88);
-          font-size: 0.96rem;
-        }
-
-        .outcomes-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 0.75rem;
         }
 
         .outcome-card {
@@ -3173,12 +3272,18 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
           align-items: center;
           justify-content: space-between;
           gap: 0.7rem;
-          margin-bottom: 0.55rem;
+          margin-bottom: 0.45rem;
         }
 
         .outcome-label {
           font-size: 0.88rem;
           font-weight: 700;
+        }
+
+        .outcome-energy {
+          margin-top: 0.25rem;
+          color: rgba(207, 207, 229, 0.48);
+          font-size: 0.75rem;
         }
 
         .outcome-pct {
@@ -3192,6 +3297,7 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
           border-radius: 999px;
           background: rgba(255,255,255,0.05);
           overflow: hidden;
+          margin-bottom: 0.5rem;
         }
 
         .outcome-bar span {
@@ -3200,44 +3306,15 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
           border-radius: inherit;
         }
 
-        .sch-bottom {
-          display: grid;
-          grid-template-columns: 1.1fr 0.9fr;
-          gap: 1rem;
-        }
-
-        .concept-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 1rem;
-        }
-
-        .concept-card {
-          padding: 1rem;
-          border-radius: 20px;
-          background: rgba(8, 12, 27, 0.9);
-          border: 1px solid rgba(74, 127, 255, 0.14);
-        }
-
-        .concept-card h4 {
-          margin: 0 0 0.5rem;
-          font-size: 1rem;
+        .outcome-desc {
+          margin: 0;
+          color: rgba(210, 214, 234, 0.58);
+          font-size: 0.8rem;
+          line-height: 1.7;
         }
 
         .concept-card p {
-          margin: 0;
-          line-height: 1.85;
-          color: rgba(210, 214, 234, 0.62);
-          font-size: 0.86rem;
-        }
-
-        .sch-history {
-          padding: 1rem;
-        }
-
-        .sch-history h3 {
-          margin: 0 0 0.85rem;
-          font-size: 1rem;
+          margin-bottom: 0;
         }
 
         .history-item {
@@ -3245,7 +3322,7 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
           justify-content: space-between;
           align-items: center;
           gap: 0.8rem;
-          padding: 0.72rem 0.8rem;
+          padding: 0.78rem 0.85rem;
           border-radius: 14px;
           background: rgba(255,255,255,0.03);
         }
@@ -3256,18 +3333,19 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
 
         .history-item strong {
           display: block;
-          font-size: 0.86rem;
+          font-size: 0.88rem;
         }
 
         .history-item span {
-          color: rgba(196, 201, 224, 0.42);
-          font-size: 0.74rem;
+          color: rgba(196, 201, 224, 0.46);
+          font-size: 0.75rem;
         }
 
         .history-time {
           font-family: monospace;
           color: rgba(214, 219, 241, 0.55);
           font-size: 0.74rem;
+          white-space: nowrap;
         }
 
         @media (max-width: 980px) {
@@ -3291,11 +3369,15 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
             align-items: flex-start;
           }
 
-          .quantum-orb {
-            height: 280px;
+          .atom-field {
+            min-height: 320px;
+          }
+
+          .field-caption {
+            font-size: 0.78rem;
           }
         }
-      `}),(0,$.jsx)(`div`,{className:`sch-root`,children:(0,$.jsxs)(`div`,{className:`sch-shell`,children:[(0,$.jsxs)(`section`,{className:`sch-hero`,children:[(0,$.jsxs)(`div`,{className:`sch-copy`,children:[(0,$.jsx)(`div`,{className:`sch-pill`,children:`🌀 تجربة فكرية كمية`}),(0,$.jsxs)(`h1`,{className:`sch-title`,children:[(0,$.jsx)(`span`,{children:`قطة شرودنجر`}),` والتراكب الكمي`]}),(0,$.jsx)(`p`,{className:`sch-lead`,children:`قبل القياس تبقى الحالة في تراكب بين احتمالات متعددة. عند الرصد تنهار الدالة الموجية ويجبر النظام الكمّي على اختيار نتيجة واحدة فقط من بين جميع الإمكانات.`}),(0,$.jsxs)(`div`,{className:`status-row`,children:[(0,$.jsxs)(`div`,{className:`status-chip`,children:[`احتمال الحياة: `,p,`%`]}),(0,$.jsxs)(`div`,{className:`status-chip`,children:[`الرصد الحالي: `,i,`%`]})]})]}),(0,$.jsx)(`div`,{className:`hero-visual sch-card`,children:(0,$.jsx)(M_,{collapseColor:m.color,measuring:u})})]}),(0,$.jsxs)(`section`,{className:`sch-measure-card`,children:[(0,$.jsxs)(`div`,{className:`measure-top`,children:[(0,$.jsxs)(`div`,{className:`measure-head`,children:[(0,$.jsx)(`h3`,{children:m.title}),(0,$.jsx)(`p`,{children:m.subtitle})]}),(0,$.jsx)(`div`,{className:`collapse-badge`,children:`انهيار الدالة الموجية`})]}),(0,$.jsx)(`button`,{className:`measure-button`,onClick:()=>{d(!0),window.setTimeout(()=>{let e=Math.random()*100,t=0,n=f.find(n=>(t+=n.probability,e<=t))||f[0],r=new Date,i=`${r.getHours()}:${String(r.getMinutes()).padStart(2,`0`)}:${String(r.getSeconds()).padStart(2,`0`)}`;s(n),l(e=>[{...n,stamp:i},...e].slice(0,5)),d(!1)},950)},disabled:u,children:u?`جاري القياس الكمّي...`:`قياس الحالة الآن`}),(0,$.jsx)(`div`,{className:`collapse-sub`,children:`[COLLAPSE WAVEFUNCTION] - forcing reality to choose one state`})]}),(0,$.jsxs)(`section`,{className:`control-grid`,children:[(0,$.jsxs)(`div`,{className:`sch-grid-card`,children:[(0,$.jsx)(`h4`,{children:`تماسك الحالة`}),(0,$.jsx)(`p`,{children:`Quantum Coherence`}),(0,$.jsxs)(`div`,{className:`metric-value`,children:[e,`%`]}),(0,$.jsxs)(`div`,{className:`slider-wrap`,children:[(0,$.jsx)(`div`,{className:`slider-fill`,style:{width:`${e}%`}}),(0,$.jsx)(`input`,{className:`slider-input`,type:`range`,min:`0`,max:`100`,value:e,onChange:e=>t(Number(e.target.value))})]}),(0,$.jsxs)(`div`,{className:`slider-scale`,children:[(0,$.jsx)(`span`,{children:`فوضى`}),(0,$.jsx)(`span`,{children:`تماسك`})]})]}),(0,$.jsxs)(`div`,{className:`sch-grid-card`,children:[(0,$.jsx)(`h4`,{children:`معدل الاضمحلال`}),(0,$.jsx)(`p`,{children:`Decay Trigger`}),(0,$.jsxs)(`div`,{className:`metric-value`,children:[n,`%`]}),(0,$.jsxs)(`div`,{className:`slider-wrap`,children:[(0,$.jsx)(`div`,{className:`slider-fill`,style:{width:`${n}%`}}),(0,$.jsx)(`input`,{className:`slider-input`,type:`range`,min:`0`,max:`100`,value:n,onChange:e=>r(Number(e.target.value))})]}),(0,$.jsxs)(`div`,{className:`slider-scale`,children:[(0,$.jsx)(`span`,{children:`هادئ`}),(0,$.jsx)(`span`,{children:`نشط`})]})]}),(0,$.jsxs)(`div`,{className:`sch-grid-card`,children:[(0,$.jsx)(`h4`,{children:`شدة الملاحظة`}),(0,$.jsx)(`p`,{children:`Observation Strength`}),(0,$.jsxs)(`div`,{className:`metric-value`,children:[i,`%`]}),(0,$.jsxs)(`div`,{className:`slider-wrap`,children:[(0,$.jsx)(`div`,{className:`slider-fill`,style:{width:`${i}%`}}),(0,$.jsx)(`input`,{className:`slider-input`,type:`range`,min:`0`,max:`100`,value:i,onChange:e=>a(Number(e.target.value))})]}),(0,$.jsxs)(`div`,{className:`slider-scale`,children:[(0,$.jsx)(`span`,{children:`خفية`}),(0,$.jsx)(`span`,{children:`رصد مباشر`})]})]})]}),(0,$.jsxs)(`section`,{className:`sch-outcomes`,children:[(0,$.jsx)(`h3`,{className:`outcomes-title`,children:`احتمالات التراكب قبل القياس`}),(0,$.jsx)(`div`,{className:`outcomes-grid`,children:f.map(e=>(0,$.jsxs)(`div`,{className:`outcome-card`,children:[(0,$.jsxs)(`div`,{className:`outcome-top`,children:[(0,$.jsxs)(`div`,{className:`outcome-label`,style:{color:e.color},children:[e.icon,` `,e.label]}),(0,$.jsxs)(`div`,{className:`outcome-pct`,style:{color:e.color},children:[e.probability,`%`]})]}),(0,$.jsx)(`div`,{className:`outcome-bar`,children:(0,$.jsx)(`span`,{style:{width:`${e.probability}%`,background:e.color}})})]},e.id))})]}),(0,$.jsxs)(`section`,{className:`sch-bottom`,children:[(0,$.jsxs)(`div`,{className:`concept-grid`,children:[(0,$.jsxs)(`div`,{className:`concept-card`,children:[(0,$.jsx)(`h4`,{style:{color:`#1fd4ff`},children:`التراكب الكمي`}),(0,$.jsx)(`p`,{children:`قبل القياس لا نملك حالة مفردة مؤكدة، بل تتعايش عدة إمكانات معًا داخل وصف موجي واحد.`})]}),(0,$.jsxs)(`div`,{className:`concept-card`,children:[(0,$.jsx)(`h4`,{style:{color:`#9f8cff`},children:`انهيار الدالة`}),(0,$.jsx)(`p`,{children:`عند القياس تختفي بقية الاحتمالات من المشهد المرصود وتبقى نتيجة واحدة فقط قابلة للملاحظة.`})]}),(0,$.jsxs)(`div`,{className:`concept-card`,children:[(0,$.jsx)(`h4`,{style:{color:`#ff7a59`},children:`عدم اليقين`}),(0,$.jsx)(`p`,{children:`كلما ازدادت التفاعلات أو المراقبة، ضعفت نقاوة التراكب وأصبح النظام أقرب إلى حالة محددة.`})]})]}),(0,$.jsxs)(`aside`,{className:`sch-history`,children:[(0,$.jsx)(`h3`,{children:`نتائج القياس الأخيرة`}),c.length===0?(0,$.jsx)(`div`,{className:`history-item`,children:(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`strong`,{children:`لا توجد قياسات بعد`}),(0,$.jsx)(`span`,{children:`اضغط على زر القياس لرؤية نتيجة انهيار الدالة الموجية.`})]})}):c.map((e,t)=>(0,$.jsxs)(`div`,{className:`history-item`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`strong`,{style:{color:e.color},children:e.label}),(0,$.jsx)(`span`,{children:e.en})]}),(0,$.jsx)(`div`,{className:`history-time`,children:e.stamp})]},`${e.id}-${e.stamp}-${t}`))]})]})]})})]})}var P_=[{id:`blue-giant`,name:`النجوم الزرقاء العملاقة`,en:`Blue Giants`,color:`#4f7cff`,glow:`rgba(79,124,255,0.45)`,radius:24,temp:`20,000 - 50,000 كلفن`,life:`قصير جدًا`,mass:`10 - 50 كتلة شمسية`,fact:`نجوم شديدة السخونة واللمعان، تستهلك وقودها بسرعة هائلة وتعيش عمرًا قصيرًا نسبيًا.`,bullets:[`سطوع استثنائي`,`حرارة فائقة`,`نهاية عنيفة غالبًا`]},{id:`red-giant`,name:`العمالقة الحمر`,en:`Red Giants`,color:`#ff5f3d`,glow:`rgba(255,95,61,0.42)`,radius:31,temp:`3,000 - 4,500 كلفن`,life:`مرحلة متأخرة`,mass:`0.5 - 8 كتل شمسية`,fact:`تتمدد هذه النجوم عندما تنفد نواتها من الهيدروجين، فتزداد حجمًا ويبرد سطحها نسبيًا.`,bullets:[`سطح أبرد`,`حجم هائل`,`مرحلة انتقالية قبل النهاية`]},{id:`yellow-dwarf`,name:`النجوم القزمة`,en:`Dwarf Stars`,color:`#ffb703`,glow:`rgba(255,183,3,0.4)`,radius:16,temp:`2,500 - 50,000 كلفن`,life:`قد تطول مليارات السنين`,mass:`أقل من 1 كتلة شمسية غالبًا`,fact:`تشمل عدة أنواع، لكنها عمومًا أكثر شيوعًا واستقرارًا من النجوم العملاقة.`,bullets:[`منتشرة بكثرة`,`أحجام أصغر`,`استقرار أعلى`]},{id:`variable`,name:`النجوم المتغيرة`,en:`Variable Stars`,color:`#c93cff`,glow:`rgba(201,60,255,0.38)`,radius:18,temp:`متفاوتة`,life:`تذبذب مستمر`,mass:`متنوعة`,fact:`يتغير سطوعها مع الزمن نتيجة نبضات داخلية أو ظروف فيزيائية خارجية أو ثنائيات نجمية.`,bullets:[`سطوع متبدل`,`مفيدة في القياس الكوني`,`أنماط نبض مختلفة`]},{id:`neutron`,name:`النجوم النيوترونية`,en:`Neutron Stars`,color:`#14b8ff`,glow:`rgba(20,184,255,0.4)`,radius:11,temp:`ملايين الدرجات داخليًا`,life:`بقايا فائقة الكثافة`,mass:`1.4 - 2.1 كتلة شمسية`,fact:`تتشكل بعد انفجار نجوم ضخمة، وتُعد من أكثر الأجسام كثافة في الكون بعد الثقوب السوداء.`,bullets:[`دوران سريع جدًا`,`نبضات راديوية محتملة`,`جاذبية هائلة`]},{id:`white-dwarf`,name:`الأقزام البيضاء`,en:`White Dwarfs`,color:`#e9eefb`,glow:`rgba(233,238,251,0.35)`,radius:13,temp:`8,000 - 100,000 كلفن`,life:`تبرد تدريجيًا`,mass:`قرابة كتلة شمسية ضمن حجم صغير`,fact:`نوى نجمية متبقية بعد طرد الطبقات الخارجية، وهي صغيرة جدًا لكنها كثيفة بشكل ملحوظ.`,bullets:[`كثافة مرتفعة`,`حجم أرضي تقريبًا`,`بقايا نجوم متوسطة`]}];function F_({activeStar:e,pulse:t}){let n=(0,x.useRef)(null),r=(0,x.useRef)(null);return(0,x.useEffect)(()=>{let i=n.current;if(!i)return;let a=i.getContext(`2d`),o=window.devicePixelRatio||1,s=0,c=Array.from({length:120},(e,t)=>({x:t*71.3%1e3/1e3,y:t*41.7%1e3/1e3,size:.8+t%3*.55,alpha:.12+t%5*.05})),l=()=>{let e=i.getBoundingClientRect();i.width=e.width*o,i.height=e.height*o,a.setTransform(o,0,0,o,0,0)},u=(e,t,n,r=1,i=!1)=>{let o=e.radius*r,c=a.createRadialGradient(t,n,0,t,n,o*2.6);if(c.addColorStop(0,e.color),c.addColorStop(.3,e.glow),c.addColorStop(1,`rgba(255,255,255,0)`),a.fillStyle=c,a.beginPath(),a.arc(t,n,o*2.6,0,Math.PI*2),a.fill(),e.id===`variable`)a.beginPath(),a.arc(t,n,o*(.84+Math.sin(s*.08)*.08),0,Math.PI*2),a.fillStyle=e.color,a.fill();else if(e.id===`neutron`){a.beginPath(),a.arc(t,n,o*.9,0,Math.PI*2),a.fillStyle=e.color,a.fill(),a.save(),a.translate(t,n),a.rotate(s*.05);let r=a.createLinearGradient(0,0,o*5,0);r.addColorStop(0,`rgba(20,184,255,0.65)`),r.addColorStop(1,`rgba(20,184,255,0)`),a.fillStyle=r,a.fillRect(0,-2,o*5,4),a.rotate(Math.PI),a.fillStyle=r,a.fillRect(0,-2,o*5,4),a.restore()}else if(e.id===`white-dwarf`)a.beginPath(),a.arc(t,n,o,0,Math.PI*2),a.fillStyle=`#f7fbff`,a.fill();else{let r=a.createRadialGradient(t-o*.3,n-o*.3,0,t,n,o*1.15);r.addColorStop(0,`rgba(255,255,255,0.9)`),r.addColorStop(.32,e.color),r.addColorStop(1,e.color),a.fillStyle=r,a.beginPath(),a.arc(t,n,o,0,Math.PI*2),a.fill()}i&&(a.beginPath(),a.arc(t,n,o*1.65,0,Math.PI*2),a.strokeStyle=`rgba(255,255,255,0.28)`,a.lineWidth=1.5,a.stroke())},d=()=>{let n=i.clientWidth,o=i.clientHeight;s+=1,a.clearRect(0,0,n,o);let l=a.createLinearGradient(0,0,n,o);l.addColorStop(0,`rgba(8,12,26,1)`),l.addColorStop(1,`rgba(4,7,16,1)`),a.fillStyle=l,a.fillRect(0,0,n,o),c.forEach((e,t)=>{a.beginPath(),a.arc(e.x*n,e.y*o,e.size,0,Math.PI*2);let r=e.alpha+Math.sin(s*.015+t)*.08;a.fillStyle=`rgba(255,255,255,${Math.max(.06,r)})`,a.fill()});let f=[{x:n*.2,y:o*.68,scale:.95},{x:n*.34,y:o*.36,scale:1.12},{x:n*.52,y:o*.58,scale:.85},{x:n*.66,y:o*.33,scale:1},{x:n*.79,y:o*.63,scale:.84},{x:n*.9,y:o*.42,scale:.92}];P_.forEach((n,r)=>{let i=f[r],o=e.id===n.id,s=o&&t?1.22:o?1.08:1;u(n,i.x,i.y,i.scale*s,o),o&&(a.fillStyle=`rgba(236, 239, 255, 0.88)`,a.font=`13px Cairo, sans-serif`,a.textAlign=`center`,a.fillText(n.name,i.x,i.y-n.radius*i.scale*s-22))}),a.fillStyle=`rgba(198, 204, 233, 0.32)`,a.textAlign=`right`,a.font=`12px Cairo, sans-serif`,a.fillText(`محاكاة أنواع النجوم`,n-18,o-18),r.current=requestAnimationFrame(d)};return l(),window.addEventListener(`resize`,l),r.current=requestAnimationFrame(d),()=>{cancelAnimationFrame(r.current),window.removeEventListener(`resize`,l)}},[e,t]),(0,$.jsx)(`canvas`,{ref:n,className:`stars-canvas`})}function I_(){let[e,t]=(0,x.useState)(`blue-giant`),[n,r]=(0,x.useState)(!1),i=(0,x.useMemo)(()=>P_.find(t=>t.id===e)||P_[0],[e]),a=e=>{t(e),r(!0),window.setTimeout(()=>r(!1),650)};return(0,$.jsxs)($.Fragment,{children:[(0,$.jsx)(`style`,{children:`
+      `}),(0,$.jsx)(`div`,{className:`sch-root`,children:(0,$.jsxs)(`div`,{className:`sch-shell`,children:[(0,$.jsxs)(`section`,{className:`sch-hero`,children:[(0,$.jsxs)(`div`,{className:`sch-copy`,children:[(0,$.jsx)(`div`,{className:`sch-pill`,children:`Ψ الدالة الموجية والقياس`}),(0,$.jsxs)(`h1`,{className:`sch-title`,children:[(0,$.jsx)(`span`,{children:`قطة شرودنجر`}),` كمدخل لفهم`,(0,$.jsx)(`br`,{}),`المدارات الذرية`]}),(0,$.jsx)(`p`,{className:`sch-lead`,children:`بدلاً من تقديمها كلعبة، تعرض هذه الصفحة الفكرة العلمية الأساسية: قبل القياس يكون الإلكترون موصوفاً بدالة موجية منتشرة على مدارات محتملة، وعند الرصد تنهار هذه الدالة ليظهر موضع مرصود في مدار محدد داخل الذرة.`}),(0,$.jsxs)(`div`,{className:`status-row`,children:[(0,$.jsxs)(`div`,{className:`status-chip`,children:[`المدار الأكثر ترجيحاً: `,m.id]}),(0,$.jsxs)(`div`,{className:`status-chip`,children:[`شدة القياس الحالية: `,n,`%`]})]})]}),(0,$.jsx)(`div`,{className:`hero-visual sch-card`,children:(0,$.jsx)(P_,{orbitals:f,measuredOrbital:o,measuring:u})})]}),(0,$.jsxs)(`section`,{className:`sch-measure-card`,children:[(0,$.jsxs)(`div`,{className:`measure-top`,children:[(0,$.jsxs)(`div`,{className:`measure-head`,children:[(0,$.jsx)(`h3`,{children:p.title}),(0,$.jsx)(`p`,{children:p.subtitle})]}),(0,$.jsx)(`div`,{className:`collapse-badge`,children:`انهيار الدالة الموجية`})]}),(0,$.jsx)(`button`,{className:`measure-button`,onClick:()=>{d(!0),window.setTimeout(()=>{let e=N_(f),t=new Date,n=`${t.getHours()}:${String(t.getMinutes()).padStart(2,`0`)}:${String(t.getSeconds()).padStart(2,`0`)}`;s(e),l(t=>[{id:`${e.id}-${Date.now()}`,title:e.label,subtitle:`رُصد الإلكترون في المدار ${e.id} بطاقة ${e.energy}.`,stamp:n,color:e.color},...t].slice(0,5)),d(!1)},950)},disabled:u,children:u?`جارٍ تنفيذ القياس الكمي...`:`قياس موضع الإلكترون الآن`}),(0,$.jsx)(`div`,{className:`collapse-sub`,children:`Wavefunction Collapse: measurement projects the state onto one orbital.`})]}),(0,$.jsxs)(`section`,{className:`control-grid`,children:[(0,$.jsxs)(`div`,{className:`sch-grid-card`,children:[(0,$.jsx)(`h4`,{children:`تماسك الحالة`}),(0,$.jsx)(`p`,{children:`Quantum Coherence`}),(0,$.jsxs)(`div`,{className:`metric-value`,children:[e,`%`]}),(0,$.jsxs)(`div`,{className:`slider-wrap`,children:[(0,$.jsx)(`div`,{className:`slider-fill`,style:{width:`${e}%`}}),(0,$.jsx)(`input`,{className:`slider-input`,type:`range`,min:`0`,max:`100`,value:e,onChange:e=>t(Number(e.target.value))})]}),(0,$.jsxs)(`div`,{className:`slider-scale`,children:[(0,$.jsx)(`span`,{children:`تشتت`}),(0,$.jsx)(`span`,{children:`تماسك`})]})]}),(0,$.jsxs)(`div`,{className:`sch-grid-card`,children:[(0,$.jsx)(`h4`,{children:`شدة القياس`}),(0,$.jsx)(`p`,{children:`Observation Strength`}),(0,$.jsxs)(`div`,{className:`metric-value`,children:[n,`%`]}),(0,$.jsxs)(`div`,{className:`slider-wrap`,children:[(0,$.jsx)(`div`,{className:`slider-fill`,style:{width:`${n}%`}}),(0,$.jsx)(`input`,{className:`slider-input`,type:`range`,min:`0`,max:`100`,value:n,onChange:e=>r(Number(e.target.value))})]}),(0,$.jsxs)(`div`,{className:`slider-scale`,children:[(0,$.jsx)(`span`,{children:`ضعيف`}),(0,$.jsx)(`span`,{children:`حاد`})]})]}),(0,$.jsxs)(`div`,{className:`sch-grid-card`,children:[(0,$.jsx)(`h4`,{children:`إثارة الإلكترون`}),(0,$.jsx)(`p`,{children:`Excitation Level`}),(0,$.jsxs)(`div`,{className:`metric-value`,children:[i,`%`]}),(0,$.jsxs)(`div`,{className:`slider-wrap`,children:[(0,$.jsx)(`div`,{className:`slider-fill`,style:{width:`${i}%`}}),(0,$.jsx)(`input`,{className:`slider-input`,type:`range`,min:`0`,max:`100`,value:i,onChange:e=>a(Number(e.target.value))})]}),(0,$.jsxs)(`div`,{className:`slider-scale`,children:[(0,$.jsx)(`span`,{children:`منخفضة`}),(0,$.jsx)(`span`,{children:`عالية`})]})]})]}),(0,$.jsxs)(`section`,{className:`sch-outcomes`,children:[(0,$.jsx)(`h3`,{className:`outcomes-title`,children:`توزيع الاحتمالات على المدارات قبل القياس`}),(0,$.jsx)(`div`,{className:`outcomes-grid`,children:f.map(e=>(0,$.jsxs)(`div`,{className:`outcome-card`,children:[(0,$.jsxs)(`div`,{className:`outcome-top`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`div`,{className:`outcome-label`,style:{color:e.color},children:e.label}),(0,$.jsx)(`div`,{className:`outcome-energy`,children:e.energy})]}),(0,$.jsxs)(`div`,{className:`outcome-pct`,style:{color:e.color},children:[e.probability,`%`]})]}),(0,$.jsx)(`div`,{className:`outcome-bar`,children:(0,$.jsx)(`span`,{style:{width:`${e.probability}%`,background:e.color}})}),(0,$.jsx)(`p`,{className:`outcome-desc`,children:e.desc})]},e.id))})]}),(0,$.jsxs)(`section`,{className:`sch-bottom`,children:[(0,$.jsxs)(`div`,{className:`concept-grid`,children:[(0,$.jsxs)(`div`,{className:`concept-card`,children:[(0,$.jsx)(`h4`,{style:{color:`#1fd4ff`},children:`التراكب الموجي`}),(0,$.jsx)(`p`,{children:`قبل القياس لا نعامل الإلكترون ككرة تدور حول النواة، بل كدالة موجية تحدد أين يمكن العثور عليه باحتمالات مختلفة.`})]}),(0,$.jsxs)(`div`,{className:`concept-card`,children:[(0,$.jsx)(`h4`,{style:{color:`#9f8cff`},children:`القياس والإسقاط`}),(0,$.jsx)(`p`,{children:`عملية القياس لا تكشف مداراً جاهزاً فقط، بل تُسقط الحالة الكمومية على نتيجة واحدة من النتائج المسموح بها.`})]}),(0,$.jsxs)(`div`,{className:`concept-card`,children:[(0,$.jsx)(`h4`,{style:{color:`#f59e0b`},children:`المدارات الذرية`}),(0,$.jsx)(`p`,{children:`المدارات هنا تمثل مستويات وسحباً احتمالية مبسطة مثل 1s و2s و2p، وليست مسارات كوكبية صلبة.`})]})]}),(0,$.jsxs)(`aside`,{className:`sch-history`,children:[(0,$.jsx)(`h3`,{children:`سجل القياسات الأخيرة`}),c.map((e,t)=>(0,$.jsxs)(`div`,{className:`history-item`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`strong`,{style:{color:e.color},children:e.title}),(0,$.jsx)(`span`,{children:e.subtitle})]}),(0,$.jsx)(`div`,{className:`history-time`,children:e.stamp||`الآن`})]},`${e.id}-${t}`))]})]})]})})]})}var I_=[{id:`blue-giant`,name:`النجوم الزرقاء العملاقة`,en:`Blue Giants`,color:`#4f7cff`,glow:`rgba(79,124,255,0.45)`,radius:24,temp:`20,000 - 50,000 كلفن`,life:`قصير جدًا`,mass:`10 - 50 كتلة شمسية`,fact:`نجوم شديدة السخونة واللمعان، تستهلك وقودها بسرعة هائلة وتعيش عمرًا قصيرًا نسبيًا.`,bullets:[`سطوع استثنائي`,`حرارة فائقة`,`نهاية عنيفة غالبًا`]},{id:`red-giant`,name:`العمالقة الحمر`,en:`Red Giants`,color:`#ff5f3d`,glow:`rgba(255,95,61,0.42)`,radius:31,temp:`3,000 - 4,500 كلفن`,life:`مرحلة متأخرة`,mass:`0.5 - 8 كتل شمسية`,fact:`تتمدد هذه النجوم عندما تنفد نواتها من الهيدروجين، فتزداد حجمًا ويبرد سطحها نسبيًا.`,bullets:[`سطح أبرد`,`حجم هائل`,`مرحلة انتقالية قبل النهاية`]},{id:`yellow-dwarf`,name:`النجوم القزمة`,en:`Dwarf Stars`,color:`#ffb703`,glow:`rgba(255,183,3,0.4)`,radius:16,temp:`2,500 - 50,000 كلفن`,life:`قد تطول مليارات السنين`,mass:`أقل من 1 كتلة شمسية غالبًا`,fact:`تشمل عدة أنواع، لكنها عمومًا أكثر شيوعًا واستقرارًا من النجوم العملاقة.`,bullets:[`منتشرة بكثرة`,`أحجام أصغر`,`استقرار أعلى`]},{id:`variable`,name:`النجوم المتغيرة`,en:`Variable Stars`,color:`#c93cff`,glow:`rgba(201,60,255,0.38)`,radius:18,temp:`متفاوتة`,life:`تذبذب مستمر`,mass:`متنوعة`,fact:`يتغير سطوعها مع الزمن نتيجة نبضات داخلية أو ظروف فيزيائية خارجية أو ثنائيات نجمية.`,bullets:[`سطوع متبدل`,`مفيدة في القياس الكوني`,`أنماط نبض مختلفة`]},{id:`neutron`,name:`النجوم النيوترونية`,en:`Neutron Stars`,color:`#14b8ff`,glow:`rgba(20,184,255,0.4)`,radius:11,temp:`ملايين الدرجات داخليًا`,life:`بقايا فائقة الكثافة`,mass:`1.4 - 2.1 كتلة شمسية`,fact:`تتشكل بعد انفجار نجوم ضخمة، وتُعد من أكثر الأجسام كثافة في الكون بعد الثقوب السوداء.`,bullets:[`دوران سريع جدًا`,`نبضات راديوية محتملة`,`جاذبية هائلة`]},{id:`white-dwarf`,name:`الأقزام البيضاء`,en:`White Dwarfs`,color:`#e9eefb`,glow:`rgba(233,238,251,0.35)`,radius:13,temp:`8,000 - 100,000 كلفن`,life:`تبرد تدريجيًا`,mass:`قرابة كتلة شمسية ضمن حجم صغير`,fact:`نوى نجمية متبقية بعد طرد الطبقات الخارجية، وهي صغيرة جدًا لكنها كثيفة بشكل ملحوظ.`,bullets:[`كثافة مرتفعة`,`حجم أرضي تقريبًا`,`بقايا نجوم متوسطة`]}];function L_({activeStar:e,pulse:t}){let n=(0,x.useRef)(null),r=(0,x.useRef)(null);return(0,x.useEffect)(()=>{let i=n.current;if(!i)return;let a=i.getContext(`2d`),o=window.devicePixelRatio||1,s=0,c=Array.from({length:120},(e,t)=>({x:t*71.3%1e3/1e3,y:t*41.7%1e3/1e3,size:.8+t%3*.55,alpha:.12+t%5*.05})),l=()=>{let e=i.getBoundingClientRect();i.width=e.width*o,i.height=e.height*o,a.setTransform(o,0,0,o,0,0)},u=(e,t,n,r=1,i=!1)=>{let o=e.radius*r,c=a.createRadialGradient(t,n,0,t,n,o*2.6);if(c.addColorStop(0,e.color),c.addColorStop(.3,e.glow),c.addColorStop(1,`rgba(255,255,255,0)`),a.fillStyle=c,a.beginPath(),a.arc(t,n,o*2.6,0,Math.PI*2),a.fill(),e.id===`variable`)a.beginPath(),a.arc(t,n,o*(.84+Math.sin(s*.08)*.08),0,Math.PI*2),a.fillStyle=e.color,a.fill();else if(e.id===`neutron`){a.beginPath(),a.arc(t,n,o*.9,0,Math.PI*2),a.fillStyle=e.color,a.fill(),a.save(),a.translate(t,n),a.rotate(s*.05);let r=a.createLinearGradient(0,0,o*5,0);r.addColorStop(0,`rgba(20,184,255,0.65)`),r.addColorStop(1,`rgba(20,184,255,0)`),a.fillStyle=r,a.fillRect(0,-2,o*5,4),a.rotate(Math.PI),a.fillStyle=r,a.fillRect(0,-2,o*5,4),a.restore()}else if(e.id===`white-dwarf`)a.beginPath(),a.arc(t,n,o,0,Math.PI*2),a.fillStyle=`#f7fbff`,a.fill();else{let r=a.createRadialGradient(t-o*.3,n-o*.3,0,t,n,o*1.15);r.addColorStop(0,`rgba(255,255,255,0.9)`),r.addColorStop(.32,e.color),r.addColorStop(1,e.color),a.fillStyle=r,a.beginPath(),a.arc(t,n,o,0,Math.PI*2),a.fill()}i&&(a.beginPath(),a.arc(t,n,o*1.65,0,Math.PI*2),a.strokeStyle=`rgba(255,255,255,0.28)`,a.lineWidth=1.5,a.stroke())},d=()=>{let n=i.clientWidth,o=i.clientHeight;s+=1,a.clearRect(0,0,n,o);let l=a.createLinearGradient(0,0,n,o);l.addColorStop(0,`rgba(8,12,26,1)`),l.addColorStop(1,`rgba(4,7,16,1)`),a.fillStyle=l,a.fillRect(0,0,n,o),c.forEach((e,t)=>{a.beginPath(),a.arc(e.x*n,e.y*o,e.size,0,Math.PI*2);let r=e.alpha+Math.sin(s*.015+t)*.08;a.fillStyle=`rgba(255,255,255,${Math.max(.06,r)})`,a.fill()});let f=[{x:n*.2,y:o*.68,scale:.95},{x:n*.34,y:o*.36,scale:1.12},{x:n*.52,y:o*.58,scale:.85},{x:n*.66,y:o*.33,scale:1},{x:n*.79,y:o*.63,scale:.84},{x:n*.9,y:o*.42,scale:.92}];I_.forEach((n,r)=>{let i=f[r],o=e.id===n.id,s=o&&t?1.22:o?1.08:1;u(n,i.x,i.y,i.scale*s,o),o&&(a.fillStyle=`rgba(236, 239, 255, 0.88)`,a.font=`13px Cairo, sans-serif`,a.textAlign=`center`,a.fillText(n.name,i.x,i.y-n.radius*i.scale*s-22))}),a.fillStyle=`rgba(198, 204, 233, 0.32)`,a.textAlign=`right`,a.font=`12px Cairo, sans-serif`,a.fillText(`محاكاة أنواع النجوم`,n-18,o-18),r.current=requestAnimationFrame(d)};return l(),window.addEventListener(`resize`,l),r.current=requestAnimationFrame(d),()=>{cancelAnimationFrame(r.current),window.removeEventListener(`resize`,l)}},[e,t]),(0,$.jsx)(`canvas`,{ref:n,className:`stars-canvas`})}function R_(){let[e,t]=(0,x.useState)(`blue-giant`),[n,r]=(0,x.useState)(!1),i=(0,x.useMemo)(()=>I_.find(t=>t.id===e)||I_[0],[e]),a=e=>{t(e),r(!0),window.setTimeout(()=>r(!1),650)};return(0,$.jsxs)($.Fragment,{children:[(0,$.jsx)(`style`,{children:`
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Syne:wght@700;800&display=swap');
 
         html, body, #root {
@@ -3583,4 +3665,4 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(let e of thi
             align-items: flex-start;
           }
         }
-      `}),(0,$.jsx)(`div`,{className:`stars-root`,children:(0,$.jsxs)(`div`,{className:`stars-shell`,children:[(0,$.jsxs)(`header`,{className:`stars-header`,children:[(0,$.jsx)(`div`,{className:`stars-pill`,children:`✦ أطياف نجمية`}),(0,$.jsxs)(`h1`,{className:`stars-title`,children:[(0,$.jsx)(`span`,{children:`النجوم`}),` وأنواعها الرئيسية`]}),(0,$.jsx)(`div`,{className:`stars-subtitle`,children:`STELLAR CLASSES AND BEHAVIOR`}),(0,$.jsx)(`p`,{className:`stars-lead`,children:`صفحة تعليمية تفاعلية تعرض طيفًا من أنواع النجوم بأسلوب بصري أقوى من النسخة البسيطة، مع محاكٍ يبرز الفروق في اللون والحجم والسلوك والسطوع ضمن نفس الهوية التصميمية للمشروع.`})]}),(0,$.jsx)(`section`,{className:`stars-visual`,children:(0,$.jsx)(F_,{activeStar:i,pulse:n})}),(0,$.jsxs)(`section`,{className:`stars-focus`,children:[(0,$.jsxs)(`div`,{className:`focus-top`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`h3`,{children:i.name}),(0,$.jsx)(`p`,{children:i.en})]}),(0,$.jsx)(`div`,{className:`focus-star`})]}),(0,$.jsxs)(`div`,{className:`focus-metrics`,children:[(0,$.jsxs)(`div`,{className:`focus-metric`,children:[(0,$.jsx)(`span`,{children:`درجة الحرارة`}),(0,$.jsx)(`strong`,{children:i.temp})]}),(0,$.jsxs)(`div`,{className:`focus-metric`,children:[(0,$.jsx)(`span`,{children:`الكتلة التقريبية`}),(0,$.jsx)(`strong`,{children:i.mass})]}),(0,$.jsxs)(`div`,{className:`focus-metric`,children:[(0,$.jsx)(`span`,{children:`العمر/الحالة`}),(0,$.jsx)(`strong`,{children:i.life})]})]}),(0,$.jsx)(`div`,{className:`focus-fact`,children:i.fact})]}),(0,$.jsx)(`section`,{className:`stars-grid`,children:P_.map(t=>(0,$.jsxs)(`div`,{className:`star-card${e===t.id?` active`:``}`,onClick:()=>a(t.id),children:[(0,$.jsx)(`div`,{className:`star-icon`,style:{background:t.color,boxShadow:`0 0 28px ${t.glow}`}}),(0,$.jsx)(`h3`,{className:`star-title`,children:t.name}),(0,$.jsx)(`div`,{className:`star-en`,children:t.en}),(0,$.jsx)(`div`,{className:`star-text`,children:t.fact}),(0,$.jsx)(`div`,{className:`star-bullets`,children:t.bullets.map(e=>(0,$.jsxs)(`div`,{className:`star-bullet`,children:[`• `,e]},e))})]},t.id))})]})})]})}(0,Jn.createRoot)(document.getElementById(`root`)).render((0,$.jsx)(x.StrictMode,{children:(0,$.jsx)(Dn,{basename:`/SimulateUniverse`,children:(0,$.jsx)(Bt,{children:(0,$.jsxs)(Rt,{element:(0,$.jsx)(c_,{}),children:[(0,$.jsx)(Rt,{path:`/`,element:(0,$.jsx)(f_,{})}),(0,$.jsx)(Rt,{path:`/black-hole`,element:(0,$.jsx)(b_,{})}),(0,$.jsx)(Rt,{path:`/login`,element:(0,$.jsx)(p_,{})}),(0,$.jsx)(Rt,{path:`/spacetime`,element:(0,$.jsx)(E_,{})}),(0,$.jsx)(Rt,{path:`/solar-system`,element:(0,$.jsx)(k_,{})}),(0,$.jsx)(Rt,{path:`/schrodinger`,element:(0,$.jsx)(N_,{})}),(0,$.jsx)(Rt,{path:`/stars`,element:(0,$.jsx)(I_,{})})]})})})}));
+      `}),(0,$.jsx)(`div`,{className:`stars-root`,children:(0,$.jsxs)(`div`,{className:`stars-shell`,children:[(0,$.jsxs)(`header`,{className:`stars-header`,children:[(0,$.jsx)(`div`,{className:`stars-pill`,children:`✦ أطياف نجمية`}),(0,$.jsxs)(`h1`,{className:`stars-title`,children:[(0,$.jsx)(`span`,{children:`النجوم`}),` وأنواعها الرئيسية`]}),(0,$.jsx)(`div`,{className:`stars-subtitle`,children:`STELLAR CLASSES AND BEHAVIOR`}),(0,$.jsx)(`p`,{className:`stars-lead`,children:`صفحة تعليمية تفاعلية تعرض طيفًا من أنواع النجوم بأسلوب بصري أقوى من النسخة البسيطة، مع محاكٍ يبرز الفروق في اللون والحجم والسلوك والسطوع ضمن نفس الهوية التصميمية للمشروع.`})]}),(0,$.jsx)(`section`,{className:`stars-visual`,children:(0,$.jsx)(L_,{activeStar:i,pulse:n})}),(0,$.jsxs)(`section`,{className:`stars-focus`,children:[(0,$.jsxs)(`div`,{className:`focus-top`,children:[(0,$.jsxs)(`div`,{children:[(0,$.jsx)(`h3`,{children:i.name}),(0,$.jsx)(`p`,{children:i.en})]}),(0,$.jsx)(`div`,{className:`focus-star`})]}),(0,$.jsxs)(`div`,{className:`focus-metrics`,children:[(0,$.jsxs)(`div`,{className:`focus-metric`,children:[(0,$.jsx)(`span`,{children:`درجة الحرارة`}),(0,$.jsx)(`strong`,{children:i.temp})]}),(0,$.jsxs)(`div`,{className:`focus-metric`,children:[(0,$.jsx)(`span`,{children:`الكتلة التقريبية`}),(0,$.jsx)(`strong`,{children:i.mass})]}),(0,$.jsxs)(`div`,{className:`focus-metric`,children:[(0,$.jsx)(`span`,{children:`العمر/الحالة`}),(0,$.jsx)(`strong`,{children:i.life})]})]}),(0,$.jsx)(`div`,{className:`focus-fact`,children:i.fact})]}),(0,$.jsx)(`section`,{className:`stars-grid`,children:I_.map(t=>(0,$.jsxs)(`div`,{className:`star-card${e===t.id?` active`:``}`,onClick:()=>a(t.id),children:[(0,$.jsx)(`div`,{className:`star-icon`,style:{background:t.color,boxShadow:`0 0 28px ${t.glow}`}}),(0,$.jsx)(`h3`,{className:`star-title`,children:t.name}),(0,$.jsx)(`div`,{className:`star-en`,children:t.en}),(0,$.jsx)(`div`,{className:`star-text`,children:t.fact}),(0,$.jsx)(`div`,{className:`star-bullets`,children:t.bullets.map(e=>(0,$.jsxs)(`div`,{className:`star-bullet`,children:[`• `,e]},e))})]},t.id))})]})})]})}(0,Jn.createRoot)(document.getElementById(`root`)).render((0,$.jsx)(x.StrictMode,{children:(0,$.jsx)(Dn,{basename:`/SimulateUniverse`,children:(0,$.jsx)(Bt,{children:(0,$.jsxs)(Rt,{element:(0,$.jsx)(c_,{}),children:[(0,$.jsx)(Rt,{path:`/`,element:(0,$.jsx)(f_,{})}),(0,$.jsx)(Rt,{path:`/black-hole`,element:(0,$.jsx)(b_,{})}),(0,$.jsx)(Rt,{path:`/login`,element:(0,$.jsx)(p_,{})}),(0,$.jsx)(Rt,{path:`/spacetime`,element:(0,$.jsx)(E_,{})}),(0,$.jsx)(Rt,{path:`/solar-system`,element:(0,$.jsx)(k_,{})}),(0,$.jsx)(Rt,{path:`/schrodinger`,element:(0,$.jsx)(F_,{})}),(0,$.jsx)(Rt,{path:`/stars`,element:(0,$.jsx)(R_,{})})]})})})}));
