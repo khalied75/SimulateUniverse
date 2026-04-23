@@ -10,9 +10,10 @@ import SpacetimeCurvature from './pages/SpacetimeCurvature';
 import SolarSystem from './pages/SolarSystem';
 import Schrodinger from './pages/Schrodinger';
 import Stars from './pages/Stars';
+import WavelengthEnergy from './pages/WavelengthEnergy';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter  basename="/SimulateUniverse">
+    <BrowserRouter >
       <Routes>
         <Route element={<Layout />} >
           <Route path="/" element={<Home />} />
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/solar-system" element={<SolarSystem />} />
           <Route path="/schrodinger" element={<Schrodinger />} />
           <Route path="/stars" element={<Stars />} />
+          <Route path="/wavelength-energy" element={<WavelengthEnergy />} />
 
         </Route>
       </Routes>

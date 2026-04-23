@@ -298,7 +298,7 @@ export default function Stars() {
           z-index: 1;
           max-width: 1180px;
           margin: 0 auto;
-          padding: 5.4rem 1.5rem 4rem;
+          padding: 6.2rem 1.5rem 4rem;
         }
 
         .stars-header {
@@ -323,9 +323,10 @@ export default function Stars() {
         .stars-title {
           margin: 0;
           font-size: clamp(2rem, 5vw, 3.25rem);
-          line-height: 1.08;
+          line-height: 1.18;
           font-weight: 900;
           color: #f8f6ff;
+          padding-top: 0.08em;
         }
 
         .stars-title span {
@@ -518,7 +519,7 @@ export default function Stars() {
         @media (max-width: 640px) {
           .stars-shell {
             padding-inline: 1rem;
-            padding-top: 4.8rem;
+            padding-top: 5.2rem;
           }
 
           .stars-canvas {

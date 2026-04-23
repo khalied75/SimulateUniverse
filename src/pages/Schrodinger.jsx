@@ -274,7 +274,7 @@ export default function Schrodinger() {
         .sch-shell {
           max-width: 1180px;
           margin: 0 auto;
-          padding: 5.4rem 1.5rem 4rem;
+          padding: 6rem 1.5rem 4rem;
           position: relative;
           z-index: 1;
         }
@@ -284,6 +284,11 @@ export default function Schrodinger() {
           display: grid;
           grid-template-columns: 1.08fr 0.92fr;
           gap: 1.15rem;
+        }
+
+        .sch-bottom {
+          margin-top: 1rem;
+          align-items: start;
         }
 
         .sch-hero {
@@ -552,6 +557,10 @@ export default function Schrodinger() {
           padding: 1.15rem;
         }
 
+        .sch-history {
+          min-height: 100%;
+        }
+
         .sch-measure-card {
           margin-bottom: 1rem;
         }
@@ -800,7 +809,7 @@ export default function Schrodinger() {
         @media (max-width: 640px) {
           .sch-shell {
             padding-inline: 1rem;
-            padding-top: 4.8rem;
+            padding-top: 5.2rem;
           }
 
           .measure-top {

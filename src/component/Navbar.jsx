@@ -1,7 +1,82 @@
-import { useState, useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { auth } from "../config/firebase";
-import { signOut, onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+
+const NAV_ITEMS = [
+  { to: "/", label: "الرئيسية", icon: "✦" },
+  { to: "/black-hole", label: "الثقوب السوداء", icon: "◉" },
+  { to: "/spacetime", label: "الزمكان", icon: "⌁" },
+  { to: "/solar-system", label: "النظام الشمسي", icon: "☼" },
+  { to: "/schrodinger", label: "قطة شرودنغر", icon: "◌" },
+  { to: "/stars", label: "النجوم", icon: "✧" },
+  { to: "/wavelength-energy", label: "الطاقة والموجة", icon: "∿" },
+];
+
+function NavButton({ item, active, onClick, mobile = false }) {
+  const baseStyle = mobile
+    ? {
+        display: "flex",
+        alignItems: "center",
+        gap: "0.75rem",
+        padding: "0.7rem 0.9rem",
+        fontSize: "0.85rem",
+        fontWeight: 600,
+        border: "none",
+        borderRadius: "10px",
+        width: "100%",
+      }
+    : {
+        display: "flex",
+        alignItems: "center",
+        gap: "0.35rem",
+        padding: "0.42rem 0.8rem",
+        fontSize: "0.78rem",
+        fontWeight: 600,
+        border: active ? "1px solid rgba(212, 175, 55, 0.2)" : "none",
+        borderRadius: "8px",
+      };
+
+  return (
+    <button
+      onClick={() => onClick(item.to)}
+      style={{
+        ...baseStyle,
+        color: active ? "#d4af37" : "rgba(180, 185, 210, 0.75)",
+        background: active ? "rgba(212, 175, 55, 0.1)" : "transparent",
+        textDecoration: "none",
+        transition: "all 0.22s ease",
+        whiteSpace: "nowrap",
+        letterSpacing: "0.02em",
+        position: "relative",
+        cursor: "pointer",
+      }}
+      onMouseEnter={(event) => {
+        if (active) return;
+        event.currentTarget.style.color = "#d4af37";
+        event.currentTarget.style.background = "rgba(212, 175, 55, 0.08)";
+      }}
+      onMouseLeave={(event) => {
+        if (active) return;
+        event.currentTarget.style.color = "rgba(180, 185, 210, 0.75)";
+        event.currentTarget.style.background = "transparent";
+      }}
+    >
+      <span
+        className="link-icon"
+        style={{
+          fontSize: mobile ? "0.8rem" : "0.7rem",
+          width: mobile ? "20px" : "auto",
+          textAlign: "center",
+          opacity: active ? 1 : 0.5,
+        }}
+      >
+        {item.icon}
+      </span>
+      {item.label}
+    </button>
+  );
+}
 
 export default function Navbar() {
   const [user, setUser] = useState(null);
@@ -10,6 +85,7 @@ export default function Navbar() {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const userMenuRef = useRef(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, setUser);
@@ -23,13 +99,19 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const handler = (e) => {
-      if (userMenuRef.current && !userMenuRef.current.contains(e.target))
+    const handler = (event) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
         setUserMenuOpen(false);
+      }
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
   }, []);
+
+  useEffect(() => {
+    setMobileOpen(false);
+    setUserMenuOpen(false);
+  }, [location.pathname]);
 
   const handleLogout = async () => {
     await signOut(auth);
@@ -38,33 +120,19 @@ export default function Navbar() {
   };
 
   const handleNavClick = (path) => {
-    // Allow home page without login
     if (path === "/") {
       navigate(path);
-      setMobileOpen(false);
       return;
     }
-    
-    // Check if user is logged in for other pages
+
     if (!user) {
       alert("يجب تسجيل الدخول للوصول إلى هذه الصفحة");
       navigate("/login");
       return;
     }
-    
-    // User is logged in, allow navigation
-    navigate(path);
-    setMobileOpen(false);
-  };
 
-  const NAV_ITEMS = [
-    { to: "/", label: "الرئيسية", icon: "⬡" },
-    { to: "/black-hole", label: "الثقوب السوداء", icon: "◉" },
-    { to: "/spacetime", label: "الزمكان", icon: "⊛" },
-    { to: "/solar-system", label: "النظام الشمسي", icon: "◎" },
-    { to: "/schrodinger", label: "قطة شرودنغر", icon: "⊕" },
-    { to: "/stars", label: "النجوم", icon: "✦" },
-  ];
+    navigate(path);
+  };
 
   return (
     <>
@@ -73,7 +141,9 @@ export default function Navbar() {
 
         .nav-root {
           position: fixed;
-          top: 0; left: 0; right: 0;
+          top: 0;
+          left: 0;
+          right: 0;
           z-index: 1000;
           padding: 0 1.5rem;
           transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -106,7 +176,6 @@ export default function Navbar() {
           box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(212,175,55,0.06);
         }
 
-        /* LOGO */
         .nav-logo {
           display: flex;
           align-items: center;
@@ -164,56 +233,15 @@ export default function Navbar() {
           letter-spacing: 0.08em;
         }
 
-        /* LINKS */
         .nav-links {
           display: flex;
           align-items: center;
           gap: 0.1rem;
           list-style: none;
+          padding: 0;
+          margin: 0;
         }
 
-        .nav-links a {
-          display: flex;
-          align-items: center;
-          gap: 0.35rem;
-          padding: 0.42rem 0.8rem;
-          font-size: 0.78rem;
-          font-weight: 600;
-          color: rgba(180, 185, 210, 0.75);
-          text-decoration: none;
-          border-radius: 8px;
-          transition: all 0.22s ease;
-          white-space: nowrap;
-          letter-spacing: 0.02em;
-          position: relative;
-        }
-
-        .nav-links a .link-icon {
-          font-size: 0.7rem;
-          opacity: 0.5;
-          transition: opacity 0.2s;
-        }
-
-        .nav-links a:hover {
-          color: #d4af37;
-          background: rgba(212, 175, 55, 0.07);
-        }
-
-        .nav-links a:hover .link-icon {
-          opacity: 1;
-        }
-
-        .nav-links a.active {
-          color: #d4af37;
-          background: rgba(212, 175, 55, 0.1);
-          border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .nav-links a.active .link-icon {
-          opacity: 1;
-        }
-
-        /* ACTIONS */
         .nav-actions {
           display: flex;
           align-items: center;
@@ -246,7 +274,6 @@ export default function Navbar() {
           background: linear-gradient(135deg, #e0be4a 0%, #c9a020 100%);
         }
 
-        /* USER MENU */
         .nav-user-wrap {
           position: relative;
         }
@@ -312,7 +339,7 @@ export default function Navbar() {
 
         @keyframes dd-in {
           from { opacity: 0; transform: translateY(-6px) scale(0.97); }
-          to   { opacity: 1; transform: translateY(0) scale(1); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .nav-dropdown-email {
@@ -355,13 +382,6 @@ export default function Navbar() {
           color: #f87171;
         }
 
-        .nav-dropdown-divider {
-          height: 1px;
-          background: rgba(255,255,255,0.05);
-          margin: 0.4rem 0;
-        }
-
-        /* MOBILE TOGGLE */
         .nav-hamburger {
           display: none;
           flex-direction: column;
@@ -392,17 +412,21 @@ export default function Navbar() {
         .nav-hamburger.open span:nth-child(1) {
           transform: translateY(6px) rotate(45deg);
         }
+
         .nav-hamburger.open span:nth-child(2) {
-          opacity: 0; transform: scaleX(0);
+          opacity: 0;
+          transform: scaleX(0);
         }
+
         .nav-hamburger.open span:nth-child(3) {
           transform: translateY(-6px) rotate(-45deg);
         }
 
-        /* MOBILE MENU */
         .nav-mobile-menu {
           position: fixed;
-          top: 68px; left: 0; right: 0;
+          top: 68px;
+          left: 0;
+          right: 0;
           background: rgba(5, 7, 18, 0.97);
           backdrop-filter: blur(24px);
           border-bottom: 1px solid rgba(212, 175, 55, 0.1);
@@ -416,38 +440,7 @@ export default function Navbar() {
 
         @keyframes mobile-in {
           from { opacity: 0; transform: translateY(-10px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-
-        .nav-mobile-menu a {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-          padding: 0.7rem 0.9rem;
-          font-size: 0.85rem;
-          font-weight: 600;
-          color: rgba(180, 185, 210, 0.75);
-          text-decoration: none;
-          border-radius: 10px;
-          transition: all 0.2s;
-          letter-spacing: 0.02em;
-        }
-
-        .nav-mobile-menu a .link-icon {
-          font-size: 0.8rem;
-          width: 20px;
-          text-align: center;
-          opacity: 0.5;
-        }
-
-        .nav-mobile-menu a:hover,
-        .nav-mobile-menu a.active {
-          color: #d4af37;
-          background: rgba(212, 175, 55, 0.08);
-        }
-
-        .nav-mobile-menu a.active .link-icon {
-          opacity: 1;
+          to { opacity: 1; transform: translateY(0); }
         }
 
         .nav-mobile-divider {
@@ -467,7 +460,6 @@ export default function Navbar() {
           justify-content: center;
         }
 
-        /* RESPONSIVE */
         @media (max-width: 900px) {
           .nav-links { display: none; }
           .nav-hamburger { display: flex; }
@@ -481,8 +473,6 @@ export default function Navbar() {
 
       <nav className={`nav-root${scrolled ? " scrolled" : ""}`} dir="rtl">
         <div className="nav-inner">
-
-          {/* Logo */}
           <Link to="/" className="nav-logo">
             <div className="nav-logo-glyph">
               <svg viewBox="0 0 38 38" fill="none">
@@ -503,57 +493,24 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop nav */}
           <ul className="nav-links">
             {NAV_ITEMS.map((item) => (
               <li key={item.to}>
-                <button
-                  onClick={() => handleNavClick(item.to)}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.35rem",
-                    padding: "0.42rem 0.8rem",
-                    fontSize: "0.78rem",
-                    fontWeight: 600,
-                    color: window.location.pathname === item.to ? "#d4af37" : "rgba(180, 185, 210, 0.75)",
-                    textDecoration: "none",
-                    borderRadius: "8px",
-                    border: window.location.pathname === item.to ? "1px solid rgba(212, 175, 55, 0.2)" : "none",
-                    background: window.location.pathname === item.to ? "rgba(212, 175, 55, 0.1)" : "transparent",
-                    transition: "all 0.22s ease",
-                    whiteSpace: "nowrap",
-                    letterSpacing: "0.02em",
-                    position: "relative",
-                    cursor: "pointer",
-                  }}
-                  onMouseEnter={(e) => {
-                    if (window.location.pathname !== item.to) {
-                      e.target.style.color = "#d4af37";
-                      e.target.style.background = "rgba(212, 175, 55, 0.07)";
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (window.location.pathname !== item.to) {
-                      e.target.style.color = "rgba(180, 185, 210, 0.75)";
-                      e.target.style.background = "transparent";
-                    }
-                  }}
-                >
-                  <span className="link-icon" style={{ fontSize: "0.7rem", opacity: 0.5 }}>{item.icon}</span>
-                  {item.label}
-                </button>
+                <NavButton
+                  item={item}
+                  active={location.pathname === item.to}
+                  onClick={handleNavClick}
+                />
               </li>
             ))}
           </ul>
 
-          {/* Actions */}
           <div className="nav-actions">
             {user ? (
               <div className="nav-user-wrap" ref={userMenuRef}>
                 <button
                   className="nav-user-btn"
-                  onClick={() => setUserMenuOpen((v) => !v)}
+                  onClick={() => setUserMenuOpen((value) => !value)}
                   aria-expanded={userMenuOpen}
                 >
                   <div className="nav-avatar">
@@ -569,7 +526,8 @@ export default function Navbar() {
                   <div className="nav-dropdown">
                     <div className="nav-dropdown-email">{user.email}</div>
                     <button className="nav-dropdown-item danger" onClick={handleLogout}>
-                      <span>→</span> تسجيل الخروج
+                      <span>→</span>
+                      تسجيل الخروج
                     </button>
                   </div>
                 )}
@@ -581,57 +539,29 @@ export default function Navbar() {
               </Link>
             )}
 
-            {/* Hamburger */}
             <button
               className={`nav-hamburger${mobileOpen ? " open" : ""}`}
-              onClick={() => setMobileOpen((v) => !v)}
+              onClick={() => setMobileOpen((value) => !value)}
               aria-label="القائمة"
             >
-              <span /><span /><span />
+              <span />
+              <span />
+              <span />
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile menu */}
       {mobileOpen && (
         <div className="nav-mobile-menu" dir="rtl">
           {NAV_ITEMS.map((item) => (
-            <button
+            <NavButton
               key={item.to}
-              onClick={() => handleNavClick(item.to)}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.75rem",
-                padding: "0.7rem 0.9rem",
-                fontSize: "0.85rem",
-                fontWeight: 600,
-                color: window.location.pathname === item.to ? "#d4af37" : "rgba(180, 185, 210, 0.75)",
-                background: window.location.pathname === item.to ? "rgba(212, 175, 55, 0.08)" : "transparent",
-                border: "none",
-                borderRadius: "10px",
-                transition: "all 0.2s",
-                letterSpacing: "0.02em",
-                cursor: "pointer",
-                width: "100%",
-              }}
-              onMouseEnter={(e) => {
-                if (window.location.pathname !== item.to) {
-                  e.target.style.color = "#d4af37";
-                  e.target.style.background = "rgba(212, 175, 55, 0.08)";
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (window.location.pathname !== item.to) {
-                  e.target.style.color = "rgba(180, 185, 210, 0.75)";
-                  e.target.style.background = "transparent";
-                }
-              }}
-            >
-              <span style={{ fontSize: "0.8rem", width: "20px", textAlign: "center", opacity: 0.5 }}>{item.icon}</span>
-              {item.label}
-            </button>
+              item={item}
+              active={location.pathname === item.to}
+              onClick={handleNavClick}
+              mobile
+            />
           ))}
 
           <div className="nav-mobile-divider" />
@@ -639,7 +569,10 @@ export default function Navbar() {
           <div className="nav-mobile-actions">
             {user ? (
               <button
-                onClick={() => { handleLogout(); setMobileOpen(false); }}
+                onClick={() => {
+                  handleLogout();
+                  setMobileOpen(false);
+                }}
                 style={{
                   background: "rgba(239,68,68,0.08)",
                   border: "1px solid rgba(239,68,68,0.2)",
@@ -656,11 +589,7 @@ export default function Navbar() {
                 → تسجيل الخروج
               </button>
             ) : (
-              <Link
-                to="/login"
-                className="nav-login-btn"
-                onClick={() => setMobileOpen(false)}
-              >
+              <Link to="/login" className="nav-login-btn" onClick={() => setMobileOpen(false)}>
                 ✦ تسجيل الدخول
               </Link>
             )}

@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "SimulateUniverse",
+    "new": "simulateuniverse",
+    "prod": "simulateuniverse"
+  },
+  "targets": {},
+  "etags": {}
+}

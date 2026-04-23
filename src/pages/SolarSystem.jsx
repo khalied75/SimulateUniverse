@@ -255,7 +255,7 @@ export default function SolarSystem() {
           z-index: 1;
           max-width: 1180px;
           margin: 0 auto;
-          padding: 5.4rem 1.5rem 4rem;
+          padding: 6.2rem 1.5rem 4rem;
         }
 
         .solar-header { text-align: center; margin-bottom: 1.8rem; }
@@ -276,9 +276,10 @@ export default function SolarSystem() {
         .solar-title {
           margin: 0;
           font-size: clamp(2rem, 5vw, 3.3rem);
-          line-height: 1.08;
+          line-height: 1.18;
           font-weight: 900;
           color: #f7f2df;
+          padding-top: 0.08em;
         }
 
         .solar-title span { color: #d4af37; }
@@ -508,7 +509,7 @@ export default function SolarSystem() {
         }
 
         @media (max-width: 640px) {
-          .solar-shell { padding-inline: 1rem; padding-top: 4.8rem; }
+          .solar-shell { padding-inline: 1rem; padding-top: 5.2rem; }
           .solar-canvas { height: 320px; }
           .section-head, .planet-top { flex-direction: column; align-items: flex-start; }
         }

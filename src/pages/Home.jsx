@@ -65,6 +65,18 @@ const SIMS = [
     glow: "rgba(212,175,55,0.12)",
     border: "rgba(212,175,55,0.22)",
   },
+  {
+    id: "wavelength-energy",
+    path: "/wavelength-energy",
+    emoji: "∿",
+    label: "الطاقة والموجة",
+    sublabel: "Energy and Wavelength",
+    desc: "استكشف العلاقة العكسية بين طاقة الضوء وطول الموجة عبر محاكاة بصرية للطيف المرئي والموجات الكهرومغناطيسية.",
+    tag: "SPECTRUM",
+    accent: "#8b5cff",
+    glow: "rgba(139,92,255,0.14)",
+    border: "rgba(139,92,255,0.24)",
+  },
 ];
 
 /* ─── Animated counter ─── */
@@ -847,7 +859,7 @@ export default function Home() {
               </h1>
 
               <p className="hero-desc">
-                خمس محاكيات تفاعلية تأخذك في رحلة علمية عبر الثقوب السوداء،
+                ست محاكيات تفاعلية تأخذك في رحلة علمية عبر الثقوب السوداء،
                 الزمكان، النجوم، وأعماق ميكانيكا الكم.
               </p>
 
@@ -903,7 +915,7 @@ export default function Home() {
         <div className="stats-strip">
           <div className="stats-inner">
             {[
-              { icon: "⬡", val: 5, suffix: "", label: "محاكيات" },
+              { icon: "⬡", val: 6, suffix: "", label: "محاكيات" },
               { icon: "✦", val: 100, suffix: "%", label: "تفاعلية" },
               { icon: "◎", val: 50, suffix: "+", label: "موضوع علمي" },
               { icon: "⊛", val: 1, suffix: "", label: "موسوعة كونية" },
