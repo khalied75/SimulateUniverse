@@ -451,13 +451,47 @@ export default function Navbar() {
 
         .nav-mobile-actions {
           display: flex;
-          gap: 0.6rem;
+          flex-direction: column;
+          gap: 0.75rem;
           padding-top: 0.2rem;
         }
 
         .nav-mobile-actions > * {
-          flex: 1;
-          justify-content: center;
+          width: 100%;
+        }
+
+        .nav-mobile-user {
+          display: none;
+          align-items: center;
+          gap: 0.8rem;
+          padding: 0.85rem 0.95rem;
+          border-radius: 14px;
+          border: 1px solid rgba(212, 175, 55, 0.14);
+          background: rgba(212, 175, 55, 0.06);
+        }
+
+        .nav-mobile-user-text {
+          min-width: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 0.15rem;
+        }
+
+        .nav-mobile-user-name {
+          color: #f8fafc;
+          font-size: 0.88rem;
+          font-weight: 700;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .nav-mobile-user-email {
+          color: rgba(180,185,210,0.58);
+          font-size: 0.72rem;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         @media (max-width: 900px) {
@@ -468,6 +502,16 @@ export default function Navbar() {
         @media (max-width: 480px) {
           .nav-root { padding: 0 1rem; }
           .nav-logo-title { font-size: 0.78rem; }
+        }
+
+        @media (max-width: 644px) {
+          .nav-user-wrap {
+            display: none;
+          }
+
+          .nav-mobile-user {
+            display: flex;
+          }
         }
       `}</style>
 
@@ -568,7 +612,19 @@ export default function Navbar() {
 
           <div className="nav-mobile-actions">
             {user ? (
-              <button
+              <>
+                <div className="nav-mobile-user">
+                  <div className="nav-avatar">
+                    {(user.displayName || user.email || "U")[0].toUpperCase()}
+                  </div>
+                  <div className="nav-mobile-user-text">
+                    <span className="nav-mobile-user-name">
+                      {user.displayName || user.email?.split("@")[0]}
+                    </span>
+                    <span className="nav-mobile-user-email">{user.email}</span>
+                  </div>
+                </div>
+                <button
                 onClick={() => {
                   handleLogout();
                   setMobileOpen(false);
@@ -588,6 +644,7 @@ export default function Navbar() {
               >
                 → تسجيل الخروج
               </button>
+              </>
             ) : (
               <Link to="/login" className="nav-login-btn" onClick={() => setMobileOpen(false)}>
                 ✦ تسجيل الدخول
