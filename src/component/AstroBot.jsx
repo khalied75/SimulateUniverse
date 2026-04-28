@@ -651,6 +651,7 @@ export default function AstroBot() {
               ✦
             </button>
             <div className="astrobot-toggle-label">اسأل Astro AI</div>
+            
           </>
         )}
       </div>
