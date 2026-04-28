@@ -1,6 +1,6 @@
 {
   "projects": {
-    "default": "SimulateUniverse",
+    "default": "simulateuniverse",
     "new": "simulateuniverse",
     "prod": "simulateuniverse"
   },
